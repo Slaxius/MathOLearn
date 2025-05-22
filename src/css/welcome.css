@@ -1,0 +1,32 @@
+.left-side {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  background-color: var(--darkslategray);
+  background-image: url("../assets/img/math-background.png");
+  background-size: contain;
+  background-position: center;
+  height: 100vh;
+  width: 100%;
+  padding: 2rem;
+  color: var(--linen);
+  border-radius: 0 12.5rem 12.5rem 0;
+  box-shadow: 10px 10px 15px 0px rgba(0, 0, 0, 0.25);
+
+  .welcome-text {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+  }
+
+  .line {
+    display: block;
+    width: 15rem;
+    height: 3px;
+    background-color: var(--linen);
+    margin: 5rem 0;
+  }
+}
