@@ -47,31 +47,30 @@
       }
     }
 
-    .forgot-password{
+    .forgot-password {
       display: flex;
       width: 100%;
       justify-content: flex-end;
-      
-      a{
+
+      a {
         color: var(--linen);
       }
 
-      a:hover{
+      a:hover {
         text-decoration: underline;
       }
     }
   }
 
-  .register-now{
+  .register-now {
     color: var(--darkslategray);
 
-    a{
+    a {
       color: var(--linen);
     }
 
-    a:hover{
+    a:hover {
       text-decoration: underline;
     }
   }
-
 }

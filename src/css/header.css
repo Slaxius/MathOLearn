@@ -1,0 +1,13 @@
+.header{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 2rem;
+  width: 100%;
+  height: auto;
+  gap: 1rem;
+  background-color: var(--olivedrab);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  position: fixed;
+  z-index: -1;
+}
