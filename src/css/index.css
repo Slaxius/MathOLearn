@@ -44,92 +44,92 @@
   background-color: var(--darkseagreen);
 }
 
-#header1 {
+.header1 {
   font-size: var(--size-70);
   font-weight: var(--semibold);
 }
 
-#header2 {
+.header2 {
   font-size: var(--size-50);
   font-weight: var(--semibold);
 }
 
-#header3 {
+.header3 {
   font-size: var(--size-35);
   font-weight: var(--bold);
 }
 
-#header4 {
+.header4 {
   font-size: var(--size-30);
   font-weight: var(--bold);
 }
 
-#mediumHeader4 {
+.mediumHeader4 {
   font-size: var(--size-30);
   font-weight: var(--medium);
 }
 
-#header5 {
+.header5 {
   font-size: var(--size-25);
   font-weight: var(--bold);
 }
 
-#mediumHeader5 {
+.mediumHeader5 {
   font-size: var(--size-25);
   font-weight: var(--medium);
 }
 
-#subHeader {
+.subHeader {
   font-size: var(--size-20);
   font-weight: var(--bold);
 }
 
-#navbarTitle {
+.navbarTitle {
   font-size: var(--size-30);
   font-weight: var(--semibold);
 }
 
-#navbarText {
+.navbarText {
   font-size: var(--size-15);
   font-weight: var(--semibold);
 }
 
-#boldBody1 {
+.boldBody1 {
   font-size: var(--size-20);
   font-weight: var(--bold);
 }
 
-#body1 {
+.body1 {
   font-size: var(--size-20);
   font-weight: var(--medium);
 }
 
-#boldBody2 {
+.boldBody2 {
   font-size: var(--size-15);
   font-weight: var(--semibold);
 }
 
-#body2 {
+.body2 {
   font-size: var(--size-15);
   font-weight: var(--regular);
 }
 
-#body3 {
+.body3 {
   font-size: var(--size-12);
   font-weight: var(--regular);
 }
 
-#boldBody4 {
+.boldBody4 {
   font-size: var(--size-10);
   font-weight: var(--bold);
 }
 
-#body4 {
+.body4 {
   font-size: var(--size-10);
   font-weight: var(--medium);
 }
 
-#body5 {
+.body5 {
   font-size: var(--size-5);
   font-weight: var(--regular);
 }

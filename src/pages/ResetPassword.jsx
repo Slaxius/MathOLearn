@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import WelcomeSection from "../components/welcome.jsx";
 import Button from "../components/button.jsx";
@@ -6,12 +6,12 @@ import UsernameIcon from "../assets/icon/username_icon.svg";
 import PasswordIcon from "../assets/icon/password_icon.svg";
 import "../css/SignNReset.css";
 
-function App() {
+function ResetPassword() {
   return (
     <div className="signin">
       <WelcomeSection />
       <div className="right-side">
-        <h1 className="header2">Sign In</h1>
+        <h1 className="header2">Reset Password</h1>
         <div className="form-section">
           <div className="user-input">
             <img src={UsernameIcon} alt="Username-icon" />
@@ -19,24 +19,17 @@ function App() {
           </div>
           <div className="user-input">
             <img src={PasswordIcon} alt="Password-icon" />
-            <input type="password" placeholder="Password" className="body1" />
+            <input
+              type="password"
+              placeholder="Reset Password"
+              className="body1"
+            />
           </div>
-          <div className="forgot-password">
-            <Link to="/resetpassword" className="body2">
-              Forgot Password?
-            </Link>
-          </div>
-          <Button link="" text="Sign In" />
+          <Button link="/signin" text="Reset" />
         </div>
-        <p className="register-now body2">
-          Don't have an account? Click here to{" "}
-          <Link to="/signup" className="body2">
-            Sign Up
-          </Link>
-        </p>
       </div>
     </div>
   );
 }
 
-export default App;
+export default ResetPassword;

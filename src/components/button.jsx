@@ -1,8 +1,13 @@
 import React from "react";
-import "../css/button.css"
+import "../css/button.css";
+import { Link } from "react-router-dom";
 
-function button({link, text}) {
-  return <a href={link} id="body1" className="button">{text}</a>;
+function button({ link, text }) {
+  return (
+    <Link to={link} className="button body1">
+      {text}
+    </Link>
+  );
 }
 
 export default button;
