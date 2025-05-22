@@ -7,6 +7,8 @@ import PasswordIcon from "../assets/icon/password_icon.svg";
 import "../css/SignNReset.css";
 
 function SignUp() {
+  const handleSignUp = () => {};
+
   return (
     <div className="signin">
       <WelcomeSection />
@@ -29,7 +31,7 @@ function SignUp() {
               className="body1"
             />
           </div>
-          <Button link="/signin" text="Sign Up" />
+          <Button link="/signin" text="Sign Up" onClick={handleSignUp} />
         </div>
         <p className="register-now body2">
           Already have account? Click here to{" "}

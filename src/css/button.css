@@ -4,6 +4,7 @@
   border-radius: 10px;
   padding: 0.75rem 2.5rem;
   color: var(--linen);
+  justify-content: center;
 }
 
 .button:hover {
