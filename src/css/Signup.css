@@ -1,0 +1,210 @@
+:root {
+  --dark-green: #2c3e2e;
+  --light-beige: #d8d5c6;
+  --text-light: #f0f0e0;
+  --text-dark: #333333;
+  --accent-green: #3e5641;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-container {
+  display: flex;
+  width: 100%;
+  max-width: 1000px;
+  height: 600px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+/* Left Panel - Math Background */
+.left-panel {
+  flex: 1;
+  background-color: var(--dark-green);
+  color: var(--text-light);
+  padding: 40px;
+  position: relative;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500" opacity="0.1"><text x="20" y="30" font-family="serif" font-size="20" fill="white">2x² -3x⁴-y</text><text x="50" y="60" font-family="serif" font-size="20" fill="white">f(x)=(x-a)(x-b)</text><text x="10" y="90" font-family="serif" font-size="20" fill="white">(x→y)²=∑</text><text x="150" y="120" font-family="serif" font-size="20" fill="white">log₁₀</text><text x="200" y="150" font-family="serif" font-size="20" fill="white">(∂/∂x)</text><text x="100" y="180" font-family="serif" font-size="20" fill="white">∫sin(x)dx</text><text x="30" y="210" font-family="serif" font-size="20" fill="white">y=sin(x)+cos(x)</text><text x="150" y="240" font-family="serif" font-size="20" fill="white">∛x</text><text x="200" y="270" font-family="serif" font-size="20" fill="white">(a/b)</text><circle cx="70" cy="320" r="30" stroke="white" fill="none" stroke-width="1" /><line x1="70" y1="290" x2="70" y2="350" stroke="white" stroke-width="1" /><line x1="40" y1="320" x2="100" y2="320" stroke="white" stroke-width="1" /></svg>');
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.logo-container {
+  margin-bottom: 40px;
+}
+
+.math-logo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.math-logo img {
+  width: 80px;
+  height: auto;
+}
+
+.welcome-content {
+  margin-top: auto;
+}
+
+.welcome-content h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.divider {
+  width: 60px;
+  height: 4px;
+  background-color: var(--text-light);
+  margin-bottom: 20px;
+}
+
+.welcome-content p {
+  font-size: 1rem;
+  line-height: 1.6;
+  opacity: 0.9;
+  max-width: 300px;
+}
+
+/* Right Panel - Login Form */
+.right-panel {
+  flex: 1;
+  background-color: var(--light-beige);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.login-container {
+  width: 100%;
+  max-width: 320px;
+}
+
+.login-container h2 {
+  font-size: 2rem;
+  color: var(--text-dark);
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.input-with-icon {
+  position: relative;
+}
+
+.input-icon {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #666;
+}
+
+input {
+  width: 100%;
+  padding: 15px 15px 15px 45px;
+  border: none;
+  border-radius: 8px;
+  background-color: white;
+  font-size: 1rem;
+  color: var(--text-dark);
+}
+
+input:focus {
+  outline: 2px solid var(--accent-green);
+}
+
+.forgot-password {
+  text-align: right;
+  margin-bottom: 20px;
+}
+
+.forgot-password a {
+  color: var(--text-dark);
+  text-decoration: none;
+  font-size: 0.85rem;
+}
+
+.sign-in-btn {
+  width: 100%;
+  padding: 15px;
+  background-color: var(--accent-green);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.sign-in-btn:hover {
+  background-color: #4a6a4e;
+}
+
+.register-prompt {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-dark);
+}
+
+.register-prompt a {
+  color: var(--accent-green);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .app-container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .left-panel {
+    padding: 30px;
+    min-height: 250px;
+  }
+
+  .welcome-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .right-panel {
+    padding: 30px 20px;
+  }
+}
