@@ -1,0 +1,77 @@
+.signin {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
+
+.right-side {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  gap: 2rem;
+
+  h1 {
+    color: var(--darkslategray);
+  }
+
+  .form-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    gap: 1rem;
+
+    .user-input {
+      padding: 1rem;
+      background-color: var(--lightgray);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      width: 25rem;
+
+      img {
+        width: var(--size-30);
+        height: var(--size-30);
+      }
+
+      input {
+        border: none;
+        background-color: transparent;
+        color: var(--darkslategray);
+        width: 100%;
+      }
+    }
+
+    .forgot-password{
+      display: flex;
+      width: 100%;
+      justify-content: flex-end;
+      
+      a{
+        color: var(--linen);
+      }
+
+      a:hover{
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .register-now{
+    color: var(--darkslategray);
+
+    a{
+      color: var(--linen);
+    }
+
+    a:hover{
+      text-decoration: underline;
+    }
+  }
+
+}

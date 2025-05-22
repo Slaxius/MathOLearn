@@ -1,0 +1,11 @@
+.button {
+  display: flex;
+  background-color: var(--olive);
+  border-radius: 10px;
+  padding: 0.75rem 2.5rem;
+  color: var(--linen);
+}
+
+.button:hover {
+  background-color: var(--olivegreen);
+}

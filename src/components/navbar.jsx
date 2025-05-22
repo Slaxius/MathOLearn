@@ -1,10 +1,10 @@
-import MOLogo from "../assets/linen_logo.svg";
-import forumIcon from "../assets/forum_icon.svg"
-import leaderboardIcon from "../assets/leaderboard_icon.svg"
-import learnIcon from "../assets/learn_icon.svg"
-import notifIcon from "../assets/notification_icon.svg"
-import profileIcon from "../assets/profile_icon.svg"
-import settingIcon from "../assets/setting_icon.svg"
+import MOLogo from "../assets/icon/linen_logo.svg";
+import forumIcon from "../assets/icon/forum_icon.svg"
+import leaderboardIcon from "../assets/icon/leaderboard_icon.svg"
+import learnIcon from "../assets/icon/learn_icon.svg"
+import notifIcon from "../assets/icon/notification_icon.svg"
+import profileIcon from "../assets/icon/profile_icon.svg"
+import settingIcon from "../assets/icon/setting_icon.svg"
 import "../css/navbar.css";
 
 function navbar() {
