@@ -8,9 +8,11 @@ function backButton() {
   };
 
   return (
-    <button onClick={handleBack} className="backButton">
-      <img src={backButtonImg} alt="back_button" />
-    </button>
+    <div className="backButton-container">
+      <button onClick={handleBack} className="backButton">
+        <img src={backButtonImg} alt="back_button" />
+      </button>
+    </div>
   );
 }
 

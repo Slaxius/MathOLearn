@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "../../components/navbar.jsx";
 import Header from "../../components/header.jsx";
+import BackButton from "../../components/backButton.jsx";
 
 function Help() {
   return (
@@ -8,7 +9,7 @@ function Help() {
       <Navbar />
       <Header />
       <div className="main-section">
-        <p>test</p>
+        <BackButton />
       </div>
     </div>
   );

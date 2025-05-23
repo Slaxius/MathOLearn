@@ -1,13 +1,19 @@
-.backButton {
-  width: var(--size-35);
-  height: var(--size-35);
+.backButton-container {
+  width: 100%;
+  align-items: center;
+  justify-content: flex-start;
 
-  img {
-    width: 100%;
-    height: 100%;
+  .backButton {
+    width: var(--size-50);
+    height: var(--size-50);
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
   }
-}
 
-.backButton:hover {
-  cursor: pointer;
+  .backButton:hover {
+    cursor: pointer;
+  }
 }
