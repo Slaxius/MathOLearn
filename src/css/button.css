@@ -10,3 +10,7 @@
 .button:hover {
   background-color: var(--olivegreen);
 }
+
+.button:active{
+  border: 2px solid var(--linen);
+}

@@ -1,4 +1,6 @@
 import React from "react";
+import Navbar from "../../components/navbar.jsx";
+import Header from "../../components/header.jsx";
 
 function Privacy() {
   return (

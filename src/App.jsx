@@ -9,7 +9,7 @@ import Learn from "./pages/Learn.jsx";
 // import Profile from "./pages/Profile.jsx";
 import Settings from "./pages/Settings.jsx";
 import Preferences from "./pages/settings_account/Preferences.jsx";
-import Privacy from "./pages/settings_account/Privacy.jsx"
+import Privacy from "./pages/settings_account/Privacy.jsx";
 import Help from "./pages/settings_support/Help.jsx";
 import Feedback from "./pages/settings_support/Feedback.jsx";
 
