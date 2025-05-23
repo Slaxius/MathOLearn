@@ -1,6 +1,6 @@
 import React from "react";
 import MOLogo from "../assets/icon/linen_logo.svg";
-import "../css/welcome.css";
+import "../css/comp/welcome.css";
 
 function welcome() {
   return (

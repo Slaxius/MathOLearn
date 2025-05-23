@@ -1,4 +1,4 @@
-import "../css/button.css";
+import "../css/comp/button.css";
 import { Link } from "react-router-dom";
 
 function button({ link, text, onClick }) {

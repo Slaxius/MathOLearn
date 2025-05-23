@@ -2,7 +2,7 @@ import Navbar from "../components/navbar.jsx";
 import Header from "../components/header.jsx";
 import { Link } from "react-router-dom";
 import Button from "../components/button.jsx";
-import "../css/settings.css";
+import "../css/Settings.css";
 
 function Settings() {
   const handleSignOut = () => {

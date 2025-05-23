@@ -5,7 +5,7 @@ import learnIcon from "../assets/icon/learn_icon.svg";
 import notifIcon from "../assets/icon/notification_icon.svg";
 import profileIcon from "../assets/icon/profile_icon.svg";
 import settingIcon from "../assets/icon/setting_icon.svg";
-import "../css/navbar.css";
+import "../css/comp/navbar.css";
 import { Link, useLocation } from "react-router-dom";
 
 function navbar() {

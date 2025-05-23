@@ -1,4 +1,4 @@
-import "../css/header.css";
+import "../css/comp/header.css";
 import Alive from "../assets/icon/red_heart.svg";
 import Dead from "../assets/icon/gray_heart.svg";
 import { useState } from "react";

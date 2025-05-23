@@ -1,6 +1,6 @@
 import Navbar from "../components/navbar.jsx";
 import Header from "../components/header.jsx";
-import "../css/learn.css";
+import "../css/Learn.css";
 
 function Learn() {
   return (
