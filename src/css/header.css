@@ -1,13 +1,50 @@
-.header{
+.header {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   padding: 2rem;
-  width: 100%;
+  width: calc(100% - 21.9rem);
   height: auto;
   gap: 1rem;
   background-color: var(--olivedrab);
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   position: fixed;
-  z-index: -1;
+  margin-left: 21.9rem;
+
+  .greet {
+    color: var(--darkslategray);
+  }
+
+  .life {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+
+    .heart-status {
+      position: relative;
+
+      .heart-icon {
+        height: var(--size-30);
+        width: var(--size-30);
+      }
+    }
+  }
+
+  .life-text {
+    display: none;
+    font-size: 0.75rem;
+    margin: 7rem 1rem 0 1rem;
+    text-align: center;
+    position: absolute;
+    padding: 0.5rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: var(--linen);
+    border-radius: 5px;
+    max-width: 100%;
+  }
+
+  .life:hover .life-text {
+    display: block;
+  }
 }

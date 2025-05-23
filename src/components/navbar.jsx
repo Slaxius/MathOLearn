@@ -6,15 +6,16 @@ import notifIcon from "../assets/icon/notification_icon.svg";
 import profileIcon from "../assets/icon/profile_icon.svg";
 import settingIcon from "../assets/icon/setting_icon.svg";
 import "../css/navbar.css";
+import { Link } from "react-router-dom";
 
 function navbar() {
   const nav_item = [
-    { id: 1, icon: learnIcon, name: "Learn" },
-    { id: 2, icon: leaderboardIcon, name: "Leaderboard" },
-    { id: 3, icon: forumIcon, name: "Forum" },
-    { id: 4, icon: notifIcon, name: "Notification" },
-    { id: 5, icon: profileIcon, name: "Profile" },
-    { id: 6, icon: settingIcon, name: "Setting" },
+    { id: 1, icon: learnIcon, name: "Learn", link: "/learn" },
+    { id: 2, icon: leaderboardIcon, name: "Leaderboard", link: "/leaderboard" },
+    { id: 3, icon: forumIcon, name: "Forum", link: "/forum" },
+    { id: 4, icon: notifIcon, name: "Notification", link: "/notification" },
+    { id: 5, icon: profileIcon, name: "Profile", link: "/profile" },
+    { id: 6, icon: settingIcon, name: "Setting", link: "/settings" },
   ];
 
   return (
@@ -26,19 +27,19 @@ function navbar() {
         </div>
         <div className="nav-list">
           {nav_item.slice(0, 3).map((item) => (
-            <div key={item.id} className="nav-item">
+            <Link to={item.link} key={item.id} className="nav-item">
               <img src={item.icon} alt={item.name} className="nav-icon" />
-              <span className="nav-namenavbarText">{item.name}</span>
-            </div>
+              <span className="nav-name navbarText">{item.name}</span>
+            </Link>
           ))}
         </div>
       </div>
       <div className="nav-list">
         {nav_item.slice(3, 6).map((item) => (
-          <div key={item.id} className="nav-item">
+          <Link to={item.link} key={item.id} className="nav-item">
             <img src={item.icon} alt={item.name} className="nav-icon" />
             <span className="nav-name navbarText">{item.name}</span>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
