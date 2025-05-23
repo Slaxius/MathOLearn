@@ -3,6 +3,8 @@ import Navbar from "../../components/navbar.jsx";
 import Header from "../../components/header.jsx";
 import { useState } from "react";
 import BackButton from "../../components/backButton.jsx";
+import Toggle from "../../components/toggle.jsx";
+import "../../css/Privacy.css"
 
 function Privacy() {
   const privacySettings = [
@@ -33,18 +35,19 @@ function Privacy() {
       <Header />
       <div className="main-section">
         <BackButton />
-        {privacySettings.map((option) => (
-          <div className="privacy-option" key={option.key}>
-            <label>
-              <span>{option.name}</span>
-              <input
-                type="checkbox"
-                checked={settings[option.key]}
-                onChange={() => handleToggle(option.key)}
+        <div className="privacy-settings">
+          <h2 className="settings-title header3">Privacy Settings</h2>
+          <div className="settings-list">
+            {privacySettings.map((setting) => (
+              <Toggle
+                key={setting.key}
+                label={setting.name}
+                isOn={settings[setting.key]}
+                onToggle={() => handleToggle(setting.key)}
               />
-            </label>
+            ))}
           </div>
-        ))}
+        </div>
       </div>
     </div>
   );

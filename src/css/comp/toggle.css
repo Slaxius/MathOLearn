@@ -1,0 +1,46 @@
+.toggle-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1rem 0;
+}
+
+.toggle-label {
+  color: var(--linen);
+}
+
+.toggle-switch {
+  position: relative;
+  width: 6rem;
+  height: 3rem;
+  background-color: var(--olive);
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.toggle-circle {
+  position: absolute;
+  top: 0.25rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.toggle-switch.off .toggle-circle {
+  left: 0.5rem;
+  background-color: var(--darkseagreen);
+}
+
+.toggle-switch.on .toggle-circle {
+  left: 3rem;
+  background-color: var(--linen);
+}
+
+.toggle-switch:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
