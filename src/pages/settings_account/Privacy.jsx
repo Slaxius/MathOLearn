@@ -4,7 +4,7 @@ import Header from "../../components/header.jsx";
 import { useState } from "react";
 import BackButton from "../../components/backButton.jsx";
 import Toggle from "../../components/toggle.jsx";
-import "../../css/Privacy.css"
+import "../../css/SettingsAccount.css";
 
 function Privacy() {
   const privacySettings = [
@@ -35,7 +35,7 @@ function Privacy() {
       <Header />
       <div className="main-section">
         <BackButton />
-        <div className="privacy-settings">
+        <div className="account-settings">
           <h2 className="settings-title header3">Privacy Settings</h2>
           <div className="settings-list">
             {privacySettings.map((setting) => (
