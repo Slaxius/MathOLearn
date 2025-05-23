@@ -33,7 +33,7 @@ function navbar() {
               to={item.link}
               key={item.id}
               className={`nav-item ${
-                location.pathname === item.link ? "active" : ""
+                location.pathname.startsWith(item.link) ? "active" : ""
               }`}
             >
               <img src={item.icon} alt={item.name} className="nav-icon" />
@@ -48,7 +48,7 @@ function navbar() {
             to={item.link}
             key={item.id}
             className={`nav-item ${
-              location.pathname === item.link ? "active" : ""
+              location.pathname.startsWith(item.link) ? "active" : ""
             }`}
           >
             <img src={item.icon} alt={item.name} className="nav-icon" />

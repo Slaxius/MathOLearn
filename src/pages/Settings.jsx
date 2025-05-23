@@ -14,15 +14,15 @@ function Settings() {
     {
       title: "Account",
       options: [
-        { name: "Preferences", link: "/preferences" },
-        { name: "Privacy Setting", link: "/privacy" },
+        { name: "Preferences", link: "/settings/preferences" },
+        { name: "Privacy Setting", link: "/settings/privacy" },
       ],
     },
     {
       title: "Support",
       options: [
-        { name: "Help Center", link: "/help" },
-        { name: "Feedback", link: "/feedback" },
+        { name: "Help Center", link: "/settings/help" },
+        { name: "Feedback", link: "/settings/feedback" },
       ],
     },
   ];
@@ -38,7 +38,11 @@ function Settings() {
               <div className="options">
                 <h1 className="header5">{section.title}</h1>
                 {section.options.map((option, idx) => (
-                  <Link to={option.link} key={idx} className="options-button body1">
+                  <Link
+                    to={option.link}
+                    key={idx}
+                    className="options-button body1"
+                  >
                     {option.name}
                   </Link>
                 ))}

@@ -27,10 +27,10 @@ function App() {
         {/* <Route path="/notification" element={<Notification />} /> */}
         {/* <Route path="/profile" element={<Profile />} /> */}
         <Route path="/settings" element={<Settings />} />
-        <Route path="/preferences" element={<Preferences />} />
-        <Route path="/privacy" element={<Privacy />} />
-        <Route path="/help" element={<Help />} />
-        <Route path="/feedback" element={<Feedback />} />
+        <Route path="/settings/preferences" element={<Preferences />} />
+        <Route path="/settings/privacy" element={<Privacy />} />
+        <Route path="/settings/help" element={<Help />} />
+        <Route path="/settings/feedback" element={<Feedback />} />
       </Routes>
     </Router>
   );
