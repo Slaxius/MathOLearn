@@ -8,6 +8,10 @@ import Learn from "./pages/Learn.jsx";
 // import Notification from "./pages/Notification.jsx";
 // import Profile from "./pages/Profile.jsx";
 import Settings from "./pages/Settings.jsx";
+import Preferences from "./pages/settings_account/Preferences.jsx";
+import Privacy from "./pages/settings_account/Privacy.jsx"
+import Help from "./pages/settings_support/Help.jsx";
+import Feedback from "./pages/settings_support/Feedback.jsx";
 
 function App() {
   return (
@@ -23,10 +27,10 @@ function App() {
         {/* <Route path="/notification" element={<Notification />} /> */}
         {/* <Route path="/profile" element={<Profile />} /> */}
         <Route path="/settings" element={<Settings />} />
-        {/* <Route path="/preferences" element={<Preferences />} />
+        <Route path="/preferences" element={<Preferences />} />
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/help" element={<Help />} />
-        <Route path="/feedback" element={<Feedback />} /> */}
+        <Route path="/feedback" element={<Feedback />} />
       </Routes>
     </Router>
   );
