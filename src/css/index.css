@@ -12,11 +12,10 @@
   outline: none;
   transition: all 0.2s ease;
   scrollbar-width: none;
+  font-family: "Poppins", sans-serif;
 }
 
 :root {
-  font-family: "Poppins", sans-serif;
-
   --darkslategray: #232c15;
   --olive: #333f1f;
   --olivegreen: #46513d;
