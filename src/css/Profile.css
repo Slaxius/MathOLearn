@@ -1,0 +1,72 @@
+.main-section {
+  gap: 3rem;
+}
+
+.user-information {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 1rem;
+
+  .user-profile-picture {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 12rem;
+    height: 12rem;
+    background-color: rgba(0, 0, 0, 0.25);
+    border-radius: 50%;
+    border: 1px solid var(--darkslategray);
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .user-name,
+  .user-bio {
+    color: var(--darkslategray);
+  }
+}
+
+.user-certification-container {
+  --card-width: 25rem;
+  --card-height: 15rem;
+  --card-gap: 2rem;
+  --container-padding: 1.5rem;
+  --cards-per-row: 3;
+
+  width: fit-content;
+  max-width: calc(
+    (var(--cards-per-row) * var(--card-width)) +
+      ((var(--cards-per-row) - 1) * var(--card-gap)) +
+      (var(--container-padding) * 2)
+  );
+  background-color: var(--olivegreen);
+  display: flex;
+  padding: var(--container-padding);
+  border-radius: 1rem;
+  gap: var(--card-gap);
+  flex-wrap: wrap;
+
+  .user-certification {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--card-width);
+    height: var(--card-height);
+    border-radius: 1rem;
+    object-fit: cover;
+    background-color: var(--lightgray);
+    color: var(--darkslategray);
+    filter: brightness(75%);
+  }
+
+  .user-certification:hover {
+    scale: 1.02;
+  }
+}
