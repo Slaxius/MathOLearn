@@ -4,7 +4,7 @@ import WelcomeSection from "../../components/welcome.jsx";
 import Button from "../../components/button.jsx";
 import UsernameIcon from "../../assets/icon/username_icon.svg";
 import PasswordIcon from "../../assets/icon/password_icon.svg";
-import "../../css/SignNReset.css";
+import "../../css/auth/Authentication.css";
 
 function App() {
   const [username, setUsername] = useState("");

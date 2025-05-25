@@ -1,9 +1,8 @@
-import React from "react";
 import Navbar from "../../components/navbar.jsx";
 import Header from "../../components/header.jsx";
 import BackButton from "../../components/backButton.jsx";
 import { useState } from "react";
-import "../../css/Feedback.css";
+import "../../css/settingsSubpage/Feedback.css";
 
 function Feedback() {
   const [formData, setFormData] = useState({

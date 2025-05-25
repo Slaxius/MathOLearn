@@ -1,8 +1,7 @@
-import React from "react";
 import Navbar from "../../components/navbar.jsx";
 import Header from "../../components/header.jsx";
 import BackButton from "../../components/backButton.jsx";
-import "../../css/Help.css";
+import "../../css/settingsSubpage/Help.css";
 import { useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { LoremIpsum } from "lorem-ipsum";

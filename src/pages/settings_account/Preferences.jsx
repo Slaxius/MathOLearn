@@ -1,10 +1,9 @@
-import React from "react";
 import Navbar from "../../components/navbar.jsx";
 import Header from "../../components/header.jsx";
 import { useState } from "react";
 import BackButton from "../../components/backButton.jsx";
 import Toggle from "../../components/toggle.jsx";
-import "../../css/SettingsAccount.css";
+import "../../css/settingsSubpage/SettingsAccount.css";
 
 function Preferences() {
   const preferencesSettings = [
