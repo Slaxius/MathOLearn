@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import SignUp from "./pages/SignUp.jsx";
-import SignIn from "./pages/SignIn.jsx";
-import ResetPw from "./pages/ResetPassword.jsx";
+import SignUp from "./pages/authentication/SignUp.jsx";
+import SignIn from "./pages/authentication/SignIn.jsx";
+import ResetPw from "./pages/authentication/ResetPassword.jsx";
 import Learn from "./pages/Learn.jsx";
 import Leaderboard from "./pages/Leaderboard.jsx";
 import Forum from "./pages/Forum.jsx";
@@ -31,6 +31,7 @@ function App() {
         <Route path="/settings/privacy" element={<Privacy />} />
         <Route path="/settings/help" element={<Help />} />
         <Route path="/settings/feedback" element={<Feedback />} />
+        <Route path="*" element={<div>Page Not Found</div>} />
       </Routes>
     </Router>
   );

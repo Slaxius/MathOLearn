@@ -1,10 +1,9 @@
-import React from "react";
 import { Link } from "react-router-dom";
-import WelcomeSection from "../components/welcome.jsx";
-import Button from "../components/button.jsx";
-import UsernameIcon from "../assets/icon/username_icon.svg";
-import PasswordIcon from "../assets/icon/password_icon.svg";
-import "../css/SignNReset.css";
+import WelcomeSection from "../../components/welcome.jsx";
+import Button from "../../components/button.jsx";
+import UsernameIcon from "../../assets/icon/username_icon.svg";
+import PasswordIcon from "../../assets/icon/password_icon.svg";
+import "../../css/SignNReset.css";
 
 function SignUp() {
   const handleSignUp = () => {};
