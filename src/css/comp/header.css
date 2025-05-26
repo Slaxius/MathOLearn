@@ -10,6 +10,7 @@
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   position: fixed;
   margin-left: 21.9rem;
+  z-index: 100000;
 
   .greet {
     color: var(--darkslategray);
