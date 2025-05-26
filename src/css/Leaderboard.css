@@ -82,6 +82,7 @@
   background-color: var(--olivegreen);
   border-radius: 2rem 2rem 0 0;
   width: 75%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
 
   .ranking-item {
     display: flex;
