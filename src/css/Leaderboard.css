@@ -1,0 +1,136 @@
+.podium-container {
+  display: flex;
+  width: 100%;
+  height: fit-content;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 0.5rem;
+  position: relative;
+
+  .podium-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    .user-profile-picture {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid var(--linen);
+      height: 9rem;
+      width: 9rem;
+      border-radius: 50%;
+      position: relative;
+    }
+
+    .user-medal {
+      position: absolute;
+    }
+
+    .user-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-direction: column;
+      padding: 1.5rem;
+      color: var(--linen);
+      border-radius: 1rem 1rem 0 0;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  .second-place {
+    .user-medal {
+      top: 10.8rem;
+    }
+
+    .user-card {
+      height: 13rem;
+      background-color: var(--olive);
+    }
+  }
+  .first-place {
+    .user-medal {
+      top: 7.8rem;
+    }
+
+    .user-card {
+      height: 16rem;
+      background-color: var(--darkslategray);
+    }
+  }
+  .third-place {
+    .user-medal {
+      top: 13.8rem;
+    }
+
+    .user-card {
+      height: 10rem;
+      background-color: var(--olivegreen);
+    }
+  }
+}
+
+.ranking-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem 1.5rem;
+  background-color: var(--olivegreen);
+  border-radius: 2rem 2rem 0 0;
+  width: 75%;
+
+  .ranking-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    color: var(--lightgray);
+    gap: 2rem;
+    padding: 1rem;
+    border-radius: 1.5rem;
+
+    .rank-number {
+      background-color: var(--lightgray);
+      color: var(--darkslategray);
+      border-radius: 50%;
+      height: 3rem;
+      width: 3.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .user-picture {
+      border: 1px solid var(--lightgray);
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+      background-color: rgba(0, 0, 0, 0.25);
+    }
+
+    .user-name {
+      width: 100%;
+    }
+  }
+
+  .ranking-item:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    scale: 1.01;
+  }
+
+  .current-user {
+    color: var(--linen);
+    background-color: var(--darkseagreen);
+
+    .user-info .user-picture {
+      border: 1px solid var(--linen);
+    }
+  }
+  .current-user:hover {
+    background-color: var(--darkseagreen);
+  }
+}
