@@ -6,23 +6,12 @@ import "../css/Profile.css";
 import Button from "../components/button.jsx";
 import DefaultProfile from "../assets/icon/username_icon.svg";
 import CertificationDetail from "../components/certifDetail.jsx";
+import userDetail from "../json/user_detail.json";
+import certifications from "../json/certification.json";
 
 function Profile() {
   const [currentUserData, setCurrentUserData] = useState(null);
   const navigate = useNavigate();
-
-  const user_detail = [
-    {
-      profile_picture: "",
-      name: "Anto",
-      bio: "Student at MathOLearn",
-    },
-    {
-      profile_picture: "",
-      name: "Silverius",
-      bio: "Lorem ipsum dolor gacor banget",
-    },
-  ];
 
   useEffect(() => {
     const loggedInUsername = localStorage.getItem("username");
@@ -32,32 +21,9 @@ function Profile() {
       return;
     }
 
-    const userData = user_detail.find((user) => user.name === loggedInUsername);
+    const userData = userDetail.find((user) => user.name === loggedInUsername);
     setCurrentUserData(userData);
   }, [navigate]);
-
-  const certifications = [
-    {
-      title: "Certification of Completion",
-      subject: "Basic Statistic",
-      date: "December 2024",
-    },
-    {
-      title: "Certification of Completion",
-      subject: "Statistic 2",
-      date: "November 2024",
-    },
-    {
-      title: "Statistics and Probability",
-      subject: "Calculus",
-      date: "October 2024",
-    },
-    {
-      title: "Calculus Mastery",
-      subject: "Advanced Calculus 1",
-      date: "September 2024",
-    },
-  ];
 
   const [selectedCertification, setSelectedCertification] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);

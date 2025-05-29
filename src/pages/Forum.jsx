@@ -2,7 +2,6 @@ import Navbar from "../components/navbar.jsx";
 import Header from "../components/header.jsx";
 import "../css/Forum.css";
 import postIcon from "../assets/icon/post_icon.svg";
-import Button from "../components/button.jsx"
 
 function Forum() {
   return (
