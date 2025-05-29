@@ -2,7 +2,8 @@ import Navbar from "../components/navbar.jsx";
 import Header from "../components/header.jsx";
 import "../css/Forum.css";
 import postIcon from "../assets/icon/post_icon.svg";
-import forumFilterOption from "../json/forum_filter_option.json"
+import forumFilterOption from "../json/forum_filter_option.json";
+import forumDetail from "../json/forum.json";
 
 function Forum() {
   return (
@@ -46,7 +47,44 @@ function Forum() {
             </div>
           </div>
         </div>
-        
+        <div className="forum-posted">
+          {forumDetail.map((post, index) => (
+            <div key={index} className="forum-card">
+              <div className="post-header">
+                <h5 className="header5">
+                  {post.subject} - {post.type}
+                </h5>
+              </div>
+              <div className="user-detail">
+                <div className="user-profile-picture">
+                  <img
+                    className="body4"
+                    src={post.profile_picture}
+                    alt={`${post.username}'s profile picture`}
+                  />
+                </div>
+                <div className="user-name-date">
+                  <div className="user-name">
+                    <p className="body2">{post.username}</p>
+                  </div>
+                  <div className="post-date body4">
+                    {post.post_date}, {post.post_hours}
+                  </div>
+                </div>
+              </div>
+              <div className="forum-caption body2">{post.caption}</div>
+
+              <div className="forum-card-button">
+                <button className="forum-button comments boldBody2">
+                  {post.comment_num} Comment(s)
+                </button>
+                <button className="forum-button likes boldBody2">
+                  {post.like_num} Like(s)
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
