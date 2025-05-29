@@ -3,29 +3,13 @@ import Header from "../components/header.jsx";
 import { Link } from "react-router-dom";
 import Button from "../components/button.jsx";
 import "../css/Settings.css";
+import settingsData from "../json/settings.json"
 
 function Settings() {
   const handleSignOut = () => {
     sessionStorage.clear();
     window.location.href = "/signin";
   };
-
-  const settingsData = [
-    {
-      title: "Account",
-      options: [
-        { name: "Preferences", link: "/settings/preferences" },
-        { name: "Privacy Setting", link: "/settings/privacy" },
-      ],
-    },
-    {
-      title: "Support",
-      options: [
-        { name: "Help Center", link: "/settings/help" },
-        { name: "Feedback", link: "/settings/feedback" },
-      ],
-    },
-  ];
 
   return (
     <div className="page">

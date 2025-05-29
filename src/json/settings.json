@@ -1,0 +1,16 @@
+[
+  {
+    "title": "Account",
+    "options": [
+      { "name": "Preferences", "link": "/settings/preferences" },
+      { "name": "Privacy Setting", "link": "/settings/privacy" }
+    ]
+  },
+  {
+    "title": "Support",
+    "options": [
+      { "name": "Help Center", "link": "/settings/help" },
+      { "name": "Feedback", "link": "/settings/feedback" }
+    ]
+  }
+]

@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Background Music",
+    "key": "backgroundMusic",
+    "defaultValue": true,
+    "description": "Play background music while using the application"
+  },
+  {
+    "name": "Sound Effects",
+    "key": "soundEffects",
+    "defaultValue": true,
+    "description": "Enable sound effects for interactions"
+  },
+  {
+    "name": "Dark Mode",
+    "key": "darkMode",
+    "defaultValue": false,
+    "description": "Use dark theme for better viewing in low light"
+  }
+]

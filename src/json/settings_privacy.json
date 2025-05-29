@@ -1,0 +1,7 @@
+[
+  {
+    "name": "Make my profile public",
+    "key": "isProfilePublic",
+    "defaultValue": true
+  }
+]

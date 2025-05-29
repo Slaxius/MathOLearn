@@ -4,40 +4,10 @@ import BackButton from "../../components/backButton.jsx";
 import "../../css/settingsSubpage/Help.css";
 import { useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
-import { LoremIpsum } from "lorem-ipsum";
+import faqItems from "../../json/faq.json"
 
 function Help() {
   const [openIndex, setOpenIndex] = useState();
-
-  const lorem = new LoremIpsum();
-
-  const faqItems = [
-    {
-      title: "How do I reset my password?",
-      description: lorem.generateParagraphs(20),
-    },
-    {
-      title: "I can't log in. What should I do?",
-      description: lorem.generateParagraphs(5),
-    },
-    {
-      title: "How can I interact with other users?",
-      description: lorem.generateParagraphs(5),
-    },
-    {
-      title:
-        "I'm not receiving notifications or updates. How can I enable them?",
-      description: lorem.generateParagraphs(5),
-    },
-    {
-      title: "How can I contact the support team?",
-      description: lorem.generateParagraphs(5),
-    },
-    {
-      title: "How do I update my profile information?",
-      description: lorem.generateParagraphs(5),
-    },
-  ];
 
   const handleToggle = (index) => {
     setOpenIndex(openIndex === index ? null : index);

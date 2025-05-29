@@ -1,0 +1,11 @@
+[
+  { "rank": 1, "username": "Username", "score": 999 },
+  { "rank": 2, "username": "Username", "score": 999 },
+  { "rank": 3, "username": "Username", "score": 999 },
+  { "rank": 4, "username": "Username", "score": 999 },
+  { "rank": 5, "username": "Username", "score": 999 },
+  { "rank": 6, "username": "Username", "score": 999 },
+  { "rank": 7, "username": "You", "score": 999, "isCurrentUser": true },
+  { "rank": 8, "username": "Username", "score": 999 },
+  { "rank": 9, "username": "Username", "score": 999 }
+]

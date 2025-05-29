@@ -4,16 +4,9 @@ import { useState } from "react";
 import BackButton from "../../components/backButton.jsx";
 import Toggle from "../../components/toggle.jsx";
 import "../../css/settingsSubpage/SettingsAccount.css";
+import preferencesSettings from "../../json/settings_preference.json";
 
 function Preferences() {
-  const preferencesSettings = [
-    {
-      name: "Background Music",
-      key: "backgroundMusic",
-      defaultValue: true,
-    },
-  ];
-
   const [settings, setSettings] = useState(
     preferencesSettings.reduce((acc, option) => {
       acc[option.key] = option.defaultValue;

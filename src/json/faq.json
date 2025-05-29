@@ -1,0 +1,26 @@
+[
+  {
+    "title": "How do I reset my password?",
+    "description": "To reset your password, go to the login page and click on 'Forgot Password'. Enter your email address and we'll send you a link to reset your password. Follow the instructions in the email to create a new password. Make sure to choose a strong password that includes a mix of letters, numbers, and special characters. If you don't receive the email within a few minutes, check your spam folder. The reset link will expire after 24 hours for security reasons. If you continue to have trouble, please contact our support team for assistance."
+  },
+  {
+    "title": "I can't log in. What should I do?",
+    "description": "If you're having trouble logging in, first make sure you're using the correct email address and password. Check that Caps Lock is off and try typing your password carefully. If you've forgotten your password, use the 'Forgot Password' link to reset it. Clear your browser cache and cookies, or try using a different browser or incognito mode. Make sure your internet connection is stable. If you're still unable to log in, contact our support team with details about the error message you're seeing."
+  },
+  {
+    "title": "How can I interact with other users?",
+    "description": "You can interact with other users through various features on our platform. Send direct messages by clicking on a user's profile and selecting 'Message'. Join group discussions in community forums or chat rooms. Follow other users to see their updates in your feed. Like, comment, and share posts to engage with content. Participate in live events and webinars. Use @mentions to tag users in your posts or comments. Remember to follow our community guidelines and be respectful in all interactions."
+  },
+  {
+    "title": "I'm not receiving notifications or updates. How can I enable them?",
+    "description": "To enable notifications, go to your account settings and click on 'Notifications'. Here you can customize which types of notifications you want to receive via email, push notifications, or in-app alerts. Make sure your email address is verified and check your spam folder. For mobile push notifications, ensure you've allowed notifications for our app in your device settings. You can also adjust notification frequency and timing preferences. If you're still not receiving notifications after enabling them, try logging out and back in, or contact support."
+  },
+  {
+    "title": "How can I contact the support team?",
+    "description": "You can reach our support team through several channels. Use the 'Contact Us' form on our website for non-urgent inquiries. For immediate assistance, use our live chat feature available 24/7. Email us directly at support@example.com for detailed questions. Call our support hotline during business hours. Submit a support ticket through your account dashboard for technical issues. Follow us on social media for updates and quick responses. Our team typically responds within 24 hours, but urgent issues are prioritized and handled faster."
+  },
+  {
+    "title": "How do I update my profile information?",
+    "description": "To update your profile information, log into your account and navigate to 'Profile Settings' or 'Account Settings'. Here you can edit your display name, bio, profile picture, contact information, and privacy settings. Click 'Save Changes' after making any updates. Some changes, like email address updates, may require verification. You can also link social media accounts, update your location, and manage your interests and preferences. Make sure to keep your information current for the best experience on our platform."
+  }
+]

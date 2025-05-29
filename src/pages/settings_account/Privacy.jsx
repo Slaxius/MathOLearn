@@ -4,16 +4,9 @@ import { useState } from "react";
 import BackButton from "../../components/backButton.jsx";
 import Toggle from "../../components/toggle.jsx";
 import "../../css/settingsSubpage/SettingsAccount.css";
+import privacySettings from "../../json/settings_privacy.json";
 
 function Privacy() {
-  const privacySettings = [
-    {
-      name: "Make my profile public",
-      key: "isProfilePublic",
-      defaultValue: true,
-    },
-  ];
-
   const [settings, setSettings] = useState(
     privacySettings.reduce((acc, option) => {
       acc[option.key] = option.defaultValue;

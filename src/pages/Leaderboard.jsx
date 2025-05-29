@@ -4,20 +4,9 @@ import "../css/Leaderboard.css";
 import GoldMedal from "../assets/icon/gold_medal.svg";
 import SilverMedal from "../assets/icon/silver_medal.svg";
 import BronzeMedal from "../assets/icon/bronze_medal.svg";
+import leaderboardData from "../json/leaderboard_data.json"
 
 function Leaderboard() {
-  const leaderboardData = [
-    { rank: 1, username: "Username", score: 999 },
-    { rank: 2, username: "Username", score: 999 },
-    { rank: 3, username: "Username", score: 999 },
-    { rank: 4, username: "Username", score: 999 },
-    { rank: 5, username: "Username", score: 999 },
-    { rank: 6, username: "Username", score: 999 },
-    { rank: 7, username: "You", score: 999, isCurrentUser: true },
-    { rank: 8, username: "Username", score: 999 },
-    { rank: 9, username: "Username", score: 999 },
-  ];
-
   const topThree = leaderboardData.slice(0, 3);
   const remainingRanks = leaderboardData.slice(3);
 
