@@ -1,0 +1,56 @@
+.main-section.notification {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.notification-card {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  width: 100%;
+  background-color: var(--linen);
+  border-radius: 10px;
+  color: var(--darkslategray);
+  overflow: hidden;
+
+  .notif-type {
+    width: 15%;
+    text-transform: uppercase;
+  }
+
+  .notif-detail {
+    display: flex;
+    width: 100%;
+    gap: 0.5rem;
+    overflow: hidden;
+
+    .notif-subject {
+      text-transform: uppercase;
+      flex-shrink: 0;
+    }
+
+    .notif-message {
+      flex-grow: 1;
+      overflow: hidden;
+    }
+
+    .notif-message p {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}
+.notification-card:hover{
+  filter: brightness(90%);
+  cursor: pointer;
+}
+
+.notification-card.opened {
+  background-color: rgba(255, 255, 255, 0.25);
+  color: var(--olive);
+}
+.notification-card.opened:hover{
+  background-color: rgba(255, 255, 255, 0.5);
+}

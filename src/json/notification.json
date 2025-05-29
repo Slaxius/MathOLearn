@@ -1,0 +1,26 @@
+[
+  {
+    "type": "Forum",
+    "subject": "Linear Algebra",
+    "message": "Apeng just posted a new forum!",
+    "status": true
+  },
+  {
+    "type": "Lecture",
+    "subject": "Calculus",
+    "message": "New cheatsheet for integration is now available!",
+    "status": true
+  },
+  {
+    "type": "Quiz",
+    "subject": "Discrete Mathtematics",
+    "message": "Ready to challenge yourself? Flex",
+    "status": true
+  },
+  {
+    "type": "Forum",
+    "subject": "Basic Statistic",
+    "message": "Ciduk Warrior replied your forum! oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo",
+    "status": false
+  }
+]
