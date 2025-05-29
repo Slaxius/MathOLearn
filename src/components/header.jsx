@@ -4,7 +4,7 @@ import Dead from "../assets/icon/gray_heart.svg";
 import { useState } from "react";
 
 function header() {
-  const username = localStorage.getItem("username") || "User";
+  const username = localStorage.getItem("username");
 
   const [hearts, setHearts] = useState([false, true, true, true]);
 

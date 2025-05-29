@@ -6,13 +6,26 @@ import UsernameIcon from "../../assets/icon/username_icon.svg";
 import PasswordIcon from "../../assets/icon/password_icon.svg";
 import "../../css/auth/Authentication.css";
 
-function App() {
+function SignIn() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
   const handleSignIn = () => {
-    localStorage.setItem("username", username);
+    setError("");
+
+    if (!username || username.trim() === "") {
+      setError("Please enter a username");
+      return;
+    }
+
+    if (!password || password.trim() === "") {
+      setError("Please enter a password");
+      return;
+    }
+
+    localStorage.setItem("username", username.trim());
     navigate("/learn");
   };
 
@@ -22,6 +35,14 @@ function App() {
       <div className="right-side">
         <h1 className="header2">Sign In</h1>
         <div className="form-section">
+          {error && (
+            <div
+              className="error-message"
+              style={{ color: "red", marginBottom: "10px", fontSize: "14px" }}
+            >
+              {error}
+            </div>
+          )}
           <div className="user-input">
             <img src={UsernameIcon} alt="Username-icon" />
             <input
@@ -47,7 +68,7 @@ function App() {
               Forgot Password?
             </Link>
           </div>
-          <Button link="/learn" text="Sign In" onClick={handleSignIn} />
+          <Button text="Sign In" onClick={handleSignIn} />
         </div>
         <p className="register-now body2">
           Don't have an account? Click here to{" "}
@@ -60,4 +81,4 @@ function App() {
   );
 }
 
-export default App;
+export default SignIn;
