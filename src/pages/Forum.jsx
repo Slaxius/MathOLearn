@@ -2,6 +2,7 @@ import Navbar from "../components/navbar.jsx";
 import Header from "../components/header.jsx";
 import "../css/Forum.css";
 import postIcon from "../assets/icon/post_icon.svg";
+import forumFilterOption from "../json/forum_filter_option.json"
 
 function Forum() {
   return (
@@ -16,24 +17,22 @@ function Forum() {
               <div className="filter-group">
                 <label className="filter-label body1">SUBJECT</label>
                 <select className="filter-select body2">
-                  <option value="">Select Subject</option>
-                  <option value="all">All Subjects</option>
-                  <option value="calculus">Calculus</option>
-                  <option value="algebra">Linear Algebra</option>
-                  <option value="statistics">Statistics</option>
-                  <option value="geometry">Geometry</option>
+                  {forumFilterOption.subjects.map((subject, index) => (
+                    <option key={index} value={subject.value}>
+                      {subject.label}
+                    </option>
+                  ))}
                 </select>
               </div>
 
               <div className="filter-group">
                 <label className="filter-label body1">TYPE</label>
                 <select className="filter-select body2">
-                  <option value="">Select Type</option>
-                  <option value="all">All Types</option>
-                  <option value="quiz">Quiz</option>
-                  <option value="lecture">Lecture</option>
-                  <option value="exercise">Exercise</option>
-                  <option value="discussion">Discussion</option>
+                  {forumFilterOption.types.map((subject, index) => (
+                    <option key={index} value={subject.value}>
+                      {subject.label}
+                    </option>
+                  ))}
                 </select>
               </div>
 
@@ -47,6 +46,7 @@ function Forum() {
             </div>
           </div>
         </div>
+        
       </div>
     </div>
   );

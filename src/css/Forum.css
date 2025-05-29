@@ -1,88 +1,90 @@
 .main-section.forum {
   padding: 0;
+}
 
-  .forum-header {
+.forum-header {
+  display: flex;
+  width: 100%;
+  height: fit-content;
+  background-color: var(--olive);
+  padding: 1.5rem;
+
+  .filter-forum {
     display: flex;
+    flex-direction: column;
     width: 100%;
-    height: fit-content;
-    background-color: var(--olive);
-    padding: 1.5rem;
+    gap: 2rem;
 
-    .filter-forum {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      gap: 2rem;
-
-      .filter-title {
-        color: var(--linen);
-        text-transform: uppercase;
-      }
-
-      .filter-control {
-        display: flex;
-        align-items: flex-end;
-        gap: 2rem;
-
-        .filter-group {
-          display: flex;
-          flex-direction: column;
-
-          .filter-label {
-            color: var(--linen);
-          }
-
-          .filter-select {
-            background-color: var(--linen);
-            width: 15rem;
-            padding: 0.5rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-          }
-        }
-
-        .apply-button {
-          background-color: var(--darkseagreen);
-          color: var(--linen);
-          padding: 0.5rem 1.5rem;
-          border-radius: 8px;
-          box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-          cursor: pointer;
-        }
-
-        .apply-button:hover {
-          background-color: var(--olivedrab);
-        }
-      }
+    .filter-title {
+      color: var(--linen);
+      text-transform: uppercase;
     }
 
-    .post-forum {
+    .filter-control {
       display: flex;
-      align-items: flex-start;
-      justify-content: flex-end;
+      align-items: flex-end;
+      gap: 2rem;
 
-      .post-button {
+      .filter-group {
         display: flex;
-        color: var(--linen);
-        align-items: center;
-        justify-content: space-between;
-        padding: 0.75rem 1.5rem;
-        background-color: var(--darkseagreen);
-        border-radius: 10px;
-        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-        gap: 1.5rem;
-        text-transform: uppercase;
-        cursor: pointer;
+        flex-direction: column;
 
-        img {
-          width: 2.5rem;
-          height: 2.5rem;
+        .filter-label {
+          color: var(--linen);
+        }
+
+        .filter-select {
+          background-color: var(--linen);
+          width: 15rem;
+          padding: 0.5rem;
+          border-radius: 8px;
+          box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+          color: var(--darkslategray);
         }
       }
 
-      .post-button:hover {
+      .apply-button {
+        background-color: var(--darkseagreen);
+        color: var(--linen);
+        padding: 0.5rem 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+        cursor: pointer;
+      }
+
+      .apply-button:hover {
         background-color: var(--olivedrab);
       }
     }
   }
+
+  .post-forum {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+
+    .post-button {
+      display: flex;
+      color: var(--linen);
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 1.5rem;
+      background-color: var(--darkseagreen);
+      border-radius: 10px;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+      gap: 1.5rem;
+      text-transform: uppercase;
+      cursor: pointer;
+
+      img {
+        width: 2.5rem;
+        height: 2.5rem;
+      }
+    }
+
+    .post-button:hover {
+      background-color: var(--olivedrab);
+    }
+  }
 }
+

@@ -4,11 +4,7 @@
     { "value": "all", "label": "All Subjects" },
     { "value": "calculus", "label": "Calculus" },
     { "value": "algebra", "label": "Linear Algebra" },
-    { "value": "statistics", "label": "Statistics" },
-    { "value": "geometry", "label": "Geometry" },
-    { "value": "trigonometry", "label": "Trigonometry" },
-    { "value": "physics", "label": "Physics" },
-    { "value": "chemistry", "label": "Chemistry" }
+    { "value": "statistics", "label": "Statistics" }
   ],
   "types": [
     { "value": "", "label": "Select Type" },
@@ -16,9 +12,6 @@
     { "value": "quiz", "label": "Quiz" },
     { "value": "lecture", "label": "Lecture" },
     { "value": "exercise", "label": "Exercise" },
-    { "value": "discussion", "label": "Discussion" },
-    { "value": "homework", "label": "Homework" },
-    { "value": "exam", "label": "Exam" },
-    { "value": "project", "label": "Project" }
+    { "value": "video", "label": "Video" }
   ]
 }
