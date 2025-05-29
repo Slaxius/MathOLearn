@@ -25,7 +25,7 @@ function Leaderboard() {
     <div className="page">
       <Navbar />
       <Header />
-      <div className="main-section">
+      <div className="main-section leaderboard">
         <div className="podium-container">
           <div className="podium-item third-place">
             <div className="user-profile-picture">
