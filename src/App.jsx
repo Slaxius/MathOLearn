@@ -12,6 +12,7 @@ import Preferences from "./pages/settings_account/Preferences.jsx";
 import Privacy from "./pages/settings_account/Privacy.jsx";
 import Help from "./pages/settings_support/Help.jsx";
 import Feedback from "./pages/settings_support/Feedback.jsx";
+import EditProfile from "./pages/edit_profile/EditProfile.jsx";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/forum" element={<Forum />} />
         <Route path="/notification" element={<Notification />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/profile/editprofile" element={<EditProfile />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/settings/preferences" element={<Preferences />} />
         <Route path="/settings/privacy" element={<Privacy />} />

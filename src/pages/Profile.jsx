@@ -38,6 +38,10 @@ function Profile() {
     setSelectedCertification(null);
   };
 
+  const handleEditProfile = () => {
+    navigate("/profile/editprofile");
+  };
+
   return (
     <div className="page">
       <Navbar />
@@ -53,7 +57,11 @@ function Profile() {
           <p className="user-name header5">{currentUserData?.name}</p>
           <p className="user-bio body2">{currentUserData?.bio}</p>
         </div>
-        <Button link="" text="Edit Profile" onClick="" />
+        <Button
+          link="/profile/editprofile"
+          text="Edit Profile"
+          onClick={handleEditProfile}
+        />
         <div className="user-certification-container">
           {certifications.map((cert, index) => (
             <div
