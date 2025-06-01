@@ -1,11 +1,23 @@
+import { useState } from "react";
 import Navbar from "../components/navbar.jsx";
 import Header from "../components/header.jsx";
 import "../css/Forum.css";
 import postIcon from "../assets/icon/post_icon.svg";
 import forumFilterOption from "../json/forum_filter_option.json";
 import forumDetail from "../json/forum.json";
+import ForumModal from "../components/postForum.jsx";
 
 function Forum() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handlePost = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <div className="page">
       <Navbar />
@@ -25,7 +37,6 @@ function Forum() {
                   ))}
                 </select>
               </div>
-
               <div className="filter-group">
                 <label className="filter-label body1">TYPE</label>
                 <select className="filter-select body2">
@@ -36,12 +47,11 @@ function Forum() {
                   ))}
                 </select>
               </div>
-
               <button className="apply-button body2">Apply</button>
             </div>
           </div>
           <div className="post-forum">
-            <div className="post-button">
+            <div className="post-button" onClick={handlePost}>
               <img src={postIcon} alt="post-icon" />
               <p className="header5 post-text">Post</p>
             </div>
@@ -73,7 +83,6 @@ function Forum() {
                 </div>
               </div>
               <div className="forum-caption body2">{post.caption}</div>
-
               <div className="forum-card-button">
                 <button className="forum-button comments boldBody2">
                   {post.comment_num} Comment(s)
@@ -86,6 +95,7 @@ function Forum() {
           ))}
         </div>
       </div>
+      <ForumModal isOpen={isModalOpen} onClose={handleCloseModal} />
     </div>
   );
 }

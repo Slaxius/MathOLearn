@@ -1,13 +1,11 @@
 {
   "subjects": [
-    { "value": "", "label": "Select Subject" },
     { "value": "all", "label": "All Subjects" },
     { "value": "calculus", "label": "Calculus" },
     { "value": "algebra", "label": "Linear Algebra" },
     { "value": "statistics", "label": "Statistics" }
   ],
   "types": [
-    { "value": "", "label": "Select Type" },
     { "value": "all", "label": "All Types" },
     { "value": "quiz", "label": "Quiz" },
     { "value": "lecture", "label": "Lecture" },
