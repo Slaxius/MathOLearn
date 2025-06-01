@@ -1,0 +1,119 @@
+.calendar-container {
+  background-color: rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--linen);
+  border-radius: 10px;
+  padding: 1.5rem;
+  width: fit-content;
+  text-align: center;
+  position: fixed;
+  top: 12rem;
+  right: 2rem;
+
+  .calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+
+    .header-title{
+      width: 100%;
+      color: var(--linen);
+      
+      .title{
+        text-transform: uppercase;
+      }
+    }
+
+    .streak-container{
+      display: flex;
+      height: 5rem;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      gap: .5rem;
+
+      img{
+        width: 4rem;
+        height: 4rem;
+      }
+    }
+    .streak-days{
+      color: var(--linen);
+    }
+
+    .handle-month-year {
+      margin-top: 1rem;
+      display: flex;
+      width: 100%;
+      align-items: center;
+
+      .month-year {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 18rem;
+
+        h1 {
+          color: var(--linen);
+        }
+      }
+
+      .prev-next {
+        background-color: var(--darkslategray);
+        color: var(--linen);
+        border: none;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+        border-radius: 50%;
+      }
+
+      .prev-next:hover {
+        background-color: var(--olive);
+      }
+    }
+  }
+
+  .calendar-days {
+    margin-top: 1rem;
+    border: 1px solid var(--darkslategray);
+    border-radius: 10px;
+    padding: 0.5rem;
+  }
+
+  .calendar-week {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 0.5rem;
+  }
+
+  .calendar-day {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+  }
+
+  .calendar-day.current-month.today {
+    background-color: var(--darkslategray);
+    color: var(--linen);
+  }
+
+  .calendar-day.current-month {
+    background-color: var(--linen);
+    color: var(--darkslategray);
+  }
+
+  .calendar-day.other-month {
+    background-color: rgba(0, 0, 0, 0.25);
+    color: var(--olive);
+  }
+
+  .calendar-day:hover,
+  .calendar-day.current-month:hover,
+  .calendar-day.other-month:hover {
+    opacity: 0.8;
+  }
+}

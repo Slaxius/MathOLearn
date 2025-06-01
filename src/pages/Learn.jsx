@@ -1,6 +1,7 @@
 import Navbar from "../components/navbar.jsx";
 import Header from "../components/header.jsx";
 import "../css/Learn.css";
+import Calendar from "../components/calendar.jsx"
 
 function Learn() {
   return (
@@ -8,7 +9,8 @@ function Learn() {
       <Navbar />
       <Header />
       <div className="main-section">
-        <p>test</p>
+        {/* code */}
+        <Calendar />
       </div>
     </div>
   );
