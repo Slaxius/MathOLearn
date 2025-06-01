@@ -1,0 +1,41 @@
+.main-section.learn {
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  .subject-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 75%;
+    flex-direction: column;
+    gap: 5rem;
+    padding: 2rem 5rem;
+    position: relative;
+
+    .subject-bubble {
+      background-color: var(--lightgray);
+      width: 25rem;
+      height: 6rem;
+      cursor: pointer;
+      text-transform: capitalize;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
+      border-radius: 1rem;
+      color: var(--darkslategray);
+      position: relative;
+    }
+
+    .subject-bubble:nth-child(odd) {
+      align-self: flex-start;
+    }
+
+    .subject-bubble:nth-child(even) {
+      align-self: flex-end;
+    }
+
+    .subject-bubble:hover {
+      background-color: var(--linen);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+      border: 1px solid var(--darkslategray);
+    }
+  }
+}
