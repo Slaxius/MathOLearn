@@ -9,7 +9,7 @@ function Learn() {
   const navigate = useNavigate();
 
   const handleSubjectClick = (subject) => {
-    navigate(`/learn/${encodeURIComponent(subject)}`, {
+    navigate(`/learn/subject/${encodeURIComponent(subject)}`, {
       state: { subject: subject },
     });
   };

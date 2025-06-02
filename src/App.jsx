@@ -28,11 +28,11 @@ function App() {
         <Route path="/signin" element={<SignIn />} />
         <Route path="/resetpassword" element={<ResetPw />} />
         <Route path="/learn" element={<Learn />} />
-        <Route path="/learn/:subject" element={<SelectedSubject />} />
-        <Route path="/learn/:subject/video" element={<VideoPage />} />
-        <Route path="/learn/:subject/cheatsheet" element={<CheatsheetPage />} />
-        <Route path="/learn/:subject/exercise" element={<ExercisePage />} />
-        <Route path="/learn/:subject/quiz" element={<QuizPage />} />
+        <Route path="/learn/subject/:subject" element={<SelectedSubject />} />
+        <Route path="/learn/subject/:subject/video" element={<VideoPage />} />
+        <Route path="/learn/subject/:subject/cheatsheet" element={<CheatsheetPage />} />
+        <Route path="/learn/subject/:subject/exercise" element={<ExercisePage />} />
+        <Route path="/learn/subject/:subject/quiz" element={<QuizPage />} />
         <Route path="/leaderboard" element={<Leaderboard />} />
         <Route path="/forum" element={<Forum />} />
         <Route path="/notification" element={<Notification />} />
