@@ -23,7 +23,7 @@ function VideoPage() {
           <h3 className="subject header3">{subject}</h3>
         </div>
         <div className="video-page-container">
-          <div className="video-title header4">Video - {video.title}</div>
+          <h4 className="video-title header4">Video - {video.title}</h4>
           <div className="video-content">
             <div className="video-container">
               <div className="video-player">

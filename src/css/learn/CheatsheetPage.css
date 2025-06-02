@@ -1,0 +1,59 @@
+.cheatsheet-header {
+  display: flex;
+  width: 100%;
+  gap: 2rem;
+
+  .subject {
+    color: var(--darkslategray);
+  }
+}
+
+.cheatsheet-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: fit-content;
+  height: 100%;
+
+  .cheatsheet-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--darkslategray);
+    margin-bottom: 1rem;
+    width: 100%;
+  }
+
+  iframe.cheatsheet-pdf {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    width: fit-content;
+    background-color: var(--olivegreen);
+    height: 100%;
+    border-radius: 10px;
+  }
+
+  a{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    margin-top: 1rem;
+
+    .download-btn{
+      background-color: var(--olivegreen);
+      padding: 1rem;
+      text-transform: uppercase;
+      color: var(--linen);
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .download-btn:hover{
+      background-color: var(--olive);
+    }
+  }
+}
