@@ -1,0 +1,23 @@
+.content-section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: var(--olivegreen);
+  border-radius: 1rem;
+  padding: 1rem;
+
+  .section-header{
+    display: flex;
+    width: 100%;
+
+    .section-title{
+      color: var(--linen);
+    }
+  }
+
+  .content-grid{
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+}

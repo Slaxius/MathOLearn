@@ -1,0 +1,465 @@
+{
+  "calculus": {
+    "videos": [
+      {
+        "id": 1,
+        "title": "Introduction to Limits",
+        "thumbnail": "/placeholder.svg?height=120&width=160",
+        "duration": "15:30",
+        "url": "https://example.com/video1"
+      },
+      {
+        "id": 2,
+        "title": "Derivatives Basics",
+        "thumbnail": "/placeholder.svg?height=120&width=160",
+        "duration": "20:45",
+        "url": "https://example.com/video2"
+      },
+      {
+        "id": 3,
+        "title": "Integration Techniques",
+        "thumbnail": "/placeholder.svg?height=120&width=160",
+        "duration": "25:15",
+        "url": "https://example.com/video3"
+      },
+      {
+        "id": 4,
+        "title": "Chain Rule",
+        "thumbnail": "/placeholder.svg?height=120&width=160",
+        "duration": "18:20",
+        "url": "https://example.com/video4"
+      },
+      {
+        "id": 5,
+        "title": "Applications of Derivatives",
+        "thumbnail": "/placeholder.svg?height=120&width=160",
+        "duration": "22:10",
+        "url": "https://example.com/video5"
+      },
+      {
+        "id": 6,
+        "title": "Limits at Infinity",
+        "thumbnail": "/placeholder.svg?height=120&width=160",
+        "duration": "16:30",
+        "url": "https://example.com/video6"
+      },
+      {
+        "id": 7,
+        "title": "Optimization Problems",
+        "thumbnail": "/placeholder.svg?height=120&width=160",
+        "duration": "24:15",
+        "url": "https://example.com/video7"
+      }
+    ],
+    "cheatsheets": [
+      {
+        "id": 1,
+        "title": "Derivative Rules",
+        "thumbnail": "/placeholder.svg?height=120&width=160",
+        "downloadUrl": "https://example.com/cheatsheet1.pdf"
+      },
+      {
+        "id": 2,
+        "title": "Integration Formulas",
+        "thumbnail": "/placeholder.svg?height=120&width=160",
+        "downloadUrl": "https://example.com/cheatsheet2.pdf"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "title": "Limits Practice",
+        "thumbnail": "/placeholder.svg?height=120&width=160",
+        "questions": [
+          {
+            "id": 1,
+            "question": "What is the limit of (x² - 1)/(x - 1) as x approaches 1?",
+            "options": ["0", "1", "2", "undefined"],
+            "correctAnswer": 2
+          },
+          {
+            "id": 2,
+            "question": "What is the derivative of x³?",
+            "options": ["x²", "3x²", "3x", "x³"],
+            "correctAnswer": 1
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Derivatives Practice",
+        "thumbnail": "/placeholder.svg?height=120&width=160",
+        "questions": [
+          {
+            "id": 1,
+            "question": "What is the derivative of sin(x)?",
+            "options": ["cos(x)", "-cos(x)", "sin(x)", "-sin(x)"],
+            "correctAnswer": 0
+          },
+          {
+            "id": 2,
+            "question": "What is the derivative of e^x?",
+            "options": ["e^x", "xe^(x-1)", "ln(x)", "x"],
+            "correctAnswer": 0
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "title": "Integration Practice",
+        "thumbnail": "/placeholder.svg?height=120&width=160",
+        "questions": [
+          {
+            "id": 1,
+            "question": "What is ∫x dx?",
+            "options": ["x²/2 + C", "x + C", "x²", "2x + C"],
+            "correctAnswer": 0
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "title": "Advanced Calculus",
+        "thumbnail": "/placeholder.svg?height=120&width=160",
+        "questions": [
+          {
+            "id": 1,
+            "question": "What is the second derivative of x⁴?",
+            "options": ["4x³", "12x²", "24x", "4x"],
+            "correctAnswer": 1
+          }
+        ]
+      }
+    ],
+    "quizzes": [
+      {
+        "id": 1,
+        "title": "Calculus Fundamentals Quiz",
+        "thumbnail": "/placeholder.svg?height=120&width=160",
+        "questions": [
+          {
+            "id": 1,
+            "question": "What is the fundamental theorem of calculus?",
+            "options": [
+              "Derivatives and integrals are inverse operations",
+              "All functions are continuous",
+              "Limits always exist",
+              "Integration is always possible"
+            ],
+            "correctAnswer": 0
+          },
+          {
+            "id": 2,
+            "question": "What is the derivative of ln(x)?",
+            "options": ["1/x", "x", "ln(x)", "e^x"],
+            "correctAnswer": 0
+          },
+          {
+            "id": 3,
+            "question": "What is ∫(1/x) dx?",
+            "options": ["ln(x) + C", "x + C", "1/x² + C", "e^x + C"],
+            "correctAnswer": 0
+          }
+        ]
+      }
+    ]
+  },
+  "linear algebra": {
+    "videos": [
+      {
+        "id": 1,
+        "title": "Vector Basics",
+        "thumbnail": "/placeholder.svg?height=120&width=160",
+        "duration": "12:30",
+        "url": "https://example.com/video1"
+      },
+      {
+        "id": 2,
+        "title": "Matrix Operations",
+        "thumbnail": "/placeholder.svg?height=120&width=160",
+        "duration": "18:45",
+        "url": "https://example.com/video2"
+      },
+      {
+        "id": 3,
+        "title": "Eigenvalues and Eigenvectors",
+        "thumbnail": "/placeholder.svg?height=120&width=160",
+        "duration": "22:15",
+        "url": "https://example.com/video3"
+      },
+      {
+        "id": 4,
+        "title": "Linear Transformations",
+        "thumbnail": "/placeholder.svg?height=120&width=160",
+        "duration": "19:30",
+        "url": "https://example.com/video4"
+      },
+      {
+        "id": 5,
+        "title": "Determinants",
+        "thumbnail": "/placeholder.svg?height=120&width=160",
+        "duration": "16:45",
+        "url": "https://example.com/video5"
+      }
+    ],
+    "cheatsheets": [
+      {
+        "id": 1,
+        "title": "Matrix Operations",
+        "thumbnail": "/placeholder.svg?height=120&width=160",
+        "downloadUrl": "https://example.com/cheatsheet1.pdf"
+      },
+      {
+        "id": 2,
+        "title": "Vector Formulas",
+        "thumbnail": "/placeholder.svg?height=120&width=160",
+        "downloadUrl": "https://example.com/cheatsheet2.pdf"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "title": "Vector Operations",
+        "thumbnail": "/placeholder.svg?height=120&width=160",
+        "questions": [
+          {
+            "id": 1,
+            "question": "What is the dot product of vectors [1,2] and [3,4]?",
+            "options": ["7", "11", "14", "10"],
+            "correctAnswer": 1
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Matrix Multiplication",
+        "thumbnail": "/placeholder.svg?height=120&width=160",
+        "questions": [
+          {
+            "id": 1,
+            "question": "What is the result of multiplying a 2x3 matrix with a 3x2 matrix?",
+            "options": ["2x2 matrix", "3x3 matrix", "2x3 matrix", "Cannot multiply"],
+            "correctAnswer": 0
+          }
+        ]
+      }
+    ],
+    "quizzes": [
+      {
+        "id": 1,
+        "title": "Linear Algebra Basics",
+        "thumbnail": "/placeholder.svg?height=120&width=160",
+        "questions": [
+          {
+            "id": 1,
+            "question": "What is a vector?",
+            "options": [
+              "A quantity with magnitude and direction",
+              "A single number",
+              "A matrix with one row",
+              "A function"
+            ],
+            "correctAnswer": 0
+          }
+        ]
+      }
+    ]
+  },
+  "basic statistic": {
+    "videos": [
+      {
+        "id": 1,
+        "title": "Introduction to Statistics",
+        "thumbnail": "/placeholder.svg?height=120&width=160",
+        "duration": "14:20",
+        "url": "https://example.com/video1"
+      },
+      {
+        "id": 2,
+        "title": "Descriptive Statistics",
+        "thumbnail": "/placeholder.svg?height=120&width=160",
+        "duration": "16:45",
+        "url": "https://example.com/video2"
+      },
+      {
+        "id": 3,
+        "title": "Probability Distributions",
+        "thumbnail": "/placeholder.svg?height=120&width=160",
+        "duration": "20:30",
+        "url": "https://example.com/video3"
+      },
+      {
+        "id": 4,
+        "title": "Hypothesis Testing",
+        "thumbnail": "/placeholder.svg?height=120&width=160",
+        "duration": "18:15",
+        "url": "https://example.com/video4"
+      },
+      {
+        "id": 5,
+        "title": "Correlation and Regression",
+        "thumbnail": "/placeholder.svg?height=120&width=160",
+        "duration": "22:45",
+        "url": "https://example.com/video5"
+      }
+    ],
+    "cheatsheets": [
+      {
+        "id": 1,
+        "title": "Statistical Formulas",
+        "thumbnail": "/placeholder.svg?height=120&width=160",
+        "downloadUrl": "https://example.com/cheatsheet1.pdf"
+      },
+      {
+        "id": 2,
+        "title": "Probability Rules",
+        "thumbnail": "/placeholder.svg?height=120&width=160",
+        "downloadUrl": "https://example.com/cheatsheet2.pdf"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "title": "Mean and Median",
+        "thumbnail": "/placeholder.svg?height=120&width=160",
+        "questions": [
+          {
+            "id": 1,
+            "question": "What is the mean of [2, 4, 6, 8, 10]?",
+            "options": ["5", "6", "7", "8"],
+            "correctAnswer": 1
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Standard Deviation",
+        "thumbnail": "/placeholder.svg?height=120&width=160",
+        "questions": [
+          {
+            "id": 1,
+            "question": "What does standard deviation measure?",
+            "options": ["Central tendency", "Spread of data", "Maximum value", "Minimum value"],
+            "correctAnswer": 1
+          }
+        ]
+      }
+    ],
+    "quizzes": [
+      {
+        "id": 1,
+        "title": "Statistics Fundamentals",
+        "thumbnail": "/placeholder.svg?height=120&width=160",
+        "questions": [
+          {
+            "id": 1,
+            "question": "What is the difference between mean and median?",
+            "options": [
+              "Mean is average, median is middle value",
+              "They are the same",
+              "Mean is middle, median is average",
+              "No difference"
+            ],
+            "correctAnswer": 0
+          }
+        ]
+      }
+    ]
+  },
+  "discrete mathematics": {
+    "videos": [
+      {
+        "id": 1,
+        "title": "Set Theory Basics",
+        "thumbnail": "/placeholder.svg?height=120&width=160",
+        "duration": "13:15",
+        "url": "https://example.com/video1"
+      },
+      {
+        "id": 2,
+        "title": "Graph Theory Introduction",
+        "thumbnail": "/placeholder.svg?height=120&width=160",
+        "duration": "19:30",
+        "url": "https://example.com/video2"
+      },
+      {
+        "id": 3,
+        "title": "Logic and Proofs",
+        "thumbnail": "/placeholder.svg?height=120&width=160",
+        "duration": "21:45",
+        "url": "https://example.com/video3"
+      },
+      {
+        "id": 4,
+        "title": "Combinatorics",
+        "thumbnail": "/placeholder.svg?height=120&width=160",
+        "duration": "17:20",
+        "url": "https://example.com/video4"
+      },
+      {
+        "id": 5,
+        "title": "Number Theory",
+        "thumbnail": "/placeholder.svg?height=120&width=160",
+        "duration": "23:10",
+        "url": "https://example.com/video5"
+      }
+    ],
+    "cheatsheets": [
+      {
+        "id": 1,
+        "title": "Logic Symbols",
+        "thumbnail": "/placeholder.svg?height=120&width=160",
+        "downloadUrl": "https://example.com/cheatsheet1.pdf"
+      },
+      {
+        "id": 2,
+        "title": "Set Operations",
+        "thumbnail": "/placeholder.svg?height=120&width=160",
+        "downloadUrl": "https://example.com/cheatsheet2.pdf"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "title": "Set Operations",
+        "thumbnail": "/placeholder.svg?height=120&width=160",
+        "questions": [
+          {
+            "id": 1,
+            "question": "What is A ∪ B if A = {1,2} and B = {2,3}?",
+            "options": ["{1,2,3}", "{2}", "{1,3}", "{}"],
+            "correctAnswer": 0
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Graph Theory Problems",
+        "thumbnail": "/placeholder.svg?height=120&width=160",
+        "questions": [
+          {
+            "id": 1,
+            "question": "What is the minimum number of edges in a connected graph with 5 vertices?",
+            "options": ["3", "4", "5", "6"],
+            "correctAnswer": 1
+          }
+        ]
+      }
+    ],
+    "quizzes": [
+      {
+        "id": 1,
+        "title": "Discrete Math Basics",
+        "thumbnail": "/placeholder.svg?height=120&width=160",
+        "questions": [
+          {
+            "id": 1,
+            "question": "What is a set?",
+            "options": ["A collection of distinct objects", "A number", "A function", "An equation"],
+            "correctAnswer": 0
+          }
+        ]
+      }
+    ]
+  }
+}

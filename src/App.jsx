@@ -13,6 +13,11 @@ import Privacy from "./pages/settings_account/Privacy.jsx";
 import Help from "./pages/settings_support/Help.jsx";
 import Feedback from "./pages/settings_support/Feedback.jsx";
 import EditProfile from "./pages/edit_profile/EditProfile.jsx";
+import SelectedSubject from "./pages/learn/SelectedSubject.jsx";
+import VideoPage from "./pages/learn/VideoPage.jsx";
+import CheatsheetPage from "./pages/learn/CheatsheetPage.jsx";
+import ExercisePage from "./pages/learn/ExercisePage.jsx";
+import QuizPage from "./pages/learn/QuizPage.jsx";
 
 function App() {
   return (
@@ -23,6 +28,11 @@ function App() {
         <Route path="/signin" element={<SignIn />} />
         <Route path="/resetpassword" element={<ResetPw />} />
         <Route path="/learn" element={<Learn />} />
+        <Route path="/learn/:subject" element={<SelectedSubject />} />
+        <Route path="/learn/:subject/video" element={<VideoPage />} />
+        <Route path="/learn/:subject/cheatsheet" element={<CheatsheetPage />} />
+        <Route path="/learn/:subject/exercise" element={<ExercisePage />} />
+        <Route path="/learn/:subject/quiz" element={<QuizPage />} />
         <Route path="/leaderboard" element={<Leaderboard />} />
         <Route path="/forum" element={<Forum />} />
         <Route path="/notification" element={<Notification />} />

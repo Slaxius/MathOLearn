@@ -1,0 +1,29 @@
+.subject-header {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+
+  .top-header {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+
+    .back-button {
+      width: fit-content;
+      height: fit-content;
+    }
+
+    .subject-title {
+      display: flex;
+      color: var(--darkslategray);
+      text-transform: uppercase;
+    }
+  }
+}
+
+.subject-content {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 1rem;
+}
