@@ -6,49 +6,49 @@
         "title": "Introduction to Limits",
         "thumbnail": "/placeholder.svg?height=120&width=160",
         "duration": "15:30",
-        "url": "https://example.com/video1"
+        "url": "https://www.youtube.com/embed/"
       },
       {
         "id": 2,
         "title": "Derivatives Basics",
         "thumbnail": "/placeholder.svg?height=120&width=160",
         "duration": "20:45",
-        "url": "https://example.com/video2"
+        "url": "https://www.youtube.com/embed/"
       },
       {
         "id": 3,
         "title": "Integration Techniques",
         "thumbnail": "/placeholder.svg?height=120&width=160",
         "duration": "25:15",
-        "url": "https://example.com/video3"
+        "url": "https://www.youtube.com/embed/"
       },
       {
         "id": 4,
         "title": "Chain Rule",
         "thumbnail": "/placeholder.svg?height=120&width=160",
         "duration": "18:20",
-        "url": "https://example.com/video4"
+        "url": "https://www.youtube.com/embed/"
       },
       {
         "id": 5,
         "title": "Applications of Derivatives",
         "thumbnail": "/placeholder.svg?height=120&width=160",
         "duration": "22:10",
-        "url": "https://example.com/video5"
+        "url": "https://www.youtube.com/embed/"
       },
       {
         "id": 6,
         "title": "Limits at Infinity",
         "thumbnail": "/placeholder.svg?height=120&width=160",
         "duration": "16:30",
-        "url": "https://example.com/video6"
+        "url": "https://www.youtube.com/embed/"
       },
       {
         "id": 7,
         "title": "Optimization Problems",
         "thumbnail": "/placeholder.svg?height=120&width=160",
         "duration": "24:15",
-        "url": "https://example.com/video7"
+        "url": "https://www.youtube.com/embed/"
       }
     ],
     "cheatsheets": [
@@ -171,35 +171,35 @@
         "title": "Vector Basics",
         "thumbnail": "/placeholder.svg?height=120&width=160",
         "duration": "12:30",
-        "url": "https://example.com/video1"
+        "url": "https://www.youtube.com/embed/"
       },
       {
         "id": 2,
         "title": "Matrix Operations",
         "thumbnail": "/placeholder.svg?height=120&width=160",
         "duration": "18:45",
-        "url": "https://example.com/video2"
+        "url": "https://www.youtube.com/embed/"
       },
       {
         "id": 3,
         "title": "Eigenvalues and Eigenvectors",
         "thumbnail": "/placeholder.svg?height=120&width=160",
         "duration": "22:15",
-        "url": "https://example.com/video3"
+        "url": "https://www.youtube.com/embed/"
       },
       {
         "id": 4,
         "title": "Linear Transformations",
         "thumbnail": "/placeholder.svg?height=120&width=160",
         "duration": "19:30",
-        "url": "https://example.com/video4"
+        "url": "https://www.youtube.com/embed/"
       },
       {
         "id": 5,
         "title": "Determinants",
         "thumbnail": "/placeholder.svg?height=120&width=160",
         "duration": "16:45",
-        "url": "https://example.com/video5"
+        "url": "https://www.youtube.com/embed/"
       }
     ],
     "cheatsheets": [
@@ -238,7 +238,12 @@
           {
             "id": 1,
             "question": "What is the result of multiplying a 2x3 matrix with a 3x2 matrix?",
-            "options": ["2x2 matrix", "3x3 matrix", "2x3 matrix", "Cannot multiply"],
+            "options": [
+              "2x2 matrix",
+              "3x3 matrix",
+              "2x3 matrix",
+              "Cannot multiply"
+            ],
             "correctAnswer": 0
           }
         ]
@@ -272,35 +277,35 @@
         "title": "Introduction to Statistics",
         "thumbnail": "/placeholder.svg?height=120&width=160",
         "duration": "14:20",
-        "url": "https://example.com/video1"
+        "url": "https://www.youtube.com/embed/"
       },
       {
         "id": 2,
         "title": "Descriptive Statistics",
         "thumbnail": "/placeholder.svg?height=120&width=160",
         "duration": "16:45",
-        "url": "https://example.com/video2"
+        "url": "https://www.youtube.com/embed/"
       },
       {
         "id": 3,
         "title": "Probability Distributions",
         "thumbnail": "/placeholder.svg?height=120&width=160",
         "duration": "20:30",
-        "url": "https://example.com/video3"
+        "url": "https://www.youtube.com/embed/"
       },
       {
         "id": 4,
         "title": "Hypothesis Testing",
         "thumbnail": "/placeholder.svg?height=120&width=160",
         "duration": "18:15",
-        "url": "https://example.com/video4"
+        "url": "https://www.youtube.com/embed/"
       },
       {
         "id": 5,
         "title": "Correlation and Regression",
         "thumbnail": "/placeholder.svg?height=120&width=160",
         "duration": "22:45",
-        "url": "https://example.com/video5"
+        "url": "https://www.youtube.com/embed/"
       }
     ],
     "cheatsheets": [
@@ -339,7 +344,12 @@
           {
             "id": 1,
             "question": "What does standard deviation measure?",
-            "options": ["Central tendency", "Spread of data", "Maximum value", "Minimum value"],
+            "options": [
+              "Central tendency",
+              "Spread of data",
+              "Maximum value",
+              "Minimum value"
+            ],
             "correctAnswer": 1
           }
         ]
@@ -373,35 +383,35 @@
         "title": "Set Theory Basics",
         "thumbnail": "/placeholder.svg?height=120&width=160",
         "duration": "13:15",
-        "url": "https://example.com/video1"
+        "url": "https://www.youtube.com/embed/"
       },
       {
         "id": 2,
         "title": "Graph Theory Introduction",
         "thumbnail": "/placeholder.svg?height=120&width=160",
         "duration": "19:30",
-        "url": "https://example.com/video2"
+        "url": "https://www.youtube.com/embed/"
       },
       {
         "id": 3,
         "title": "Logic and Proofs",
         "thumbnail": "/placeholder.svg?height=120&width=160",
         "duration": "21:45",
-        "url": "https://example.com/video3"
+        "url": "https://www.youtube.com/embed/"
       },
       {
         "id": 4,
         "title": "Combinatorics",
         "thumbnail": "/placeholder.svg?height=120&width=160",
         "duration": "17:20",
-        "url": "https://example.com/video4"
+        "url": "https://www.youtube.com/embed/"
       },
       {
         "id": 5,
         "title": "Number Theory",
         "thumbnail": "/placeholder.svg?height=120&width=160",
         "duration": "23:10",
-        "url": "https://example.com/video5"
+        "url": "https://www.youtube.com/embed/"
       }
     ],
     "cheatsheets": [
@@ -455,7 +465,12 @@
           {
             "id": 1,
             "question": "What is a set?",
-            "options": ["A collection of distinct objects", "A number", "A function", "An equation"],
+            "options": [
+              "A collection of distinct objects",
+              "A number",
+              "A function",
+              "An equation"
+            ],
             "correctAnswer": 0
           }
         ]

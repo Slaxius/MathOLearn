@@ -1,19 +1,19 @@
 import ContentCard from "./subjectContentCard.jsx";
 import "../css/comp/subjectContentSection.css";
 
-function subjectContentSection({ title, items, type }) {
+function subjectContentSection({ title, items, type, onClick }) {
   return (
     <div className="content-section">
       <div className="section-header">
         <h3 className="section-title header4">{title}</h3>
       </div>
       <div className="content-grid">
-        {items.map((item, index) => (
+        {items.map((item) => (
           <ContentCard
             key={item.id}
             item={item}
             type={type}
-            isLocked={index > 0 && type !== "video"}
+            onClick={() => onClick(item.id)}
           />
         ))}
       </div>

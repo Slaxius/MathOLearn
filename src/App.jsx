@@ -29,10 +29,10 @@ function App() {
         <Route path="/resetpassword" element={<ResetPw />} />
         <Route path="/learn" element={<Learn />} />
         <Route path="/learn/subject/:subject" element={<SelectedSubject />} />
-        <Route path="/learn/subject/:subject/video" element={<VideoPage />} />
-        <Route path="/learn/subject/:subject/cheatsheet" element={<CheatsheetPage />} />
-        <Route path="/learn/subject/:subject/exercise" element={<ExercisePage />} />
-        <Route path="/learn/subject/:subject/quiz" element={<QuizPage />} />
+        <Route path="/learn/subject/:subject/video/:itemId" element={<VideoPage />} />
+        <Route path="/learn/subject/:subject/cheatsheet/:itemId" element={<CheatsheetPage />} />
+        <Route path="/learn/subject/:subject/exercise/:itemId" element={<ExercisePage />} />
+        <Route path="/learn/subject/:subject/quiz/:itemId" element={<QuizPage />} />
         <Route path="/leaderboard" element={<Leaderboard />} />
         <Route path="/forum" element={<Forum />} />
         <Route path="/notification" element={<Notification />} />

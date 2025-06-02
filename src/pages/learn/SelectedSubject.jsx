@@ -1,6 +1,4 @@
-import { useState } from "react";
 import { useParams, useLocation, useNavigate } from "react-router-dom";
-import { ArrowLeft, Play, FileText, PenTool, Lock } from "lucide-react";
 import Navbar from "../../components/navbar.jsx";
 import Header from "../../components/header.jsx";
 import "../../css/learn/SelectedSubject.css";
@@ -16,16 +14,24 @@ function SelectedSubject() {
   const currentSubject = subject || location.state?.subject;
   const subjectData = Material[currentSubject?.toLowerCase()];
 
-  const handleSectionClick = (sectionType) => {
+  const handleSectionClick = (sectionType, itemId) => {
     const routes = {
-      video: `/learn/${encodeURIComponent(currentSubject)}/video`,
-      cheatsheet: `/learn/${encodeURIComponent(currentSubject)}/cheatsheet`,
-      exercise: `/learn/${encodeURIComponent(currentSubject)}/exercise`,
-      quiz: `/learn/${encodeURIComponent(currentSubject)}/quiz`,
+      video: `/learn/subject/${encodeURIComponent(
+        currentSubject
+      )}/video/${itemId}`,
+      cheatsheet: `/learn/subject/${encodeURIComponent(
+        currentSubject
+      )}/cheatsheet/${itemId}`,
+      exercise: `/learn/subject/${encodeURIComponent(
+        currentSubject
+      )}/exercise/${itemId}`,
+      quiz: `/learn/subject/${encodeURIComponent(
+        currentSubject
+      )}/quiz/${itemId}`,
     };
 
     navigate(routes[sectionType], {
-      state: { subject: currentSubject },
+      state: { subject: currentSubject, itemId },
     });
   };
 
@@ -47,25 +53,25 @@ function SelectedSubject() {
             title="Video"
             items={subjectData.videos}
             type="video"
-            onClick={handleSectionClick("video")}
+            onClick={(itemId) => handleSectionClick("video", itemId)}
           />
           <ContentSection
             title="Cheatsheet"
             items={subjectData.cheatsheets}
             type="cheatsheet"
-            onClick={handleSectionClick("cheatsheet")}
+            onClick={(itemId) => handleSectionClick("cheatsheet", itemId)}
           />
           <ContentSection
             title="Exercise"
             items={subjectData.exercises}
             type="exercise"
-            onClick={handleSectionClick("exercise")}
+            onClick={(itemId) => handleSectionClick("exercise", itemId)}
           />
           <ContentSection
             title="Quiz"
             items={subjectData.quizzes}
             type="quiz"
-            onClick={handleSectionClick("quiz")}
+            onClick={(itemId) => handleSectionClick("quiz", itemId)}
           />
         </div>
       </div>
