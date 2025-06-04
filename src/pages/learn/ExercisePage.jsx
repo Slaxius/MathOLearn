@@ -72,7 +72,9 @@ function ExercisePage() {
           <h3 className="subject-title header3">{subject}</h3>
         </div>
         <div className="exercise-container">
-          <h4 className="exercise-title header4">Exercise - {exercise.title}</h4>
+          <h4 className="exercise-title header4">
+            Exercise - {exercise.title}
+          </h4>
           <div className="question-numbers-container">
             {exercise.questions.map((question, index) => {
               let className = "question-number-box boldBody1";
@@ -93,7 +95,10 @@ function ExercisePage() {
             })}
           </div>
           <div className="questions-container">
-            <div key={exercise.questions[selectedQuestionIndex].id} className="question">
+            <div
+              key={exercise.questions[selectedQuestionIndex].id}
+              className="question"
+            >
               <div className="question-box">
                 <div className="question-text-box">
                   <p className="question-text body1">
@@ -106,10 +111,12 @@ function ExercisePage() {
                       <button
                         key={optionIndex}
                         className={`option-btn body1 ${
-                          answers[selectedQuestionIndex] === option ? "selected" : ""
+                          answers[selectedQuestionIndex] === optionIndex
+                            ? "selected"
+                            : ""
                         }`}
                         onClick={() =>
-                          handleAnswerChange(selectedQuestionIndex, option)
+                          handleAnswerChange(selectedQuestionIndex, optionIndex)
                         }
                       >
                         {option}
