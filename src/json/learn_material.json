@@ -82,6 +82,18 @@
             "question": "What is the derivative of x³?",
             "options": ["x²", "3x²", "3x", "x³"],
             "correctAnswer": 1
+          },
+          {
+            "id": 3,
+            "question": "What is the limit of (x² - 1)/(x - 1) as x approaches 1?",
+            "options": ["0", "1", "2", "undefined"],
+            "correctAnswer": 2
+          },
+          {
+            "id": 4,
+            "question": "What is the limit of sin(x)/x as x approaches 0?",
+            "options": ["0", "1", "undefined", "∞"],
+            "correctAnswer": 1
           }
         ]
       },
@@ -101,6 +113,18 @@
             "question": "What is the derivative of e^x?",
             "options": ["e^x", "xe^(x-1)", "ln(x)", "x"],
             "correctAnswer": 0
+          },
+          {
+            "id": 3,
+            "question": "What is the derivative of sin(x)?",
+            "options": ["cos(x)", "-cos(x)", "sin(x)", "-sin(x)"],
+            "correctAnswer": 0
+          },
+          {
+            "id": 4,
+            "question": "What is the derivative of x² + 3x?",
+            "options": ["2x + 3", "3x²", "2x", "x + 3"],
+            "correctAnswer": 0
           }
         ]
       },
@@ -113,6 +137,23 @@
             "id": 1,
             "question": "What is ∫x dx?",
             "options": ["x²/2 + C", "x + C", "x²", "2x + C"],
+            "correctAnswer": 0
+          },
+          {
+            "id": 2,
+            "question": "What is ∫x dx?",
+            "options": ["x²/2 + C", "x + C", "x²", "2x + C"],
+            "correctAnswer": 0
+          },
+          {
+            "id": 3,
+            "question": "What is ∫(2x + 3) dx?",
+            "options": [
+              "x² + 3x + C",
+              "2x² + 3x + C",
+              "2x + 3 + C",
+              "x + 3 + C"
+            ],
             "correctAnswer": 0
           }
         ]
@@ -127,6 +168,18 @@
             "question": "What is the second derivative of x⁴?",
             "options": ["4x³", "12x²", "24x", "4x"],
             "correctAnswer": 1
+          },
+          {
+            "id": 2,
+            "question": "What is the second derivative of x⁴?",
+            "options": ["4x³", "12x²", "24x", "4x"],
+            "correctAnswer": 1
+          },
+          {
+            "id": 3,
+            "question": "What is the second derivative of sin(x)?",
+            "options": ["sin(x)", "cos(x)", "-sin(x)", "-cos(x)"],
+            "correctAnswer": 3
           }
         ]
       }
@@ -227,6 +280,18 @@
             "question": "What is the dot product of vectors [1,2] and [3,4]?",
             "options": ["7", "11", "14", "10"],
             "correctAnswer": 1
+          },
+          {
+            "id": 2,
+            "question": "What is the dot product of vectors [1,2] and [3,4]?",
+            "options": ["7", "11", "14", "10"],
+            "correctAnswer": 1
+          },
+          {
+            "id": 3,
+            "question": "What is the magnitude of vector [3, 4]??",
+            "options": ["5", "7", "6", "4"],
+            "correctAnswer": 0
           }
         ]
       },
@@ -244,6 +309,12 @@
               "2x3 matrix",
               "Cannot multiply"
             ],
+            "correctAnswer": 0
+          },
+          {
+            "id": 2,
+            "question": "What is the determinant of the matrix [[1, 2], [3, 4]]?",
+            "options": ["-2", "2", "0", "4"],
             "correctAnswer": 0
           }
         ]
@@ -333,6 +404,12 @@
             "question": "What is the mean of [2, 4, 6, 8, 10]?",
             "options": ["5", "6", "7", "8"],
             "correctAnswer": 1
+          },
+          {
+            "id": 2,
+            "question": "What is the median of [1, 3, 3, 6, 7, 8, 9]?",
+            "options": ["3", "6", "4", "5"],
+            "correctAnswer": 0
           }
         ]
       },
@@ -350,6 +427,12 @@
               "Maximum value",
               "Minimum value"
             ],
+            "correctAnswer": 1
+          },
+          {
+            "id": 2,
+            "question": "What is the standard deviation of the dataset [1, 2, 3, 4, 5]?",
+            "options": ["1", "1.58", "2", "0"],
             "correctAnswer": 1
           }
         ]
@@ -439,6 +522,12 @@
             "question": "What is A ∪ B if A = {1,2} and B = {2,3}?",
             "options": ["{1,2,3}", "{2}", "{1,3}", "{}"],
             "correctAnswer": 0
+          },
+          {
+            "id": 2,
+            "question": "What is A ∩ B if A = {1,2} and B = {2,3}?",
+            "options": ["{2}", "{1,3}", "{1,2,3}", "{}"],
+            "correctAnswer": 0
           }
         ]
       },
@@ -452,6 +541,12 @@
             "question": "What is the minimum number of edges in a connected graph with 5 vertices?",
             "options": ["3", "4", "5", "6"],
             "correctAnswer": 1
+          },
+          {
+            "id": 2,
+            "question": "What is the maximum number of edges in a simple graph with 5 vertices?",
+            "options": ["10", "5", "6", "4"],
+            "correctAnswer": 0
           }
         ]
       }

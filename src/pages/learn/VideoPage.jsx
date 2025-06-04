@@ -1,5 +1,4 @@
-import { useLocation, useParams } from "react-router-dom";
-import { useRef, useState } from "react";
+import { useParams } from "react-router-dom";
 import Navbar from "../../components/navbar.jsx";
 import Header from "../../components/header.jsx";
 import "../../css/learn/VideoPage.css";
