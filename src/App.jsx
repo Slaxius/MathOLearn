@@ -18,6 +18,7 @@ import VideoPage from "./pages/learn/VideoPage.jsx";
 import CheatsheetPage from "./pages/learn/CheatsheetPage.jsx";
 import ExercisePage from "./pages/learn/ExercisePage.jsx";
 import QuizPage from "./pages/learn/QuizPage.jsx";
+import FinishedPage from "./pages/learn/FinishedPage.jsx";
 
 function App() {
   return (
@@ -29,10 +30,30 @@ function App() {
         <Route path="/resetpassword" element={<ResetPw />} />
         <Route path="/learn" element={<Learn />} />
         <Route path="/learn/subject/:subject" element={<SelectedSubject />} />
-        <Route path="/learn/subject/:subject/video/:itemId" element={<VideoPage />} />
-        <Route path="/learn/subject/:subject/cheatsheet/:itemId" element={<CheatsheetPage />} />
-        <Route path="/learn/subject/:subject/exercise/:itemId" element={<ExercisePage />} />
-        <Route path="/learn/subject/:subject/quiz/:itemId" element={<QuizPage />} />
+        <Route
+          path="/learn/subject/:subject/video/:itemId"
+          element={<VideoPage />}
+        />
+        <Route
+          path="/learn/subject/:subject/cheatsheet/:itemId"
+          element={<CheatsheetPage />}
+        />
+        <Route
+          path="/learn/subject/:subject/exercise/:itemId"
+          element={<ExercisePage />}
+        />
+        <Route
+          path="/learn/subject/:subject/quiz/:itemId"
+          element={<QuizPage />}
+        />
+        <Route
+          path="/learn/subject/:subject/exercise/:itemId/finished"
+          element={<FinishedPage />}
+        />
+        <Route
+          path="/learn/subject/:subject/quiz/:itemId/finished"
+          element={<FinishedPage />}
+        />
         <Route path="/leaderboard" element={<Leaderboard />} />
         <Route path="/forum" element={<Forum />} />
         <Route path="/notification" element={<Notification />} />

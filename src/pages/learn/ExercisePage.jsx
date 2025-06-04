@@ -16,6 +16,7 @@ function ExercisePage() {
   const [answers, setAnswers] = useState(
     new Array(exercise.questions.length).fill(null)
   );
+
   const [submitted, setSubmitted] = useState(false);
 
   const handleAnswerChange = (index, answer) => {
@@ -47,12 +48,30 @@ function ExercisePage() {
       setSelectedQuestionIndex(incorrectAnswers[0] - 1);
     } else {
       setSubmitted(true);
+
+      const correctAnswersCount = exercise.questions.filter(
+        (question, index) => answers[index] === question.correctAnswer
+      ).length;
+
+      const totalQuestions = exercise.questions.length;
+
+      const state = {
+        title: exercise.title,
+        correctAnswersCount,
+        totalQuestions,
+        type: "exercise",
+      };
+
+      console.log("State yang dikirim:", state);
+      navigate(`/learn/subject/${subject}/exercise/${itemId}/finished`, {
+        state,
+      });
     }
   };
 
   useEffect(() => {
     if (submitted) {
-      navigate(`/finished/${subject}/${itemId}`);
+      navigate(`/learn/subject/${subject}/exercise/${itemId}/finished`);
     }
   }, [submitted, navigate, subject, itemId]);
 
