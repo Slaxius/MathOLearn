@@ -20,7 +20,7 @@
     height: 12rem;
     background-color: rgba(0, 0, 0, 0.25);
     border-radius: 50%;
-    border: 1px solid var(--darkslategray);
+    border: 1px solid var(--softwhite);
 
     img {
       width: 100%;
@@ -38,7 +38,7 @@
     .input-group {
       display: flex;
       flex-direction: column;
-      color: var(--darkslategray);
+      color: var(--neongreen);
 
       input {
         background-color: var(--lightgray);

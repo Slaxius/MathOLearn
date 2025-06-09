@@ -17,7 +17,7 @@ function header() {
 
   return (
     <div className="header">
-      <h5 className="greet header5">Hi, Student {username}!</h5>
+      <h5 className="greet header5">Hi, Student <span className="greetName">{username}</span>!</h5>
       <div className="life">
         {hearts.map((heart, index) => (
           <span key={index} className="heart-status">

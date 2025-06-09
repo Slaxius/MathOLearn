@@ -7,12 +7,12 @@
   padding: 0 3rem;
 
   .settings-title {
-    color: var(--darkslategray);
+    color: var(--neongreen);
     width: 100%;
     display: flex;
     justify-content: center;
     text-transform: uppercase;
-    border-bottom: 1px solid var(--darkslategray);
+    border-bottom: 1px solid var(--softwhite);
   }
 
   .accordion-items {
@@ -28,7 +28,7 @@
       border: 1px solid rgba(0, 0, 0, 0.1);
       transition: all 0.3s ease;
       border-radius: 0.5rem;
-      color: var(--darkslategray);
+      color: var(--darkforest);
       overflow: hidden;
 
       .accordion-header {
@@ -38,7 +38,7 @@
         padding: 1.5rem;
         cursor: pointer;
         background-color: var(--lightgray);
-        color: var(--darkslategray);
+        color: var(--darkforest);
       }
 
       .accordion-header:hover {
@@ -48,7 +48,7 @@
       .accordion-content {
         padding: 1.5rem;
         background-color: var(--lightgray);
-        color: var(--darkslategray);
+        color: var(--darkforest);
         height: auto;
         overflow: hidden;
 

@@ -7,12 +7,12 @@
   padding: 0 3rem;
 
   .settings-title{
-    color: var(--darkslategray);
+    color: var(--neongreen);
     width: 100%;
     display: flex;
     justify-content: center;
     text-transform: uppercase;
-    border-bottom: 1px solid var(--darkslategray);
+    border-bottom: 1px solid var(--softwhite);
   }
 
   .settings-list{

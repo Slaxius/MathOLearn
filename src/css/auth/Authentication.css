@@ -14,7 +14,7 @@
   gap: 2rem;
 
   h1 {
-    color: var(--darkslategray);
+    color: var(--neongreen);
   }
 
   .form-section {
@@ -42,9 +42,13 @@
       input {
         border: none;
         background-color: transparent;
-        color: var(--darkslategray);
+        color: var(--darkforest);
         width: 100%;
       }
+    }
+
+    .user-input:focus-within{
+      box-shadow: 0 0 8px var(--neongreen);
     }
 
     .forgot-password {
@@ -53,7 +57,7 @@
       justify-content: flex-end;
 
       a {
-        color: var(--linen);
+        color: var(--neongreen);
       }
 
       a:hover {
@@ -63,10 +67,10 @@
   }
 
   .register-now {
-    color: var(--darkslategray);
+    color: var(--softwhite);
 
     a {
-      color: var(--linen);
+      color: var(--neongreen);
     }
 
     a:hover {

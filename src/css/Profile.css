@@ -18,7 +18,7 @@
     height: 12rem;
     background-color: rgba(0, 0, 0, 0.25);
     border-radius: 50%;
-    border: 1px solid var(--darkslategray);
+    border: 1px solid var(--softwhite);
 
     img {
       width: 100%;
@@ -29,7 +29,7 @@
 
   .user-name,
   .user-bio {
-    color: var(--darkslategray);
+    color: var(--softwhite);
   }
 }
 
@@ -46,12 +46,13 @@
       ((var(--cards-per-row) - 1) * var(--card-gap)) +
       (var(--container-padding) * 2)
   );
-  background-color: var(--olivegreen);
+  background-color: var(--greenglass);
   display: flex;
   padding: var(--container-padding);
   border-radius: 1rem;
   gap: var(--card-gap);
   flex-wrap: wrap;
+  box-shadow: 0 0 4px var(--neongreen);
 
   .user-certification {
     display: flex;
@@ -62,8 +63,9 @@
     border-radius: 1rem;
     object-fit: cover;
     background-color: var(--lightgray);
-    color: var(--darkslategray);
+    color: var(--darkforest);
     filter: brightness(75%);
+    box-shadow: 0 4px 4px var(--darkforest);
   }
 
   .user-certification:hover {

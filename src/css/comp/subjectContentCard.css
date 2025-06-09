@@ -1,13 +1,14 @@
 .content-card{
   display: flex;
   align-items: center;
-  background-color: var(--olive);
+  background-color: var(--greenglass);
   flex-direction: column;
   width: 19.19%;
   padding: 1rem;
   border-radius: 10px;
   gap: .5rem;
   cursor: pointer;
+  box-shadow: 0 0 2px var(--neongreen);
 
   .card-thumbnail{
     background-color: var(--lightgray);
@@ -25,6 +26,6 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    color: var(--linen);
+    color: var(--softwhite);
   }
 }

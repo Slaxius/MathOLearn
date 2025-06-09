@@ -34,7 +34,7 @@ function VideoPage() {
               </div>
             </div>
             <div className="reference">
-              <p>
+              <p className="ref">
                 reference:{" "}
                 <a
                   href={video.url}

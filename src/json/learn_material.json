@@ -56,13 +56,13 @@
         "id": 1,
         "title": "Derivative Rules",
         "thumbnail": "/placeholder.svg?height=120&width=160",
-        "downloadUrl": "/cheatsheet.pdf"
+        "downloadUrl": "/material/cheatsheet.pdf"
       },
       {
         "id": 2,
         "title": "Integration Formulas",
         "thumbnail": "/placeholder.svg?height=120&width=160",
-        "downloadUrl": "/cheatsheet.pdf"
+        "downloadUrl": "/material/cheatsheet.pdf"
       }
     ],
     "exercises": [
@@ -260,13 +260,13 @@
         "id": 1,
         "title": "Matrix Operations",
         "thumbnail": "/placeholder.svg?height=120&width=160",
-        "downloadUrl": "/cheatsheet.pdf"
+        "downloadUrl": "/material/cheatsheet.pdf"
       },
       {
         "id": 2,
         "title": "Vector Formulas",
         "thumbnail": "/placeholder.svg?height=120&width=160",
-        "downloadUrl": "/cheatsheet.pdf"
+        "downloadUrl": "/material/cheatsheet.pdf"
       }
     ],
     "exercises": [
@@ -384,13 +384,13 @@
         "id": 1,
         "title": "Statistical Formulas",
         "thumbnail": "/placeholder.svg?height=120&width=160",
-        "downloadUrl": "/cheatsheet.pdf"
+        "downloadUrl": "/material/cheatsheet.pdf"
       },
       {
         "id": 2,
         "title": "Probability Rules",
         "thumbnail": "/placeholder.svg?height=120&width=160",
-        "downloadUrl": "/cheatsheet.pdf"
+        "downloadUrl": "/material/cheatsheet.pdf"
       }
     ],
     "exercises": [
@@ -502,13 +502,13 @@
         "id": 1,
         "title": "Logic Symbols",
         "thumbnail": "/placeholder.svg?height=120&width=160",
-        "downloadUrl": "/cheatsheet.pdf"
+        "downloadUrl": "/material/cheatsheet.pdf"
       },
       {
         "id": 2,
         "title": "Set Operations",
         "thumbnail": "/placeholder.svg?height=120&width=160",
-        "downloadUrl": "/cheatsheet.pdf"
+        "downloadUrl": "/material/cheatsheet.pdf"
       }
     ],
     "exercises": [

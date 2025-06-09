@@ -9,7 +9,7 @@
   z-index: 1000;
 
   .modal-content {
-    background-color: var(--olivegreen);
+    background-color: var(--softgreen);
     border-radius: 1rem;
     width: fit-content;
     height: fit-content;
@@ -20,7 +20,7 @@
       position: absolute;
       top: 0.5rem;
       right: 0.5rem;
-      color: var(--linen);
+      color: var(--darkforest);
       border-radius: 50%;
       width: 2.5rem;
       height: 2.5rem;
@@ -54,7 +54,9 @@
         border-radius: 0.5rem;
 
         img {
-          object-fit: cover;
+          width: 100%;
+          height: 100%;
+          object-fit: fill;
         }
       }
 
@@ -62,11 +64,11 @@
         text-align: center;
 
         .certification-title {
-          color: var(--linen);
+          color: var(--darkforest);
         }
 
         p {
-          color: var(--linen);
+          color: var(--darkforest);
           text-align: center;
           text-transform: uppercase;
         }

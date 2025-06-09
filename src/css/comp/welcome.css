@@ -2,16 +2,17 @@
   display: flex;
   align-items: flex-start;
   flex-direction: column;
-  background-color: var(--darkslategray);
+  background-color: transparent;
+  backdrop-filter: brightness(0%);
   background-image: url("../assets/img/math-background.png");
   background-size: contain;
   background-position: center;
   height: 100vh;
   width: 100%;
   padding: 2rem;
-  color: var(--linen);
+  color: var(--neongreen);
+  box-shadow: 0 0 12px var(--neongreen);
   border-radius: 0 12.5rem 12.5rem 0;
-  box-shadow: 10px 10px 15px 0px rgba(0, 0, 0, 0.25);
 
   .welcome-text {
     display: flex;
@@ -26,7 +27,7 @@
     display: block;
     width: 15rem;
     height: 3px;
-    background-color: var(--linen);
+    background-color: var(--neongreen);
     margin: 5rem 0;
   }
 }

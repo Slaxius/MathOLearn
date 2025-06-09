@@ -9,10 +9,11 @@
   align-items: center;
   padding: 0.5rem 1rem;
   width: 100%;
-  background-color: var(--linen);
+  background-color: var(--softwhite);
   border-radius: 10px;
-  color: var(--darkslategray);
+  color: var(--darkforest);
   overflow: hidden;
+  cursor: pointer;
 
   .notif-type {
     width: 15%;
@@ -43,14 +44,14 @@
   }
 }
 .notification-card:hover{
-  filter: brightness(90%);
-  cursor: pointer;
+  filter: brightness(80%);
 }
 
 .notification-card.opened {
-  background-color: rgba(255, 255, 255, 0.25);
-  color: var(--olive);
+  background-color: rgba(255, 255, 255, 0.3);
+  color: var(--softgreen);
+  filter: brightness(50%);
 }
 .notification-card.opened:hover{
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.2);
 }

@@ -8,6 +8,8 @@
   padding: 2rem;
   color: var(--softwhite);
   position: fixed;
+  border-right: 1px solid var(--neongreen);
+  box-shadow: 0 0 4px var(--neongreen);
 
   .top {
     display: flex;

@@ -10,11 +10,11 @@
     gap: 1rem;
 
     h1 {
-      color: var(--linen);
+      color: var(--softwhite);
     }
 
     .options-button {
-      color: var(--darkslategray);
+      color: var(--darkforest);
       display: flex;
       align-items: center;
       justify-content: center;

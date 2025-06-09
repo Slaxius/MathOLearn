@@ -7,18 +7,18 @@
 }
 
 .toggle-label {
-  color: var(--linen);
+  color: var(--softwhite);
 }
 
 .toggle-switch {
   position: relative;
   width: 6rem;
   height: 3rem;
-  background-color: var(--olive);
+  background-color: var(--greenglass);
   border-radius: 2rem;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 2px var(--softgreen);
 }
 
 .toggle-circle {
@@ -28,19 +28,15 @@
   height: 2.5rem;
   border-radius: 50%;
   transition: all 0.3s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 4px var(--softgreen);
 }
 
 .toggle-switch.off .toggle-circle {
   left: 0.5rem;
-  background-color: var(--darkseagreen);
+  background-color: var(--lightgray);
 }
 
 .toggle-switch.on .toggle-circle {
   left: 3rem;
-  background-color: var(--linen);
-}
-
-.toggle-switch:hover {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  background-color: var(--neongreen);
 }

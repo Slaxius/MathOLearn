@@ -15,7 +15,7 @@
 
     .subject-title {
       display: flex;
-      color: var(--darkslategray);
+      color: var(--neongreen);
       text-transform: uppercase;
     }
   }

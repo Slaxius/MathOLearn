@@ -1,6 +1,6 @@
 .calendar-container {
-  background-color: rgba(0, 0, 0, 0.25);
-  border: 1px solid var(--linen);
+  background-color: transparent;
+  border: 1px solid var(--neongreen);
   border-radius: 10px;
   padding: 1.5rem;
   width: fit-content;
@@ -17,7 +17,7 @@
 
     .header-title{
       width: 100%;
-      color: var(--linen);
+      color: var(--softwhite);
       
       .title{
         text-transform: uppercase;
@@ -38,7 +38,7 @@
       }
     }
     .streak-days{
-      color: var(--linen);
+      color: var(--softwhite);
     }
 
     .handle-month-year {
@@ -54,13 +54,13 @@
         width: 18rem;
 
         h1 {
-          color: var(--linen);
+          color: var(--softwhite);
         }
       }
 
       .prev-next {
-        background-color: var(--darkslategray);
-        color: var(--linen);
+        background-color: var(--neongreen);
+        color: var(--softwhite);
         border: none;
         padding: 0.5rem 1rem;
         cursor: pointer;
@@ -68,14 +68,14 @@
       }
 
       .prev-next:hover {
-        background-color: var(--olive);
+        filter: brightness(80%);
       }
     }
   }
 
   .calendar-days {
     margin-top: 1rem;
-    border: 1px solid var(--darkslategray);
+    border: 1px solid var(--neongreen);
     border-radius: 10px;
     padding: 0.5rem;
   }
@@ -84,6 +84,7 @@
     display: flex;
     justify-content: space-around;
     margin-bottom: 0.5rem;
+    color: var(--softwhite);
   }
 
   .calendar-day {
@@ -94,21 +95,22 @@
     align-items: center;
     justify-content: center;
     transition: background-color 0.3s ease;
+    cursor: default;
   }
 
   .calendar-day.current-month.today {
-    background-color: var(--darkslategray);
-    color: var(--linen);
+    background-color: var(--neongreen);
+    color: var(--softwhite);
   }
 
   .calendar-day.current-month {
-    background-color: var(--linen);
-    color: var(--darkslategray);
+    background-color: var(--lightgray);
+    color: var(--darkforest);
   }
 
   .calendar-day.other-month {
-    background-color: rgba(0, 0, 0, 0.25);
-    color: var(--olive);
+    background-color: var(--greenglass);
+    color: var(--lightgray);
   }
 
   .calendar-day:hover,

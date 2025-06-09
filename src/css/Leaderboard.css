@@ -1,4 +1,4 @@
-.main-section.leaderboard{
+.main-section.leaderboard {
   padding: 2rem 1rem 0 1rem;
 }
 
@@ -21,11 +21,17 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      border: 2px solid var(--linen);
+      border: 2px solid var(--softwhite);
       height: 9rem;
       width: 9rem;
       border-radius: 50%;
       position: relative;
+
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
     }
 
     .user-medal {
@@ -38,9 +44,9 @@
       justify-content: space-between;
       flex-direction: column;
       padding: 1.5rem;
-      color: var(--linen);
+      color: var(--softwhite);
       border-radius: 1rem 1rem 0 0;
-      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 0 4px var(--neongreen);
     }
   }
 
@@ -51,7 +57,7 @@
 
     .user-card {
       height: 13rem;
-      background-color: var(--olive);
+      background-color: var(--second);
     }
   }
   .first-place {
@@ -61,7 +67,7 @@
 
     .user-card {
       height: 16rem;
-      background-color: var(--darkslategray);
+      background-color: var(--first);
     }
   }
   .third-place {
@@ -71,7 +77,7 @@
 
     .user-card {
       height: 10rem;
-      background-color: var(--olivegreen);
+      background-color: var(--third);
     }
   }
 }
@@ -83,11 +89,11 @@
   flex-direction: column;
   gap: 0.5rem;
   padding: 1rem 1.5rem;
-  background-color: var(--olivegreen);
+  background-color: var(--greenglass);
   border-radius: 2rem 2rem 0 0;
   width: 75%;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
   margin-top: -2rem;
+  box-shadow: 0 0 4px var(--neongreen);
 
   .ranking-item {
     display: flex;
@@ -100,22 +106,28 @@
     border-radius: 1.5rem;
 
     .rank-number {
-      background-color: var(--lightgray);
-      color: var(--darkslategray);
-      border-radius: 50%;
-      height: 3rem;
-      width: 3.5rem;
       display: flex;
       align-items: center;
       justify-content: center;
+      height: 3rem;
+      width: 3.5rem;
+      border-radius: 50%;
+      background-color: var(--lightgray);
+      color: var(--darkforest);
     }
 
     .user-picture {
       border: 1px solid var(--lightgray);
-      width: 3rem;
-      height: 3rem;
+      width: 4rem;
+      height: 3.2rem;
       border-radius: 50%;
       background-color: rgba(0, 0, 0, 0.25);
+
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
     }
 
     .user-name {
@@ -124,19 +136,19 @@
   }
 
   .ranking-item:hover {
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: rgba(0, 0, 0, 0.25);
     scale: 1.01;
   }
 
   .current-user {
-    color: var(--linen);
-    background-color: var(--darkseagreen);
+    color: var(--softwhite);
+    background-color: var(--darkjungle);
 
     .user-info .user-picture {
-      border: 1px solid var(--linen);
+      border: 1px solid var(--softwhite);
     }
   }
   .current-user:hover {
-    background-color: var(--darkseagreen);
+    background-color: var(--darkjungle);
   }
 }

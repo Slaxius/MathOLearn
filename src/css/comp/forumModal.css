@@ -9,7 +9,7 @@
   z-index: 1000;
 
   .post-forum-content {
-    background-color: var(--olivegreen);
+    background-color: var(--darkjungle);
     border-radius: 1rem;
     width: 60%;
     height: fit-content;
@@ -23,7 +23,7 @@
       width: 100%;
       align-items: center;
       justify-content: space-between;
-      color: var(--linen);
+      color: var(--softwhite);
 
       .post-forum-card-title {
         display: flex;
@@ -32,7 +32,7 @@
       }
 
       .post-forum-close {
-        color: var(--linen);
+        color: var(--softwhite);
         border-radius: 50%;
         width: 2.5rem;
         height: 2.5rem;
@@ -45,12 +45,16 @@
       .post-forum-close:hover {
         background: rgba(0, 0, 0, 0.1);
       }
+
+      .post-forum-close:active {
+        filter: brightness(80%);
+      }
     }
 
     .post-forum-body {
       display: flex;
       width: 100%;
-      background-color: var(--linen);
+      background-color: var(--softwhite);
       border-radius: 10px;
       padding: 1rem;
       flex-direction: column;
@@ -67,9 +71,16 @@
           align-items: center;
           justify-content: center;
           border-radius: 50%;
-          border: 1px solid var(--darkslategray);
+          border: 1px solid var(--darkforest);
           width: 4rem;
           height: 4rem;
+
+          .profile-image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            object-fit: cover;
+          }
         }
 
         .filter-control {
@@ -85,16 +96,16 @@
             flex-direction: column;
 
             .filter-label {
-              color: var(--darkslategray);
+              color: var(--darkforest);
             }
 
             .filter-select {
-              background-color: var(--linen);
+              background-color: var(--softwhite);
               width: 15rem;
               padding: 0.5rem;
               border-radius: 8px;
               box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-              color: var(--darkslategray);
+              color: var(--darkforest);
             }
           }
         }
@@ -110,7 +121,7 @@
           align-items: flex-start;
           width: 100%;
           min-height: 5rem;
-          border-bottom: 1px solid var(--darkslategray);
+          border-bottom: 1px solid var(--darkforest);
           resize: none;
           overflow-y: hidden;
           background-color: transparent;
@@ -128,24 +139,28 @@
         width: 100%;
 
         .character-count {
-          color: var(--darkslategray);
+          color: var(--darkforest);
 
           .text-warning {
-            color: var(--red);
+            color: red;
           }
         }
 
         .submit-btn {
-          color: var(--linen);
-          background-color: var(--olivegreen);
+          color: var(--softwhite);
+          background-color: var(--darkjungle);
           padding: 0.5rem 1rem;
           border-radius: 10px;
           cursor: pointer;
           box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
         }
 
-        .submit-btn:hover{
+        .submit-btn:hover {
           opacity: 0.8;
+        }
+
+        .submit-btn:active {
+          filter: brightness(80%);
         }
       }
     }

@@ -12,7 +12,7 @@ function certifDetail({ isOpen, onClose, certification }) {
 
         <div className="certification-detail">
           <div className="certification-card">
-            <img src="" alt="certification" />
+            <img src={certification.image} alt="certification" className="certification-image"/>
           </div>
           <div className="certification-info">
             <h2 className="certification-title header3">

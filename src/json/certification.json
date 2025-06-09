@@ -1,20 +1,24 @@
 [
   {
-    "title": "Certification of Completion",
+    "image": "/assets/img/certification.jpg",
+    "title": "Certificate of Completion",
     "subject": "Basic Statistic",
     "date": "December 2024"
   },
   {
-    "title": "Certification of Completion",
+    "image": "/assets/img/certification.jpg",
+    "title": "Certificate of Completion",
     "subject": "Statistic 2",
     "date": "November 2024"
   },
   {
+    "image": "/assets/img/certification.jpg",
     "title": "Statistics and Probability",
     "subject": "Calculus",
     "date": "October 2024"
   },
   {
+    "image": "/assets/img/certification.jpg",
     "title": "Calculus Mastery",
     "subject": "Advanced Calculus 1",
     "date": "September 2024"

@@ -1,16 +1,16 @@
 .button {
   display: flex;
-  background-color: var(--olive);
+  background-color: var(--neongreen);
   border-radius: 10px;
   padding: 0.75rem 2.5rem;
-  color: var(--linen);
+  color: var(--softwhite);
   justify-content: center;
 }
 
 .button:hover {
-  background-color: var(--olivegreen);
+  background-color: var(--darkjungle);
 }
 
 .button:active{
-  border: 2px solid var(--linen);
+  filter: brightness(80%);
 }

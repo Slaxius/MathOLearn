@@ -6,14 +6,19 @@
   width: calc(100% - 21.9rem);
   height: auto;
   gap: 1rem;
-  background-color: var(--olivedrab);
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  background-color: var(--darkforest);
+  box-shadow: 1px 0 6px var(--neongreen);
+  border-bottom: 1px solid var(--neongreen);
   position: fixed;
   margin-left: 21.9rem;
   z-index: 5;
 
   .greet {
-    color: var(--darkslategray);
+    color: var(--softwhite);
+  }
+
+  .greetName {
+    color: var(--neongreen);
   }
 
   .life {
@@ -39,8 +44,8 @@
     text-align: center;
     position: absolute;
     padding: 0.5rem;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: var(--linen);
+    background-color: var(--greenglass);
+    color: var(--softwhite);
     border-radius: 5px;
     max-width: 100%;
   }

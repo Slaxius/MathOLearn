@@ -6,15 +6,15 @@
   padding: 0 10rem;
 
   .feedback-title {
-    color: var(--linen);
+    color: var(--neongreen);
     text-align: center;
   }
 
   .feedback-form-container {
-    background-color: var(--olive);
+    background-color: var(--greenglass);
     padding: 2rem;
     border-radius: 2rem;
-    color: var(--linen);
+    color: var(--softwhite);
 
     .form-section {
       display: flex;
@@ -52,7 +52,7 @@
             padding: 0.75rem;
             border-radius: 4px;
             background-color: var(--lightgray);
-            color: var(--darkslategray);
+            color: var(--darkforest);
           }
 
           .form-textarea {
@@ -66,15 +66,15 @@
       text-align: right;
 
       .submit-button {
-        background-color: var(--darkseagreen);
-        color: var(--linen);
+        background-color: var(--neongreen);
+        color: var(--softwhite);
         padding: 0.75rem 1.5rem;
         border-radius: 10px;
         cursor: pointer;
       }
 
       .submit-button:hover {
-        background-color: var(--olivedrab);
+        background-color: var(--darkjungle);
       }
     }
   }

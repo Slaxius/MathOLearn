@@ -2,16 +2,16 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  background-color: var(--olivegreen);
   border-radius: 1rem;
   padding: 1rem;
+  border: 1px solid var(--neongreen);
 
   .section-header{
     display: flex;
     width: 100%;
 
     .section-title{
-      color: var(--linen);
+      color: var(--softwhite);
     }
   }
 
