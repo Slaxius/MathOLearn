@@ -1,9 +1,6 @@
 import Navbar from "../components/navbar.jsx";
 import Header from "../components/header.jsx";
 import "../css/Leaderboard.css";
-import GoldMedal from "../assets/icon/gold_medal.svg";
-import SilverMedal from "../assets/icon/silver_medal.svg";
-import BronzeMedal from "../assets/icon/bronze_medal.svg";
 import leaderboardData from "../json/leaderboard_data.json"
 
 function Leaderboard() {
@@ -18,10 +15,10 @@ function Leaderboard() {
         <div className="podium-container">
           <div className="podium-item third-place">
             <div className="user-profile-picture">
-              <img src="" alt="third-place user picture" />
+              <img src="/assets/icon/username_icon.svg" alt="third-place user picture" />
             </div>
             <div className="user-medal">
-              <img src={BronzeMedal} alt="bronze-medal" />
+              <img src="/assets/icon/bronze_medal.svg" alt="bronze-medal" />
             </div>
             <div className="user-card">
               <p className="user-name header5">{topThree[2]?.username}</p>
@@ -30,10 +27,10 @@ function Leaderboard() {
           </div>
           <div className="podium-item first-place">
             <div className="user-profile-picture">
-              <img src="" alt="first-place user picture" />
+              <img src="/assets/icon/username_icon.svg" alt="first-place user picture" />
             </div>
             <div className="user-medal">
-              <img src={GoldMedal} alt="gold-medal" />
+              <img src="/assets/icon/gold_medal.svg" alt="gold-medal" />
             </div>
             <div className="user-card">
               <p className="user-name header5">{topThree[0]?.username}</p>
@@ -42,10 +39,10 @@ function Leaderboard() {
           </div>
           <div className="podium-item second-place">
             <div className="user-profile-picture">
-              <img src="" alt="second-place user picture" />
+              <img src="/assets/icon/username_icon.svg" alt="second-place user picture" />
             </div>
             <div className="user-medal">
-              <img src={SilverMedal} alt="silver-medal" />
+              <img src="/assets/icon/silver_medal.svg" alt="silver-medal" />
             </div>
             <div className="user-card">
               <p className="user-name header5">{topThree[1]?.username}</p>
@@ -63,7 +60,7 @@ function Leaderboard() {
             >
               <div className="rank-number header5">{user.rank}</div>
               <div className="user-picture">
-                <img src="" alt={`${user.username} picture`} />
+                <img src="/assets/icon/username_icon.svg" alt={`${user.username} picture`} />
               </div>
               <div className="user-name boldBody1">{user.username}</div>
               <div className="user-score body1">{user.score}</div>

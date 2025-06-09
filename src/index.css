@@ -25,6 +25,12 @@
   --lightgray: #d9d9d9;
   --red: #ff0000;
 
+  --neongreen: #16ff00;
+  --darkforest: #050d05;
+  --lightgreen: #7cff6b;
+  --greenglass: rgba(22, 255, 0, 0.1);
+  --softwhite: #fafffa;
+
   --size-70: 4.375rem;
   --size-50: 3.125rem;
   --size-35: 2.1875rem;

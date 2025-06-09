@@ -2,7 +2,7 @@ import { useState } from "react";
 import Navbar from "../components/navbar.jsx";
 import Header from "../components/header.jsx";
 import "../css/Forum.css";
-import postIcon from "../assets/icon/post_icon.svg";
+// import postIcon from "../assets/icon/post_icon.svg";
 import forumFilterOption from "../json/forum_filter_option.json";
 import forumDetail from "../json/forum.json";
 import ForumModal from "../components/postForum.jsx";
@@ -52,7 +52,7 @@ function Forum() {
           </div>
           <div className="post-forum">
             <div className="post-button" onClick={handlePost}>
-              <img src={postIcon} alt="post-icon" />
+              <img src="/assets/icon/post_icon.svg" alt="post-icon" />
               <p className="header5 post-text">Post</p>
             </div>
           </div>

@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import WelcomeSection from "../../components/welcome.jsx";
 import Button from "../../components/button.jsx";
-import UsernameIcon from "../../assets/icon/username_icon.svg";
-import PasswordIcon from "../../assets/icon/password_icon.svg";
+// import UsernameIcon from "../../assets/icon/username_icon.svg";
+// import PasswordIcon from "../../assets/icon/password_icon.svg";
 import "../../css/auth/Authentication.css";
 
 function SignUp() {
@@ -15,15 +15,15 @@ function SignUp() {
         <h1 className="header2">Sign Up</h1>
         <div className="form-section">
           <div className="user-input">
-            <img src={UsernameIcon} alt="Username-icon" />
+            <img src="/assets/icon/username_icon.svg" alt="Username-icon" />
             <input type="text" placeholder="Username" className="body1" />
           </div>
           <div className="user-input">
-            <img src={PasswordIcon} alt="Password-icon" />
+            <img src="/assets/icon/password_icon.svg" alt="Password-icon" />
             <input type="password" placeholder="Password" className="body1" />
           </div>
           <div className="user-input">
-            <img src={PasswordIcon} alt="Password-icon" />
+            <img src="/assets/icon/password_icon.svg" alt="Password-icon" />
             <input
               type="password"
               placeholder="Confirm Password"

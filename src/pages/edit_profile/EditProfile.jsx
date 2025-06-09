@@ -5,7 +5,6 @@ import Navbar from "../../components/navbar.jsx";
 import Header from "../../components/header.jsx";
 import Button from "../../components/button.jsx";
 import BackButton from "../../components/backButton.jsx";
-import DefaultProfile from "../../assets/icon/username_icon.svg";
 import userDetail from "../../json/user_detail.json";
 
 function EditProfile() {
@@ -84,7 +83,7 @@ function EditProfile() {
         <div className="edit-profile-content">
           <div className="user-profile-picture">
             <img
-              src={currentUserData?.profile_picture || DefaultProfile}
+              src={currentUserData?.profile_picture || "/assets/icon/username_icon.svg"}
               alt={`${currentUserData?.name || "User"} profile picture`}
               className="profile-picture"
             />

@@ -7,7 +7,7 @@ function FinishedPage() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  console.log("Location State:", location.state); // Menampilkan state yang diterima
+  console.log("Location State:", location.state);
 
   const { title, correctAnswersCount, totalQuestions, type } =
     location.state || {};

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import "../css/comp/calendar.css";
-import StreakOff from "../assets/icon/streak_off.svg";
-import StreakOn from "../assets/icon/streak_on.svg";
+// import StreakOff from "../assets/icon/streak_off.svg";
+// import StreakOn from "../assets/icon/streak_on.svg";
 
 function calendar() {
   const [currentDate, setCurrentDate] = useState(new Date());
@@ -133,7 +133,7 @@ function calendar() {
         </div>
         <div className="streak-container">
           <img
-            src={streakDays <= 2 ? StreakOff : StreakOn}
+            src={streakDays <= 2 ? "/assets/icon/streak_off.svg" : "/assets/icon/streak_on.svg"}
             alt="streak status"
           />
           <span className="streak-days header3">{streakDays}</span>

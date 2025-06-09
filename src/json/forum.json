@@ -2,7 +2,7 @@
   {
     "subject": "Calculus",
     "type": "Quiz",
-    "profile_picture": "",
+    "profile_picture": "/assets/icon/username_icon.svg",
     "username": "Silverius",
     "post_date": "15 May 2025",
     "post_hours": "13:20",
@@ -13,7 +13,7 @@
   {
     "subject": "Basic Statistic",
     "type": "Exercise",
-    "profile_picture": "",
+    "profile_picture": "/assets/icon/username_icon.svg",
     "username": "Anto",
     "post_date": "12 May 2025",
     "post_hours": "13:20",
@@ -24,7 +24,7 @@
   {
     "subject": "Linear Algebra",
     "type": "Video",
-    "profile_picture": "",
+    "profile_picture": "/assets/icon/username_icon.svg",
     "username": "Yowaimo",
     "post_date": "13 May 2025",
     "post_hours": "15:20",

@@ -2,11 +2,11 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: var(--darkslategray);
+  background-color: var(--darkforest);
   width: fit-content;
   height: 100vh;
   padding: 2rem;
-  color: var(--linen);
+  color: var(--softwhite);
   position: fixed;
 
   .top {
@@ -36,11 +36,11 @@
     .nav-item {
       display: flex;
       align-items: center;
-      background-color: var(--olive);
       padding: 1rem;
       gap: 1.5rem;
       border-radius: 12px;
       text-transform: uppercase;
+      border: 1px solid var(--softwhite);
 
       .nav-icon {
         height: var(--size-30);
@@ -48,19 +48,20 @@
       }
 
       .nav-name {
-        color: var(--linen);
+        color: var(--softwhite);
       }
     }
 
     .nav-item:hover {
-      background-color: var(--olivegreen);
+      background-color: var(--greenglass);
     }
 
+    
     .nav-item:active,
     .nav-item.active {
-      border: 1px solid var(--linen);
-      box-shadow: -3px 3px 4px rgba(0, 0, 0, 0.5);
-      background-color: var(--darkslategray);
+      border: 2px solid var(--neongreen);
+      box-shadow: 0 0 2px var(--neongreen);
+      background-color: var(--greenglass);
     }
   }
 }

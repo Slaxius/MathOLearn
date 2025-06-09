@@ -1,11 +1,9 @@
-import React from "react";
-import MOLogo from "../assets/icon/linen_logo.svg";
 import "../css/comp/welcome.css";
 
 function welcome() {
   return (
     <div className="left-side">
-      <img src={MOLogo} alt="MathOLearn Logo" />
+      <img src="/assets/icon/logo.svg" alt="MathOLearn Logo" />
       <div className="welcome-text">
         <h1 className="header1">Welcome!</h1>
         <span className="line"></span>

@@ -1,6 +1,4 @@
 import "../css/comp/header.css";
-import Alive from "../assets/icon/red_heart.svg";
-import Dead from "../assets/icon/gray_heart.svg";
 import { useState } from "react";
 
 function header() {
@@ -24,7 +22,7 @@ function header() {
         {hearts.map((heart, index) => (
           <span key={index} className="heart-status">
             <img
-              src={heart ? Alive : Dead}
+              src={heart ? "/assets/icon/red_heart.svg" : "/assets/icon/gray_heart.svg"}
               alt={heart ? "alive-heart" : "dead-heart"}
               className="heart-icon"
             />
