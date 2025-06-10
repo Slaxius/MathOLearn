@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import SignUp from "./pages/authentication/SignUp.jsx";
 import SignIn from "./pages/authentication/SignIn.jsx";
@@ -21,6 +22,22 @@ import QuizPage from "./pages/learn/QuizPage.jsx";
 import FinishedPage from "./pages/learn/FinishedPage.jsx";
 
 function App() {
+  const [settings, setSettings] = useState(() => {
+    const storedSettings = localStorage.getItem("preferences");
+    return storedSettings
+      ? JSON.parse(storedSettings)
+      : { backgroundMusic: true };
+  });
+
+  useEffect(() => {
+    const audio = document.getElementById("background-music");
+    if (settings.backgroundMusic) {
+      audio.play();
+    } else {
+      audio.pause();
+    }
+  }, [settings.backgroundMusic]);
+
   return (
     <Router>
       <Routes>
@@ -66,6 +83,14 @@ function App() {
         <Route path="/settings/feedback" element={<Feedback />} />
         <Route path="*" element={<div>Page Not Found</div>} />
       </Routes>
+
+      <audio id="background-music" loop>
+        <source
+          src="/assets/music/Growtopia OST - About theme.mp3"
+          type="audio/mp3"
+        />
+        Your browser does not support the audio element.
+      </audio>
     </Router>
   );
 }

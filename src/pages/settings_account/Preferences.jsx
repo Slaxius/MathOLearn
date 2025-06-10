@@ -20,7 +20,7 @@ function Preferences() {
   const handleToggle = (key) => {
     setSettings((prevState) => {
       const newSettings = { ...prevState, [key]: !prevState[key] };
-      
+
       localStorage.setItem("preferences", JSON.stringify(newSettings));
 
       if (key === "lightMode") {
@@ -28,6 +28,15 @@ function Preferences() {
           document.documentElement.classList.add("light-mode");
         } else {
           document.documentElement.classList.remove("light-mode");
+        }
+      }
+
+      if (key === "backgroundMusic") {
+        const audio = document.getElementById("background-music");
+        if (newSettings[key]) {
+          audio.play();
+        } else {
+          audio.pause();
         }
       }
 
@@ -41,7 +50,18 @@ function Preferences() {
     } else {
       document.documentElement.classList.remove("light-mode");
     }
-  }, [settings.lightMode]);
+
+    const audio = document.getElementById("background-music");
+    if (settings.backgroundMusic) {
+      audio.play();
+    } else {
+      audio.pause();
+    }
+
+    return () => {
+      audio.pause();
+    };
+  }, [settings.lightMode, settings.backgroundMusic]);
 
   return (
     <div className="page">

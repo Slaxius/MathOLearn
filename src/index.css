@@ -53,19 +53,6 @@
 }
 
 .light-mode {
-  /* --lightgray: #f0f0f0;
-  --darkforest: #f0f9f0;
-  --lightgreen: #b8f7a0;
-  --greenglass: rgba(22, 255, 0, 0.3);
-  --softwhite: #adb1ad;
-  --softgreen: #a3d97f;
-  --darkjungle: #84d784;
-  --first: #78e37d;
-  --second: #c7f4a2;
-  --third: #66b366;
-  /* --dark-text: #f0f9f0;   */
-  /* --light-text: #050d05; */
-
   background-color: var(--softwhite);
 }
 
