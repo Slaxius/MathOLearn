@@ -40,3 +40,26 @@
   left: 3rem;
   background-color: var(--neongreen);
 }
+
+.light-mode {
+  .toggle-label {
+    color: var(--dark-text);
+  }
+
+  .toggle-switch {
+    background-color: var(--lightgreen);
+    box-shadow: 0 0 2px var(--softgreen);
+  }
+
+  .toggle-circle {
+    box-shadow: 0 0 4px var(--darkgray);
+  }
+
+  .toggle-switch.off .toggle-circle {
+    background-color: var(--lightgray);
+  }
+
+  .toggle-switch.on .toggle-circle {
+    background-color: var(--neongreen);
+  }
+}

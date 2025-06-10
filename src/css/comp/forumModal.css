@@ -169,3 +169,89 @@
     }
   }
 }
+
+.light-mode {
+  .post-forum-overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+
+    .post-forum-content {
+      background-color: var(--lightgreen);
+
+      .post-forum-top {
+        color: var(--light-text);
+
+        .post-forum-close {
+          color: var(--light-text);
+        }
+
+        .post-forum-close:hover {
+          background: rgba(0, 0, 0, 0.1);
+        }
+
+        .post-forum-close:active {
+          filter: brightness(80%);
+        }
+      }
+
+      .post-forum-body {
+        background-color: var(--softwhite);
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+
+        .bot-header {
+          .user-profile {
+            border: 1px solid var(--darkforest);
+          }
+
+          .filter-control {
+            .filter-group {
+              .filter-label {
+                color: var(--dark-text);
+              }
+
+              .filter-select {
+                background-color: var(--softwhite);
+                box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+                color: var(--dark-text);
+              }
+            }
+          }
+        }
+
+        .bot-content {
+          .text-area {
+            border-bottom: 1px solid var(--darkforest);
+            color: var(--dark-text);
+          }
+
+          .text-area::placeholder {
+            opacity: 0.5;
+          }
+        }
+
+        .bot-footer {
+          .character-count {
+            color: var(--dark-text);
+
+            .text-warning {
+              color: red;
+            }
+          }
+
+          .submit-btn {
+            color: var(--light-text);
+            background-color: var(--neongreen);
+            box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+          }
+
+          .submit-btn:hover {
+            filter: brightness(90%);
+          }
+
+          .submit-btn:active {
+            filter: brightness(80%);
+          }
+        }
+      }
+    }
+  }
+}

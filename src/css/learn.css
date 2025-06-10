@@ -34,7 +34,7 @@
 
     .subject-bubble:hover {
       background-color: var(--softwhite);
-      border: 1px solid var(--darkforest);
+      border: 1px solid var(--neongreen);
     }
   }
 }

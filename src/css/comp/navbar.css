@@ -6,7 +6,7 @@
   width: fit-content;
   height: 100vh;
   padding: 2rem;
-  color: var(--softwhite);
+  color: var(--light-text);
   position: fixed;
   border-right: 1px solid var(--neongreen);
   box-shadow: 0 0 4px var(--neongreen);
@@ -58,12 +58,41 @@
       background-color: var(--greenglass);
     }
 
-    
     .nav-item:active,
     .nav-item.active {
-      border: 2px solid var(--neongreen);
+      border: 1px solid var(--neongreen);
       box-shadow: 0 0 2px var(--neongreen);
       background-color: var(--greenglass);
+    }
+  }
+}
+
+.light-mode {
+  .nav {
+    background-color: var(--softwhite);
+    color: var(--dark-text);
+    border-right: 1px solid var(--neongreen);
+    box-shadow: 0 0 4px var(--neongreen);
+
+    .nav-list {
+      .nav-item {
+        border: 1px solid var(--darkforest);
+
+        .nav-name {
+          color: var(--dark-text);
+        }
+      }
+
+      .nav-item:hover {
+        background-color: var(--greenglass);
+      }
+
+      .nav-item:active,
+      .nav-item.active {
+        border: 1px solid var(--neongreen);
+        box-shadow: 0 0 3px var(--neongreen);
+        background-color: var(--greenglass);
+      }
     }
   }
 }

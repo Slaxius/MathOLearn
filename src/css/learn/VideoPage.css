@@ -78,3 +78,32 @@
     }
   }
 }
+
+.light-mode {
+  .video-header {
+    .subject {
+      color: var(--dark-text);
+    }
+  }
+
+  .video-title {
+    color: var(--dark-text);
+  }
+
+  .video-content {
+    .video-container {
+      background-color: var(--greenglass);
+      box-shadow: 0 0 4px var(--neongreen);
+    }
+
+    .reference {
+      .ref {
+        color: var(--neongreen);
+
+        .reference-link {
+          color: var(--dark-text);
+        }
+      }
+    }
+  }
+}

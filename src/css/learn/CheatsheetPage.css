@@ -36,14 +36,14 @@
     border-radius: 10px;
   }
 
-  a{
+  a {
     display: flex;
     align-items: center;
     justify-content: flex-end;
     width: 100%;
     margin-top: 1rem;
 
-    .download-btn{
+    .download-btn {
       background-color: var(--darkjungle);
       padding: 1rem;
       text-transform: uppercase;
@@ -52,8 +52,38 @@
       cursor: pointer;
     }
 
-    .download-btn:hover{
+    .download-btn:hover {
       filter: brightness(80%);
+    }
+  }
+}
+
+.light-mode {
+  .cheatsheet-header {
+    .subject {
+      color: var(--dark-text);
+    }
+  }
+
+  .cheatsheet-container {
+    .cheatsheet-title {
+      color: var(--dark-text);
+    }
+
+    iframe.cheatsheet-pdf {
+      background-color: var(--greenglass);
+      box-shadow: 0 0 4px var(--neongreen);
+    }
+
+    a {
+      .download-btn {
+        background-color: var(--neongreen);
+        color: var(--light-text);
+      }
+
+      .download-btn:hover {
+        filter: brightness(80%);
+      }
     }
   }
 }

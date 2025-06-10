@@ -60,3 +60,33 @@
     }
   }
 }
+
+.light-mode {
+  .help-center {
+    .settings-title {
+      color: var(--neongreen);
+      border-bottom: 1px solid var(--mediumgray);
+    }
+
+    .accordion-items {
+      .accordion {
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        color: var(--dark-text);
+
+        .accordion-header {
+          background-color: var(--lightgray);
+          color: var(--dark-text);
+        }
+
+        .accordion-header:hover {
+          filter: brightness(90%);
+        }
+
+        .accordion-content {
+          background-color: var(--lightgray);
+          color: var(--dark-text);
+        }
+      }
+    }
+  }
+}

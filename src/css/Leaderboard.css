@@ -152,3 +152,72 @@
     background-color: var(--darkjungle);
   }
 }
+
+.light-mode {
+  .podium-container {
+    .podium-item {
+      .user-profile-picture {
+        border: 2px solid var(--darkgray);
+        background-color: var(--lightgray)
+      }
+
+      .user-card {
+        color: var(--light-text);
+        box-shadow: 0 0 4px var(--neongreen);
+      }
+    }
+
+    .second-place {
+      .user-card {
+        background-color: var(--second);
+      }
+    }
+    .first-place {
+      .user-card {
+        background-color: var(--first);
+      }
+    }
+    .third-place {
+      .user-card {
+        background-color: var(--third);
+      }
+    }
+  }
+
+  .ranking-container {
+    background-color: var(--greenglass);
+    box-shadow: 0 0 4px var(--neongreen);
+
+    .ranking-item {
+      color: var(--darkgray);
+
+      .rank-number {
+        background-color: var(--lightgray);
+        color: var(--dark-text);
+      }
+
+      .user-picture {
+        border: 1px solid var(--darkgray);
+        background-color: rgba(0, 0, 0, 0.2);
+      }
+    }
+
+    .ranking-item:hover {
+      background-color: rgba(0, 0, 0, 0.25);
+      scale: 1.01;
+    }
+
+    .current-user {
+      color: var(--dark-text);
+      background-color: var(--lightgreen);
+      box-shadow: 0 0 8px var(--mediumgray);
+
+      .user-picture {
+        border: 1px solid var(--darkforest);
+      }
+    }
+    .current-user:hover {
+      background-color: var(--neongreen);
+    }
+  }
+}

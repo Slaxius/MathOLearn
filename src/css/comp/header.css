@@ -54,3 +54,24 @@
     display: block;
   }
 }
+
+.light-mode {
+  .header {
+    background-color: var(--softwhite);
+    box-shadow: 1px 0 6px var(--neongreen);
+    border-bottom: 1px solid var(--neongreen);
+
+    .greet {
+      color: var(--dark-text);
+    }
+
+    .greetName {
+      color: var(--neongreen);
+    }
+
+    .life-text {
+      background-color: var(--lightgreen);
+      color: var(--dark-text);
+    }
+  }
+}

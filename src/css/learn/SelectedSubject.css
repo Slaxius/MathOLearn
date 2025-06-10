@@ -27,3 +27,13 @@
   flex-direction: column;
   gap: 1rem;
 }
+
+.light-mode {
+  .subject-header {
+    .top-header {
+      .subject-title {
+        color: var(--dark-text);
+      }
+    }
+  }
+}

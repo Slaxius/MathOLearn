@@ -15,29 +15,29 @@
     align-items: center;
     flex-direction: column;
 
-    .header-title{
+    .header-title {
       width: 100%;
       color: var(--light-text);
-      
-      .title{
+
+      .title {
         text-transform: uppercase;
       }
     }
 
-    .streak-container{
+    .streak-container {
       display: flex;
       height: 5rem;
       align-items: center;
       justify-content: center;
       width: 100%;
-      gap: .5rem;
+      gap: 0.5rem;
 
-      img{
+      img {
         width: 4rem;
         height: 4rem;
       }
     }
-    .streak-days{
+    .streak-days {
       color: var(--light-text);
     }
 
@@ -117,5 +117,73 @@
   .calendar-day.current-month:hover,
   .calendar-day.other-month:hover {
     opacity: 0.8;
+  }
+}
+
+.light-mode {
+  .calendar-container {
+    background-color: var(--greenglass);
+
+    border: 1px solid var(--neongreen);
+
+    .calendar-header {
+      .header-title {
+        color: var(--dark-text);
+      }
+
+      .streak-days {
+        color: var(--dark-text);
+      }
+
+      .handle-month-year {
+        .month-year {
+          h1 {
+            color: var(--dark-text);
+          }
+        }
+
+        .prev-next {
+          background-color: var(--neongreen);
+          color: var(--light-text);
+        }
+
+        .prev-next:hover {
+          filter: brightness(80%);
+        }
+      }
+    }
+
+    .calendar-days {
+      border: 1px solid var(--neongreen);
+    }
+
+    .calendar-week {
+      color: var(--light-text);
+    }
+
+    .calendar-day.current-month.today {
+      background-color: var(--neongreen);
+      color: var(--light-text);
+    }
+    .calendar-day.current-month.today:hover {
+      background-color: var(--neongreen);
+    }
+
+    .calendar-day.current-month {
+      background-color: var(--gray);
+      color: var(--dark-text);
+    }
+    .calendar-day.current-month:hover {
+      background-color: var(--mediumgray);
+    }
+
+    .calendar-day.other-month {
+      background-color: var(--greenglass);
+      color: var(--mediumgray);
+    }
+    .calendar-day.other-month:hover{
+      background-color: var(--softgreen);
+      color: var(--darkgray);
+    }
   }
 }

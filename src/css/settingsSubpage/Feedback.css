@@ -79,3 +79,47 @@
     }
   }
 }
+
+.light-mode {
+  .feedback-container {
+    .feedback-title {
+      color: var(--neongreen);
+      border-bottom: 1px solid var(--mediumgray);
+    }
+
+    .feedback-form-container {
+      background-color: var(--lightgreen);
+      color: var(--dark-text);
+      box-shadow: 0 0 8px var(--mediumgray);
+
+      .form-section {
+        color: var(--dark-text);
+        
+        .form-container {
+          .form-group {
+            .form-input,
+            .form-textarea {
+              background-color: var(--softwhite);
+            }
+          }
+        }
+      }
+
+      .form-actions {
+        .submit-button {
+          background-color: var(--neongreen);
+          color: var(--light-text);
+          text-transform: uppercase;
+        }
+
+        .submit-button:hover {
+          filter: brightness(90%);
+        }
+
+        .submit-button:active {
+          filter: brightness(80%);
+        }
+      }
+    }
+  }
+}

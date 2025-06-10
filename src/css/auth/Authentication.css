@@ -42,12 +42,12 @@
       input {
         border: none;
         background-color: transparent;
-        color: var(--text);
+        color: var(--dark-text);
         width: 100%;
       }
     }
 
-    .user-input:focus-within{
+    .user-input:focus-within {
       box-shadow: 0 0 8px var(--neongreen);
     }
 
@@ -76,5 +76,11 @@
     a:hover {
       text-decoration: underline;
     }
+  }
+}
+
+.light-mode {
+  .signin {
+    background-color: var(--darkforest);
   }
 }

@@ -76,3 +76,37 @@
     }
   }
 }
+
+.light-mode {
+  .modal-overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+
+    .modal-content {
+      background-color: var(--lightgreen);
+
+      .modal-close {
+        color: var(--dark-text);
+      }
+
+      .modal-close:hover {
+        background: rgba(0, 0, 0, 0.05);
+      }
+
+      .certification-detail {
+        .certification-card {
+          background-color: rgba(0, 0, 0, 0.25);
+        }
+
+        .certification-info {
+          .certification-title {
+            color: var(--dark-text);
+          }
+
+          p {
+            color: var(--dark-text);
+          }
+        }
+      }
+    }
+  }
+}

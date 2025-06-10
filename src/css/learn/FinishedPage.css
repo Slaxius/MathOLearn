@@ -50,3 +50,32 @@
     background-color: var(--darkjungle);
   }
 }
+
+.light-mode {
+  .finished-container {
+    background-color: var(--greenglass);
+    box-shadow: 0 0 4px var(--neongreen);
+
+    .title-container {
+      background-color: var(--lightgreen);
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+
+      .finished-title,
+      .perfect-score,
+      .score-details {
+        color: var(--light-text);
+        text-shadow: 0 0 3px var(--darkforest);
+      }
+    }
+
+    .back-page-btn {
+      background-color: var(--neongreen);
+      color: var(--light-text);
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    }
+
+    .back-page-btn:hover {
+      background-color: var(--darkjungle);
+    }
+  }
+}

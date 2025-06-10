@@ -159,3 +159,84 @@
     }
   }
 }
+
+.light-mode {
+  .quiz-header {
+    .subject-title {
+      color: var(--dark-text);
+    }
+  }
+
+  .quiz-container {
+    .quiz-title {
+      color: var(--dark-text);
+    }
+
+    .question-numbers-container {
+      background-color: var(--greenglass);
+      box-shadow: 0 0 4px var(--neongreen);
+
+      .question-number-box {
+        background-color: var(--softwhite);
+        color: var(--dark-text);
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+      }
+
+      .question-number-box:hover {
+        filter: brightness(80%);
+      }
+
+      .question-number-box.active {
+        color: var(--light-text);
+        background-color: var(--neongreen);
+      }
+    }
+
+    .questions-container {
+      .question {
+        background-color: var(--greenglass);
+        box-shadow: 0 0 4px var(--neongreen);
+
+        .question-text-box {
+          background-color: var(--lightgreen);
+          color: var(--dark-text);
+          box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+        }
+
+        .options-box {
+          .option-btn {
+            background-color: var(--lightgreen);
+            color: var(--dark-text);
+            box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+          }
+
+          .option-btn:hover {
+            filter: brightness(80%);
+          }
+
+          .option-btn.selected {
+            background-color: var(--neongreen);
+            color: var(--light-text);
+            border: 1px solid var(--softwhite);
+          }
+
+          .option-btn.selected:hover {
+            filter: brightness(100%);
+          }
+        }
+      }
+    }
+
+    .submit-container {
+      .submit-btn {
+        color: var(--light-text);
+        background-color: var(--neongreen);
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+      }
+
+      .submit-btn:hover {
+        background-color: var(--darkjungle);
+      }
+    }
+  }
+}

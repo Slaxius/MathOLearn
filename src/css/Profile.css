@@ -72,3 +72,33 @@
     scale: 1.02;
   }
 }
+
+.light-mode {
+  .user-information {
+    .user-profile-picture {
+      background-color: rgba(255, 255, 255, 0.1);
+      border: 1px solid var(--darkforest);
+    }
+
+    .user-name,
+    .user-bio {
+      color: var(--dark-text);
+    }
+  }
+
+  .user-certification-container {
+    background-color: var(--greenglass);
+    box-shadow: 0 0 4px var(--neongreen);
+
+    .user-certification {
+      background-color: var(--lightgray);
+      color: var(--dark-text);
+      filter: brightness(75%);
+      box-shadow: 0 2px 4px var(--darkforest);
+    }
+
+    .user-certification:hover {
+      scale: 1.02;
+    }
+  }
+}
