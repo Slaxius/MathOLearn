@@ -41,7 +41,10 @@ function SignIn() {
             </div>
           )}
           <div className="user-input">
-            <img src="/assets/icon/black_username_icon.svg" alt="Username-icon" />
+            <img
+              src="/assets/icon/black_username_icon.svg"
+              alt="Username-icon"
+            />
             <input
               type="text"
               placeholder="Username"
@@ -51,7 +54,10 @@ function SignIn() {
             />
           </div>
           <div className="user-input">
-            <img src="/assets/icon/black_password_icon.svg" alt="Password-icon" />
+            <img
+              src="/assets/icon/black_password_icon.svg"
+              alt="Password-icon"
+            />
             <input
               type="password"
               placeholder="Password"
@@ -65,7 +71,11 @@ function SignIn() {
               Forgot Password?
             </Link>
           </div>
-          <Button link="/learn" text="Sign In" onClick={handleSignIn} />
+          {!username || !password || error ? (
+            <Button link="#" text="Sign In" onClick={handleSignIn} />
+          ) : (
+            <Button link="/learn" text="Sign In" onClick={handleSignIn} />
+          )}
         </div>
         <p className="register-now body2">
           Don't have an account? Click here to{" "}
