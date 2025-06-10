@@ -2,8 +2,7 @@ import "../css/comp/button.css";
 import { Link } from "react-router-dom";
 
 function button({ link, text, onClick }) {
-  const handleClick = (e) => {
-    e.preventDefault();
+  const handleClick = () => {
     if (onClick) {
       onClick();
     }

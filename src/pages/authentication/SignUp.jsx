@@ -6,8 +6,6 @@ import Button from "../../components/button.jsx";
 import "../../css/auth/Authentication.css";
 
 function SignUp() {
-  const handleSignUp = () => {};
-
   return (
     <div className="signin">
       <WelcomeSection />
@@ -30,7 +28,7 @@ function SignUp() {
               className="body1"
             />
           </div>
-          <Button link="/signin" text="Sign Up" onClick={handleSignUp} />
+          <Button link="/signin" text="Sign Up" />
         </div>
         <p className="register-now body2">
           Already have account? Click here to{" "}

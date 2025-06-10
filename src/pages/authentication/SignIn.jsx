@@ -24,7 +24,6 @@ function SignIn() {
     }
 
     localStorage.setItem("username", username.trim());
-    navigate("/learn");
   };
 
   return (
@@ -66,7 +65,7 @@ function SignIn() {
               Forgot Password?
             </Link>
           </div>
-          <Button text="Sign In" onClick={handleSignIn} />
+          <Button link="/learn" text="Sign In" onClick={handleSignIn} />
         </div>
         <p className="register-now body2">
           Don't have an account? Click here to{" "}
