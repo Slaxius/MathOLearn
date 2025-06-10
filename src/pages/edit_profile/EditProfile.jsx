@@ -83,7 +83,7 @@ function EditProfile() {
         <div className="edit-profile-content">
           <div className="user-profile-picture">
             <img
-              src={currentUserData?.profile_picture || "/assets/icon/username_icon.svg"}
+              src={currentUserData?.profile_picture || "/assets/icon/white_username_icon.svg"}
               alt={`${currentUserData?.name || "User"} profile picture`}
               className="profile-picture"
             />

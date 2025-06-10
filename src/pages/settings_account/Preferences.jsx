@@ -1,25 +1,47 @@
 import Navbar from "../../components/navbar.jsx";
 import Header from "../../components/header.jsx";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import BackButton from "../../components/backButton.jsx";
 import Toggle from "../../components/toggle.jsx";
 import "../../css/settingsSubpage/SettingsAccount.css";
 import preferencesSettings from "../../json/settings_preference.json";
 
 function Preferences() {
-  const [settings, setSettings] = useState(
-    preferencesSettings.reduce((acc, option) => {
-      acc[option.key] = option.defaultValue;
-      return acc;
-    }, {})
-  );
+  const [settings, setSettings] = useState(() => {
+    const storedSettings = localStorage.getItem("preferences");
+    return storedSettings
+      ? JSON.parse(storedSettings)
+      : preferencesSettings.reduce((acc, option) => {
+          acc[option.key] = option.defaultValue;
+          return acc;
+        }, {});
+  });
 
   const handleToggle = (key) => {
-    setSettings((prevState) => ({
-      ...prevState,
-      [key]: !prevState[key],
-    }));
+    setSettings((prevState) => {
+      const newSettings = { ...prevState, [key]: !prevState[key] };
+      
+      localStorage.setItem("preferences", JSON.stringify(newSettings));
+
+      if (key === "lightMode") {
+        if (newSettings[key]) {
+          document.documentElement.classList.add("light-mode");
+        } else {
+          document.documentElement.classList.remove("light-mode");
+        }
+      }
+
+      return newSettings;
+    });
   };
+
+  useEffect(() => {
+    if (settings.lightMode) {
+      document.documentElement.classList.add("light-mode");
+    } else {
+      document.documentElement.classList.remove("light-mode");
+    }
+  }, [settings.lightMode]);
 
   return (
     <div className="page">

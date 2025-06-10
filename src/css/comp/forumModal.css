@@ -23,7 +23,7 @@
       width: 100%;
       align-items: center;
       justify-content: space-between;
-      color: var(--softwhite);
+      color: var(--light-text);
 
       .post-forum-card-title {
         display: flex;
@@ -32,7 +32,7 @@
       }
 
       .post-forum-close {
-        color: var(--softwhite);
+        color: var(--light-text);
         border-radius: 50%;
         width: 2.5rem;
         height: 2.5rem;
@@ -79,6 +79,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            width: 100;
+            height: 100%;
             object-fit: cover;
           }
         }
@@ -96,7 +98,7 @@
             flex-direction: column;
 
             .filter-label {
-              color: var(--darkforest);
+              color: var(--dark-text);
             }
 
             .filter-select {
@@ -105,7 +107,7 @@
               padding: 0.5rem;
               border-radius: 8px;
               box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-              color: var(--darkforest);
+              color: var(--dark-text);
             }
           }
         }
@@ -125,6 +127,7 @@
           resize: none;
           overflow-y: hidden;
           background-color: transparent;
+          color: var(--dark-text);
         }
 
         .text-area::placeholder {
@@ -139,7 +142,7 @@
         width: 100%;
 
         .character-count {
-          color: var(--darkforest);
+          color: var(--dark-text);
 
           .text-warning {
             color: red;
@@ -147,7 +150,7 @@
         }
 
         .submit-btn {
-          color: var(--softwhite);
+          color: var(--light-text);
           background-color: var(--darkjungle);
           padding: 0.5rem 1rem;
           border-radius: 10px;

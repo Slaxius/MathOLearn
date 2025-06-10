@@ -27,6 +27,8 @@
   --first: #1edc0f;
   --second: #74da69;
   --third: #228b22;
+  --dark-text: #050d05;
+  --light-text: #f0f9f0;
 
   --size-70: 4.375rem;
   --size-50: 3.125rem;
@@ -45,6 +47,20 @@
   --bold: 700;
 
   background-color: var(--darkforest);
+}
+
+.light-mode {
+  --lightgray: #f0f0f0;
+  /* --neongreen: #8bff6b; */
+  --darkforest: #b9b9b9;
+  --lightgreen: #b8f7a0;
+  --greenglass: rgba(22, 255, 0, 0.3);
+  --softwhite: #050d05;
+  --softgreen: #a3d97f;
+  --darkjungle: #a3d6a3;
+  --first: #78e37d;
+  --second: #c7f4a2;
+  --third: #66b366;
 }
 
 .page {

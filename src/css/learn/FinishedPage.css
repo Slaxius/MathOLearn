@@ -33,13 +33,13 @@
     .perfect-score,
     .score-details {
       text-align: center;
-      color: var(--softwhite);
+      color: var(--light-text);
     }
   }
 
   .back-page-btn {
     background-color: var(--neongreen);
-    color: var(--softwhite);
+    color: var(--light-text);
     padding: 0.5rem 1.5rem;
     border-radius: 10px;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);

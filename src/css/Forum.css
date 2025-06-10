@@ -18,7 +18,7 @@
     gap: 2rem;
 
     .filter-title {
-      color: var(--softwhite);
+      color: var(--light-text);
       text-transform: uppercase;
     }
 
@@ -32,7 +32,7 @@
         flex-direction: column;
 
         .filter-label {
-          color: var(--softwhite);
+          color: var(--light-text);
         }
 
         .filter-select {
@@ -41,13 +41,13 @@
           padding: 0.5rem;
           border-radius: 8px;
           box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-          color: var(--darkforest);
+          color: var(--dark-text);
         }
       }
 
       .apply-button {
         background-color: var(--neongreen);
-        color: var(--softwhite);
+        color: var(--light-text);
         padding: 0.5rem 1.5rem;
         border-radius: 8px;
         box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
@@ -71,7 +71,7 @@
 
     .post-button {
       display: flex;
-      color: var(--softwhite);
+      color: var(--light-text);
       align-items: center;
       justify-content: space-between;
       padding: 0.75rem 1.5rem;
@@ -112,7 +112,7 @@
     flex-direction: column;
     padding: 1rem;
     background-color: var(--softwhite);
-    color: var(--darkforest);
+    color: var(--dark-text);
     border-radius: 10px;
     box-shadow: 0 0 8px var(--neongreen);
 
@@ -167,7 +167,7 @@
       gap: 1rem;
 
       .forum-button {
-        color: var(--darkforest);
+        color: var(--dark-text);
         padding: 0.75rem 1.5rem;
         background-color: var(--neongreen);
         border-radius: 10px;

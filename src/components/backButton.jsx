@@ -1,5 +1,4 @@
 import "../css/comp/backButton.css";
-// import backButtonImg from "../assets/icon/back_button.svg";
 
 function backButton() {
   const handleBack = () => {
@@ -9,7 +8,7 @@ function backButton() {
   return (
     <div className="backButton-container">
       <button onClick={handleBack} className="backButton">
-        <img src="/assets/icon/back_button.svg" alt="back_button" />
+        <img src="/assets/icon/green_backButton.svg" alt="back_button" />
       </button>
     </div>
   );

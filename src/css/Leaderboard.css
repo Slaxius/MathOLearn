@@ -44,7 +44,7 @@
       justify-content: space-between;
       flex-direction: column;
       padding: 1.5rem;
-      color: var(--softwhite);
+      color: var(--light-text);
       border-radius: 1rem 1rem 0 0;
       box-shadow: 0 0 4px var(--neongreen);
     }
@@ -113,7 +113,7 @@
       width: 3.5rem;
       border-radius: 50%;
       background-color: var(--lightgray);
-      color: var(--darkforest);
+      color: var(--dark-text);
     }
 
     .user-picture {
@@ -141,7 +141,7 @@
   }
 
   .current-user {
-    color: var(--softwhite);
+    color: var(--light-text);
     background-color: var(--darkjungle);
 
     .user-info .user-picture {

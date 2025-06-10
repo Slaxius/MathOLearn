@@ -28,7 +28,7 @@
       border: 1px solid rgba(0, 0, 0, 0.1);
       transition: all 0.3s ease;
       border-radius: 0.5rem;
-      color: var(--darkforest);
+      color: var(--dark-text);
       overflow: hidden;
 
       .accordion-header {
@@ -38,7 +38,7 @@
         padding: 1.5rem;
         cursor: pointer;
         background-color: var(--lightgray);
-        color: var(--darkforest);
+        color: var(--dark-text);
       }
 
       .accordion-header:hover {
@@ -48,7 +48,7 @@
       .accordion-content {
         padding: 1.5rem;
         background-color: var(--lightgray);
-        color: var(--darkforest);
+        color: var(--dark-text);
         height: auto;
         overflow: hidden;
 

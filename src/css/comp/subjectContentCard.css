@@ -26,6 +26,6 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    color: var(--softwhite);
+    color: var(--light-text);
   }
 }

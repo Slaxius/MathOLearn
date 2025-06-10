@@ -13,15 +13,15 @@ function SignUp() {
         <h1 className="header2">Sign Up</h1>
         <div className="form-section">
           <div className="user-input">
-            <img src="/assets/icon/username_icon.svg" alt="Username-icon" />
+            <img src="/assets/icon/black_username_icon.svg" alt="Username-icon" />
             <input type="text" placeholder="Username" className="body1" />
           </div>
           <div className="user-input">
-            <img src="/assets/icon/password_icon.svg" alt="Password-icon" />
+            <img src="/assets/icon/black_password_icon.svg" alt="Password-icon" />
             <input type="password" placeholder="Password" className="body1" />
           </div>
           <div className="user-input">
-            <img src="/assets/icon/password_icon.svg" alt="Password-icon" />
+            <img src="/assets/icon/black_password_icon.svg" alt="Password-icon" />
             <input
               type="password"
               placeholder="Confirm Password"

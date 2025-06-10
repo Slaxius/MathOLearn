@@ -11,11 +11,11 @@ function ResetPassword() {
         <h1 className="header2">Reset Password</h1>
         <div className="form-section">
           <div className="user-input">
-            <img src="/assets/icon/username_icon.svg" alt="Username-icon" />
+            <img src="/assets/icon/black_username_icon.svg" alt="Username-icon" />
             <input type="text" placeholder="Username" className="body1" />
           </div>
           <div className="user-input">
-            <img src="/assets/icon/password_icon.svg" alt="Password-icon" />
+            <img src="/assets/icon/black_password_icon.svg" alt="Password-icon" />
             <input
               type="password"
               placeholder="Reset Password"

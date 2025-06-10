@@ -3,7 +3,7 @@ import "../css/comp/welcome.css";
 function welcome() {
   return (
     <div className="left-side">
-      <img src="/assets/icon/logo.svg" alt="MathOLearn Logo" />
+      <img src="/assets/icon/logo_dark.svg" alt="MathOLearn Logo" />
       <div className="welcome-text">
         <h1 className="header1">Welcome!</h1>
         <span className="line"></span>

@@ -1,19 +1,19 @@
 [
   {
     "id": 1,
-    "profile_picture": "",
+    "profile_picture": "/assets/icon/black_username_icon.svg",
     "name": "User",
     "bio": "An Ordinary Student at MathOLearn"
   },
   {
     "id": 2,
-    "profile_picture": "",
+    "profile_picture": "/assets/icon/black_username_icon.svg",
     "name": "Anto",
     "bio": "Student at MathOLearn"
   },
   {
     "id": 3,
-    "profile_picture": "",
+    "profile_picture": "/assets/icon/black_username_icon.svg",
     "name": "Silverius",
     "bio": "Lorem ipsum dolor gacor banget"
   }

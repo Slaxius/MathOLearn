@@ -17,7 +17,7 @@
 
     .header-title{
       width: 100%;
-      color: var(--softwhite);
+      color: var(--light-text);
       
       .title{
         text-transform: uppercase;
@@ -38,7 +38,7 @@
       }
     }
     .streak-days{
-      color: var(--softwhite);
+      color: var(--light-text);
     }
 
     .handle-month-year {
@@ -54,13 +54,13 @@
         width: 18rem;
 
         h1 {
-          color: var(--softwhite);
+          color: var(--light-text);
         }
       }
 
       .prev-next {
         background-color: var(--neongreen);
-        color: var(--softwhite);
+        color: var(--light-text);
         border: none;
         padding: 0.5rem 1rem;
         cursor: pointer;
@@ -84,7 +84,7 @@
     display: flex;
     justify-content: space-around;
     margin-bottom: 0.5rem;
-    color: var(--softwhite);
+    color: var(--light-text);
   }
 
   .calendar-day {
@@ -100,12 +100,12 @@
 
   .calendar-day.current-month.today {
     background-color: var(--neongreen);
-    color: var(--softwhite);
+    color: var(--light-text);
   }
 
   .calendar-day.current-month {
     background-color: var(--lightgray);
-    color: var(--darkforest);
+    color: var(--dark-text);
   }
 
   .calendar-day.other-month {

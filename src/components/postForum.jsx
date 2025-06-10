@@ -7,7 +7,6 @@ function ForumModal({ isOpen, onClose }) {
   const [currentUser, setCurrentUser] = useState(null);
   const textareaRef = useRef(null);
 
-  // Tambahan: State untuk form values
   const [selectedSubject, setSelectedSubject] = useState("");
   const [selectedType, setSelectedType] = useState("");
   const [content, setContent] = useState("");

@@ -20,7 +20,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--softwhite);
+    color: var(--light-text);
     margin-bottom: 1rem;
     width: 100%;
   }
@@ -47,7 +47,7 @@
       background-color: var(--darkjungle);
       padding: 1rem;
       text-transform: uppercase;
-      color: var(--softwhite);
+      color: var(--light-text);
       border-radius: 10px;
       cursor: pointer;
     }

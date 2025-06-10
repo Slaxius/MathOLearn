@@ -14,7 +14,7 @@
     background-color: var(--greenglass);
     padding: 2rem;
     border-radius: 2rem;
-    color: var(--softwhite);
+    color: var(--light-text);
 
     .form-section {
       display: flex;
@@ -52,7 +52,7 @@
             padding: 0.75rem;
             border-radius: 4px;
             background-color: var(--lightgray);
-            color: var(--darkforest);
+            color: var(--dark-text);
           }
 
           .form-textarea {
@@ -67,7 +67,7 @@
 
       .submit-button {
         background-color: var(--neongreen);
-        color: var(--softwhite);
+        color: var(--light-text);
         padding: 0.75rem 1.5rem;
         border-radius: 10px;
         cursor: pointer;

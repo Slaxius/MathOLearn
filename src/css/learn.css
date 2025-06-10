@@ -20,7 +20,7 @@
       text-transform: capitalize;
       box-shadow: 0 0 8px var(--neongreen);
       border-radius: 1rem;
-      color: var(--darkforest);
+      color: var(--dark-text);
       position: relative;
     }
 

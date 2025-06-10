@@ -4,7 +4,6 @@ import Navbar from "../components/navbar.jsx";
 import Header from "../components/header.jsx";
 import "../css/Profile.css";
 import Button from "../components/button.jsx";
-// import DefaultProfile from "../assets/icon/username_icon.svg";
 import CertificationDetail from "../components/certifDetail.jsx";
 import userDetail from "../json/user_detail.json";
 import certifications from "../json/certification.json";
@@ -50,7 +49,7 @@ function Profile() {
         <div className="user-information">
           <div className="user-profile-picture">
             <img
-              src={currentUserData?.profile_picture || "/assets/icon/username_icon.svg"}
+              src={currentUserData?.profile_picture || "/assets/icon/white_username_icon.svg"}
               alt={`${currentUserData?.name || "User"} profile picture`}
             />
           </div>

@@ -41,7 +41,7 @@ function SignIn() {
             </div>
           )}
           <div className="user-input">
-            <img src="/assets/icon/username_icon.svg" alt="Username-icon" />
+            <img src="/assets/icon/black_username_icon.svg" alt="Username-icon" />
             <input
               type="text"
               placeholder="Username"
@@ -51,7 +51,7 @@ function SignIn() {
             />
           </div>
           <div className="user-input">
-            <img src="/assets/icon/password_icon.svg" alt="Password-icon" />
+            <img src="/assets/icon/black_password_icon.svg" alt="Password-icon" />
             <input
               type="password"
               placeholder="Password"

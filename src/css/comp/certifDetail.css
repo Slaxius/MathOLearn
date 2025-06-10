@@ -20,7 +20,7 @@
       position: absolute;
       top: 0.5rem;
       right: 0.5rem;
-      color: var(--darkforest);
+      color: var(--dark-text);
       border-radius: 50%;
       width: 2.5rem;
       height: 2.5rem;
@@ -64,11 +64,11 @@
         text-align: center;
 
         .certification-title {
-          color: var(--darkforest);
+          color: var(--dark-text);
         }
 
         p {
-          color: var(--darkforest);
+          color: var(--dark-text);
           text-align: center;
           text-transform: uppercase;
         }
