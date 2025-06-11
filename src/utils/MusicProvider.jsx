@@ -7,7 +7,6 @@ export const useMusic = () => {
 };
 
 export const MusicProvider = ({ children }) => {
-  // Get initial backgroundMusic preference from localStorage or default true
   const [backgroundMusic, setBackgroundMusic] = useState(() => {
     const storedSettings = localStorage.getItem("preferences");
     const preferences = storedSettings ? JSON.parse(storedSettings) : {};
@@ -19,7 +18,6 @@ export const MusicProvider = ({ children }) => {
   const audioRef = useRef(null);
   const [isUserInteracted, setIsUserInteracted] = useState(false);
 
-  // On first user interaction anywhere, enable user interaction flag and play audio if bg music enabled
   const handleUserInteraction = () => {
     if (!isUserInteracted) {
       setIsUserInteracted(true);
@@ -34,27 +32,25 @@ export const MusicProvider = ({ children }) => {
     };
   }, []);
 
-  // Effect to control audio playback based on backgroundMusic and isUserInteracted
   useEffect(() => {
     if (audioRef.current) {
       if (backgroundMusic && isUserInteracted) {
-        // Try play audio, catch promise rejection to avoid errors
         audioRef.current.play().catch((error) => {
           console.error("Error playing audio:", error);
         });
       } else {
-        // Pause and reset audio when backgroundMusic off or no user interaction yet
         audioRef.current.pause();
         audioRef.current.currentTime = 0;
       }
     }
   }, [backgroundMusic, isUserInteracted]);
 
-  // Toggle music on/off and persist in localStorage
   const toggleMusic = () => {
     setBackgroundMusic((prev) => {
       const newSetting = !prev;
-      const storedSettings = JSON.parse(localStorage.getItem("preferences") || "{}");
+      const storedSettings = JSON.parse(
+        localStorage.getItem("preferences") || "{}"
+      );
       localStorage.setItem(
         "preferences",
         JSON.stringify({ ...storedSettings, backgroundMusic: newSetting })
@@ -76,4 +72,3 @@ export const MusicProvider = ({ children }) => {
     </MusicContext.Provider>
   );
 };
-
