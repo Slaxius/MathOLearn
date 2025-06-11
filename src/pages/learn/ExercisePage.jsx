@@ -56,6 +56,7 @@ function ExercisePage() {
           ", "
         )}`
       );
+      setSubmitted(true);
       setSelectedQuestionIndex(incorrectAnswers[0] - 1);
     } else {
       const correctAnswersCount = exercise.questions.filter(
