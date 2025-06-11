@@ -6,7 +6,11 @@ import Toggle from "../../components/toggle.jsx";
 import "../../css/settingsSubpage/SettingsAccount.css";
 import preferencesSettings from "../../json/settings_preference.json";
 
+import { useMusic } from "../../utils/MusicProvider.jsx";
+
 function Preferences() {
+  const { backgroundMusic, toggleMusic } = useMusic();
+
   const [settings, setSettings] = useState(() => {
     const storedSettings = localStorage.getItem("preferences");
     return storedSettings
@@ -31,17 +35,12 @@ function Preferences() {
         }
       }
 
-      if (key === "backgroundMusic") {
-        const audio = document.getElementById("background-music");
-        if (newSettings[key]) {
-          audio.play();
-        } else {
-          audio.pause();
-        }
-      }
-
       return newSettings;
     });
+
+    if (key === "backgroundMusic") {
+      toggleMusic(); // Memanggil toggle untuk backgroundMusic
+    }
   };
 
   useEffect(() => {
@@ -50,18 +49,7 @@ function Preferences() {
     } else {
       document.documentElement.classList.remove("light-mode");
     }
-
-    const audio = document.getElementById("background-music");
-    if (settings.backgroundMusic) {
-      audio.play();
-    } else {
-      audio.pause();
-    }
-
-    return () => {
-      audio.pause();
-    };
-  }, [settings.lightMode, settings.backgroundMusic]);
+  }, [settings.lightMode]);
 
   return (
     <div className="page">
@@ -77,7 +65,7 @@ function Preferences() {
                 key={setting.key}
                 label={setting.name}
                 isOn={settings[setting.key]}
-                onToggle={() => handleToggle(setting.key)}
+                onToggle={() => handleToggle(setting.key)} // Handle toggle
               />
             ))}
           </div>
