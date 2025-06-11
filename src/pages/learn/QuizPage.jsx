@@ -16,7 +16,6 @@ function QuizPage() {
   const [answers, setAnswers] = useState(
     new Array(quiz.questions.length).fill(null)
   );
-  const [submitted, setSubmitted] = useState(false);
 
   const handleAnswerChange = (index, answer) => {
     const newAnswers = [...answers];
@@ -37,7 +36,6 @@ function QuizPage() {
 
     const totalQuestions = quiz.questions.length;
 
-    console.log(quiz.title, correctAnswersCount, totalQuestions, "quiz");
     navigate(`/learn/subject/${subject}/quiz/${itemId}/finished`, {
       state: {
         title: quiz.title,
@@ -46,15 +44,7 @@ function QuizPage() {
         type: "quiz",
       },
     });
-
-    setSubmitted(true);
   };
-
-  useEffect(() => {
-    if (submitted) {
-      navigate(`/learn/subject/${subject}/quiz/${itemId}/finished`);
-    }
-  }, [submitted, navigate, subject, itemId]);
 
   const handleQuestionSelect = (index) => {
     setSelectedQuestionIndex(index);

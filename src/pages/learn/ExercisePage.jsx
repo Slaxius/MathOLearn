@@ -16,8 +16,10 @@ function ExercisePage() {
   const [answers, setAnswers] = useState(
     new Array(exercise.questions.length).fill(null)
   );
-
   const [submitted, setSubmitted] = useState(false);
+  const [answerStatus, setAnswerStatus] = useState(
+    new Array(exercise.questions.length).fill(null)
+  );
 
   const handleAnswerChange = (index, answer) => {
     const newAnswers = [...answers];
@@ -32,12 +34,21 @@ function ExercisePage() {
   };
 
   const handleSubmit = () => {
-    const incorrectAnswers = [];
+    const newAnswerStatus = [...answerStatus];
     exercise.questions.forEach((question, index) => {
-      if (answers[index] !== question.correctAnswer) {
-        incorrectAnswers.push(index + 1);
+      if (answers[index] === question.correctAnswer) {
+        newAnswerStatus[index] = "correct";
+      } else {
+        newAnswerStatus[index] = "incorrect";
       }
     });
+
+    setAnswerStatus(newAnswerStatus);
+    console.log("Answer Status:", newAnswerStatus);
+
+    const incorrectAnswers = newAnswerStatus
+      .map((status, index) => (status === "incorrect" ? index + 1 : null))
+      .filter((num) => num !== null);
 
     if (incorrectAnswers.length > 0) {
       alert(
@@ -47,8 +58,6 @@ function ExercisePage() {
       );
       setSelectedQuestionIndex(incorrectAnswers[0] - 1);
     } else {
-      setSubmitted(true);
-
       const correctAnswersCount = exercise.questions.filter(
         (question, index) => answers[index] === question.correctAnswer
       ).length;
@@ -62,18 +71,18 @@ function ExercisePage() {
         type: "exercise",
       };
 
-      console.log("State yang dikirim:", state);
+      try {
+        sessionStorage.setItem("exerciseResult", JSON.stringify(state));
+      } catch (e) {
+        console.error("Failed to save result in sessionStorage:", e);
+      }
+
+      setSubmitted(true);
       navigate(`/learn/subject/${subject}/exercise/${itemId}/finished`, {
         state,
       });
     }
   };
-
-  useEffect(() => {
-    if (submitted) {
-      navigate(`/learn/subject/${subject}/exercise/${itemId}/finished`);
-    }
-  }, [submitted, navigate, subject, itemId]);
 
   const handleQuestionSelect = (index) => {
     setSelectedQuestionIndex(index);
@@ -98,9 +107,19 @@ function ExercisePage() {
             {exercise.questions.map((question, index) => {
               let className = "question-number-box boldBody1";
 
+              if (submitted) {
+                if (answerStatus[index] === "correct") {
+                  className += " correct";
+                } else if (answerStatus[index] === "incorrect") {
+                  className += " incorrect";
+                }
+              }
+
               if (index === selectedQuestionIndex) {
                 className += " active";
               }
+
+              console.log(className);
 
               return (
                 <button

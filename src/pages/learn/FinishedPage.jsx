@@ -1,18 +1,56 @@
 import { useLocation, useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 import Navbar from "../../components/navbar.jsx";
 import Header from "../../components/header.jsx";
 import "../../css/learn/FinishedPage.css";
 
-function FinishedPage() {
+const FinishedPage = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  console.log("Location State:", location.state);
+  const [resultData, setResultData] = useState(null);
 
-  const { title, correctAnswersCount, totalQuestions, type } =
-    location.state || {};
+  useEffect(() => {
+    if (location.state) {
+      setResultData(location.state);
+      try {
+        sessionStorage.setItem(
+          "exerciseResult",
+          JSON.stringify(location.state)
+        );
+      } catch (e) {
+        console.error("Failed to save result in sessionStorage:", e);
+      }
+    } else {
+      try {
+        const saved = sessionStorage.getItem("exerciseResult");
+        if (saved) {
+          setResultData(JSON.parse(saved));
+        } else {
+          navigate("/learn", { replace: true });
+        }
+      } catch (e) {
+        console.error("Failed to load result from sessionStorage:", e);
+        navigate("/learn", { replace: true });
+      }
+    }
+  }, [location.state, navigate]);
 
-  console.log(location.state);
+  if (!resultData) {
+    return (
+      <div className="page">
+        <Navbar />
+        <Header />
+        <div className="main-section finished">
+          <div className="finished-container">
+            <p>Loading results...</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  const { title, correctAnswersCount, totalQuestions, type } = resultData;
 
   const scorePercentage = (correctAnswersCount / totalQuestions) * 100;
 
@@ -20,18 +58,15 @@ function FinishedPage() {
   if (type === "exercise") {
     titleMessage = `You have completed the exercise: ${title}`;
   } else if (type === "quiz") {
-    if (scorePercentage >= 60) {
-      titleMessage = `You passed the quiz: ${title}`;
-    } else {
-      titleMessage = `You failed to pass the quiz: ${title}`;
-    }
+    titleMessage =
+      scorePercentage >= 60
+        ? `You passed the quiz: ${title}`
+        : `You failed to pass the quiz: ${title}`;
   }
 
   const handleBack = () => {
     navigate("/learn");
   };
-
-  console.log(location.state);
 
   return (
     <div className="page">
@@ -57,6 +92,6 @@ function FinishedPage() {
       </div>
     </div>
   );
-}
+};
 
 export default FinishedPage;

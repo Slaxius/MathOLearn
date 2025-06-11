@@ -39,7 +39,7 @@ function Preferences() {
     });
 
     if (key === "backgroundMusic") {
-      toggleMusic(); // Memanggil toggle untuk backgroundMusic
+      toggleMusic();
     }
   };
 

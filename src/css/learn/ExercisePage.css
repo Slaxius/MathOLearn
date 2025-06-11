@@ -8,6 +8,15 @@
   }
 }
 
+.correct {
+  color: var(--light-text);
+  background-color: var(--lightgreen);
+}
+
+.incorrect {
+  color: var(--dark-text);
+  background-color: red;
+}
 .exercise-container {
   display: flex;
   flex-direction: column;
@@ -189,6 +198,16 @@
       .question-number-box.active {
         color: var(--light-text);
         background-color: var(--neongreen);
+      }
+
+      .question-number-box.correct {
+        color: var(--light-text);
+        background-color: var(--lightgreen);
+      }
+
+      .question-number-box.incorrect {
+        color: var(--dark-text);
+        background-color: red;
       }
     }
 
