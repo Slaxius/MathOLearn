@@ -47,6 +47,17 @@
       }
     }
 
+    .error {
+      width: 100%;
+      align-items: flex-start;
+      justify-content: flex-start;
+      color: red;
+    }
+
+    .general-err {
+      text-align: center;
+    }
+
     .user-input:focus-within {
       box-shadow: 0 0 8px var(--neongreen);
     }

@@ -3,18 +3,21 @@
     "id": 1,
     "profile_picture": "/assets/icon/black_username_icon.svg",
     "name": "User",
+    "password": "userpass",
     "bio": "An Ordinary Student at MathOLearn"
   },
   {
     "id": 2,
     "profile_picture": "/assets/icon/black_username_icon.svg",
     "name": "Anto",
+    "password": "antopass",
     "bio": "Student at MathOLearn"
   },
   {
     "id": 3,
     "profile_picture": "/assets/icon/black_username_icon.svg",
     "name": "Silverius",
+    "password": "silveriuspass",
     "bio": "Lorem ipsum dolor gacor banget"
   }
 ]

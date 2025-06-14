@@ -1,17 +1,19 @@
 import "../css/components/button.css";
-import { Link } from "react-router-dom";
 
 function button({ link, text, onClick }) {
   const handleClick = () => {
     if (onClick) {
       onClick();
     }
+    if (link) {
+      navigate(link);
+    }
   };
 
   return (
-    <Link to={link} className="button body1" onClick={handleClick}>
+    <button className="button body1" onClick={handleClick}>
       {text}
-    </Link>
+    </button>
   );
 }
 
