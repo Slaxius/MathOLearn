@@ -1,9 +1,9 @@
 import { useNavigate } from "react-router-dom";
-import Navbar from "../components/navbar.jsx";
-import Header from "../components/header.jsx";
-import "../css/Learn.css";
-import Calendar from "../components/calendar.jsx";
-import Subject from "../json/subject.json";
+import Navbar from "../../components/navbar.jsx";
+import Header from "../../components/header.jsx";
+import "../../css/learn/Learn.css";
+import Calendar from "../../components/calendar.jsx";
+import Subject from "../../json/subject.json";
 
 function Learn() {
   const navigate = useNavigate();

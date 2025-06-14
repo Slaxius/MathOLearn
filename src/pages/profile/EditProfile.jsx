@@ -1,4 +1,4 @@
-import "../../css/profiles/EditProfile.css";
+import "../../css/profile/EditProfile.css";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/navbar.jsx";

@@ -1,9 +1,9 @@
-import Navbar from "../components/navbar.jsx";
-import Header from "../components/header.jsx";
+import Navbar from "../../components/navbar.jsx";
+import Header from "../../components/header.jsx";
 import { Link } from "react-router-dom";
-import Button from "../components/button.jsx";
-import "../css/Settings.css";
-import settingsData from "../json/settings.json"
+import Button from "../../components/button.jsx";
+import "../../css/settings/Settings.css";
+import settingsData from "../../json/settings.json";
 
 function Settings() {
   const handleSignOut = () => {

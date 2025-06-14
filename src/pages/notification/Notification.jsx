@@ -1,7 +1,7 @@
-import Navbar from "../components/navbar.jsx";
-import Header from "../components/header.jsx";
-import "../css/Notification.css";
-import NotificationDetail from "../json/notification.json";
+import Navbar from "../../components/navbar.jsx";
+import Header from "../../components/header.jsx";
+import "../../css/notification/Notification.css";
+import NotificationDetail from "../../json/notification.json";
 
 function Notification() {
   return (
@@ -10,7 +10,10 @@ function Notification() {
       <Header />
       <div className="main-section notification">
         {NotificationDetail.map((post, index) => (
-          <div key={index} className={`notification-card ${!post.status ? "opened" : ""}`}>
+          <div
+            key={index}
+            className={`notification-card ${!post.status ? "opened" : ""}`}
+          >
             <div className="notif-type">
               <h1 className="header4">{post.type}</h1>
             </div>

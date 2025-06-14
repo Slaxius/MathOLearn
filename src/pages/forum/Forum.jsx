@@ -1,10 +1,10 @@
 import { useState } from "react";
-import Navbar from "../components/navbar.jsx";
-import Header from "../components/header.jsx";
-import "../css/Forum.css";
-import forumFilterOption from "../json/forum_filter_option.json";
-import forumDetail from "../json/forum.json";
-import ForumModal from "../components/postForum.jsx";
+import Navbar from "../../components/navbar.jsx";
+import Header from "../../components/header.jsx";
+import "../../css/forum/Forum.css";
+import forumFilterOption from "../../json/forum_filter_option.json";
+import forumDetail from "../../json/forum.json";
+import ForumModal from "../../components/postForum.jsx";
 
 function Forum() {
   const [isModalOpen, setIsModalOpen] = useState(false);

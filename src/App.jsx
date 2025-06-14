@@ -1,25 +1,38 @@
-import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
+/* Authentication */
 import SignUp from "./pages/authentication/SignUp.jsx";
 import SignIn from "./pages/authentication/SignIn.jsx";
 import ResetPw from "./pages/authentication/ResetPassword.jsx";
-import Learn from "./pages/Learn.jsx";
-import Leaderboard from "./pages/Leaderboard.jsx";
-import Forum from "./pages/Forum.jsx";
-import Notification from "./pages/Notification.jsx";
-import Profile from "./pages/Profile.jsx";
-import Settings from "./pages/Settings.jsx";
-import Preferences from "./pages/settings_account/Preferences.jsx";
-import Privacy from "./pages/settings_account/Privacy.jsx";
-import Help from "./pages/settings_support/Help.jsx";
-import Feedback from "./pages/settings_support/Feedback.jsx";
-import EditProfile from "./pages/edit_profile/EditProfile.jsx";
+
+/* Learn */
+import Learn from "./pages/learn/Learn.jsx";
 import SelectedSubject from "./pages/learn/SelectedSubject.jsx";
 import VideoPage from "./pages/learn/VideoPage.jsx";
 import CheatsheetPage from "./pages/learn/CheatsheetPage.jsx";
 import ExercisePage from "./pages/learn/ExercisePage.jsx";
 import QuizPage from "./pages/learn/QuizPage.jsx";
 import FinishedPage from "./pages/learn/FinishedPage.jsx";
+
+/* Leaderboard */
+import Leaderboard from "./pages/leaderboard/Leaderboard.jsx";
+
+/* Forum */
+import Forum from "./pages/forum/Forum.jsx";
+
+/* Notification */
+import Notification from "./pages/notification/Notification.jsx";
+
+/* Profile */
+import Profile from "./pages/profile/Profile.jsx";
+import EditProfile from "./pages/profile/EditProfile.jsx";
+
+/* Settings */
+import Settings from "./pages/settings/Settings.jsx";
+import Preferences from "./pages/settings/Preferences.jsx";
+import Privacy from "./pages/settings/Privacy.jsx";
+import Help from "./pages/settings/Help.jsx";
+import Feedback from "./pages/settings/Feedback.jsx";
 
 import { MusicProvider } from "./utils/MusicProvider.jsx";
 

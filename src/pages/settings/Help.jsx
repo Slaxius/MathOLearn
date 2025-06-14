@@ -1,7 +1,7 @@
 import Navbar from "../../components/navbar.jsx";
 import Header from "../../components/header.jsx";
 import BackButton from "../../components/backButton.jsx";
-import "../../css/settingsSubpage/Help.css";
+import "../../css/settings/Help.css";
 import { useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import faqItems from "../../json/faq.json"
