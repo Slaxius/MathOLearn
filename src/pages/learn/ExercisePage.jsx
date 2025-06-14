@@ -9,17 +9,38 @@ import BackButton from "../../components/backButton.jsx";
 function ExercisePage() {
   const { subject, itemId } = useParams();
   const subjectData = Material[subject.toLowerCase()];
-  const exercise = subjectData.exercises.find((e) => e.id === parseInt(itemId));
+  const exercise = subjectData
+    ? subjectData.exercises.find((e) => e.id === parseInt(itemId))
+    : null;
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!exercise) {
+      navigate("/learn");
+    }
+  }, [exercise, navigate]);
 
   const [selectedQuestionIndex, setSelectedQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState(
-    new Array(exercise.questions.length).fill(null)
+    exercise ? new Array(exercise.questions.length).fill(null) : []
   );
   const [submitted, setSubmitted] = useState(false);
   const [answerStatus, setAnswerStatus] = useState(
-    new Array(exercise.questions.length).fill(null)
+    exercise ? new Array(exercise.questions.length).fill(null) : []
   );
+  const [currentQuestionClue, setCurrentQuestionClue] = useState(null);
+
+  if (!exercise) {
+    return (
+      <div className="page">
+        <Navbar />
+        <Header />
+        <div className="main-section">
+          <p className="body1">Exercise not found.</p>
+        </div>
+      </div>
+    );
+  }
 
   const handleAnswerChange = (index, answer) => {
     const newAnswers = [...answers];
@@ -30,33 +51,45 @@ function ExercisePage() {
   const handleNext = () => {
     if (selectedQuestionIndex < exercise.questions.length - 1) {
       setSelectedQuestionIndex(selectedQuestionIndex + 1);
+      if (
+        submitted &&
+        answerStatus[selectedQuestionIndex + 1] === "incorrect"
+      ) {
+        setCurrentQuestionClue(
+          exercise.questions[selectedQuestionIndex + 1].clue
+        );
+      } else {
+        setCurrentQuestionClue(null);
+      }
     }
   };
 
   const handleSubmit = () => {
     const newAnswerStatus = [...answerStatus];
+    const incorrectQuestionNumbers = [];
+
     exercise.questions.forEach((question, index) => {
       if (answers[index] === question.correctAnswer) {
         newAnswerStatus[index] = "correct";
       } else {
         newAnswerStatus[index] = "incorrect";
+        incorrectQuestionNumbers.push(index + 1);
       }
     });
 
     setAnswerStatus(newAnswerStatus);
+    setSubmitted(true);
 
-    const incorrectAnswers = newAnswerStatus
-      .map((status, index) => (status === "incorrect" ? index + 1 : null))
-      .filter((num) => num !== null);
-
-    if (incorrectAnswers.length > 0) {
+    if (incorrectQuestionNumbers.length > 0) {
       alert(
-        `Beberapa jawaban masih salah pada soal nomor: ${incorrectAnswers.join(
+        `Beberapa jawaban masih salah pada soal nomor: ${incorrectQuestionNumbers.join(
           ", "
         )}`
       );
-      setSubmitted(true);
-      setSelectedQuestionIndex(incorrectAnswers[0] - 1);
+
+      const firstIncorrectIndex = incorrectQuestionNumbers[0] - 1;
+      setSelectedQuestionIndex(firstIncorrectIndex);
+      setCurrentQuestionClue(exercise.questions[firstIncorrectIndex].clue);
     } else {
       const correctAnswersCount = exercise.questions.filter(
         (question, index) => answers[index] === question.correctAnswer
@@ -77,7 +110,6 @@ function ExercisePage() {
         console.error("Failed to save result in sessionStorage:", e);
       }
 
-      setSubmitted(true);
       navigate(`/learn/subject/${subject}/exercise/${itemId}/finished`, {
         state,
       });
@@ -86,6 +118,11 @@ function ExercisePage() {
 
   const handleQuestionSelect = (index) => {
     setSelectedQuestionIndex(index);
+    if (submitted && answerStatus[index] === "incorrect") {
+      setCurrentQuestionClue(exercise.questions[index].clue);
+    } else {
+      setCurrentQuestionClue(null);
+    }
   };
 
   return (
@@ -160,6 +197,16 @@ function ExercisePage() {
                     )
                   )}
                 </div>
+                {submitted &&
+                  answerStatus[selectedQuestionIndex] === "incorrect" &&
+                  exercise.questions[selectedQuestionIndex].clue && (
+                    <div className="clue-box">
+                      <p className="clue-text body2">
+                        <span className="clue boldBody2">Clue:</span>{" "}
+                        {exercise.questions[selectedQuestionIndex].clue}
+                      </p>
+                    </div>
+                  )}
               </div>
             </div>
           </div>

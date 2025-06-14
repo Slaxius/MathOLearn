@@ -145,6 +145,22 @@
           scale: 1.02;
         }
       }
+
+      .clue-box {
+        margin-top: 2rem;
+        background-color: var(--darkjungle);
+        min-height: 4rem;
+        padding: 1rem;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        color: var(--light-text);
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+
+        .clue {
+          color: red;
+        }
+      }
     }
   }
 
@@ -242,6 +258,16 @@
 
           .option-btn.selected:hover {
             filter: brightness(100%);
+          }
+        }
+
+        .clue-box {
+          background-color: var(--lightgreen);
+          color: var(--dark-text);
+          box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+
+          .clue {
+            color: red;
           }
         }
       }
