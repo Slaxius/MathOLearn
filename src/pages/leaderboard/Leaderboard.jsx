@@ -4,8 +4,17 @@ import "../../css/leaderboard/Leaderboard.css";
 import leaderboardData from "../../json/leaderboard_data.json";
 
 function Leaderboard() {
-  const topThree = leaderboardData.slice(0, 3);
-  const remainingRanks = leaderboardData.slice(3);
+  const sortedLeaderboardData = [...leaderboardData].sort(
+    (a, b) => b.score - a.score
+  );
+
+  const rankedLeaderboardData = sortedLeaderboardData.map((user, index) => ({
+    ...user,
+    rank: index + 1,
+  }));
+
+  const topThree = rankedLeaderboardData.slice(0, 3);
+  const remainingRanks = rankedLeaderboardData.slice(3);
 
   return (
     <div className="page">

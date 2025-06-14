@@ -1,11 +1,14 @@
 [
-  { "rank": 1, "username": "Username", "score": 999 },
-  { "rank": 2, "username": "Username", "score": 999 },
-  { "rank": 3, "username": "Username", "score": 999 },
-  { "rank": 4, "username": "Username", "score": 999 },
-  { "rank": 5, "username": "Username", "score": 999 },
-  { "rank": 6, "username": "Username", "score": 999 },
-  { "rank": 7, "username": "You", "score": 999, "isCurrentUser": true },
-  { "rank": 8, "username": "Username", "score": 999 },
-  { "rank": 9, "username": "Username", "score": 999 }
+  { "rank": 1, "username": "Anto", "score": 456 },
+  { "rank": 2, "username": "Nikol", "score": 789 },
+  { "rank": 3, "username": "Anomali2", "score": 142 },
+  { "rank": 4, "username": "Stepen", "score": 1094 },
+  { "rank": 5, "username": "Ivy", "score": 3201 },
+  { "rank": 6, "username": "Anonymous", "score": 578 },
+  { "rank": 7, "username": "You", "score": 9999, "isCurrentUser": true },
+  { "rank": 8, "username": "Anomali", "score": 185 },
+  { "rank": 9, "username": "Mekel", "score": 196 },
+  { "rank": 9, "username": "Calvin", "score": 856 },
+  { "rank": 9, "username": "Clarissa", "score": 285 },
+  { "rank": 9, "username": "VeDe", "score": 301 }
 ]
