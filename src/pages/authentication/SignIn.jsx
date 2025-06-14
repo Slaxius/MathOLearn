@@ -52,9 +52,6 @@ function SignIn() {
       if (foundUser.password === password.trim()) {
         localStorage.setItem("username", foundUser.name);
         localStorage.setItem("profile_picture", foundUser.profile_picture);
-        console.log(
-          "Successfully set localStorage items and attempting navigation."
-        );
         navigate("/learn");
       } else {
         setGeneralError("Invalid username or password.");

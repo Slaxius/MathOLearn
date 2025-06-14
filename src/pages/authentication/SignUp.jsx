@@ -84,7 +84,6 @@ function SignUp() {
     const updatedUsers = [...storedUsers, newUser];
     localStorage.setItem("users", JSON.stringify(updatedUsers));
 
-    alert("Account created successfully! Please sign in.");
     navigate("/signin");
   };
 

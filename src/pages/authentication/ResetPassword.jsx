@@ -85,7 +85,6 @@ function ResetPassword() {
         ];
       }
       localStorage.setItem("users", JSON.stringify(updatedUsers));
-      console.log("Password reset successfully for:", username);
       alert("Password reset successfully!");
       navigate("/signin");
     } else {
