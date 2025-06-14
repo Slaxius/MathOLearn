@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import "../css/components/calendar.css";
 
-function calendar() {
+function Calendar({ lastLoginDateFromUser }) {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [streakDays, setStreakDays] = useState(1);
 
@@ -96,32 +96,68 @@ function calendar() {
     ));
   };
 
-  const checkStreak = () => {
+  const calculateDaysDifference = (date1, date2) => {
+    const d1 = new Date(date1);
+    const d2 = new Date(date2);
+    d1.setHours(0, 0, 0, 0);
+    d2.setHours(0, 0, 0, 0);
+
+    const diffTime = Math.abs(d2.getTime() - d1.getTime());
+    const diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24));
+    return diffDays;
+  };
+
+  const checkAndSetStreak = () => {
     const today = new Date();
-    const storedDate = localStorage.getItem("lastUsedDate");
-    const storedStreak = localStorage.getItem("streakDays");
+    const storedLastUsedDate = localStorage.getItem("lastUsedDate");
+    const storedStreak = parseInt(localStorage.getItem("streakDays")) || 0;
 
-    if (storedDate) {
-      const storedDateObj = new Date(storedDate);
-      const isSameDay =
-        today.getDate() === storedDateObj.getDate() &&
-        today.getMonth() === storedDateObj.getMonth() &&
-        today.getFullYear() === storedDateObj.getFullYear();
+    let calculatedStreak = 1;
 
-      if (!isSameDay) {
-        setStreakDays(1);
+    if (lastLoginDateFromUser) {
+      const userLastLoginDate = new Date(lastLoginDateFromUser);
+      const daysSinceUserLogin = calculateDaysDifference(
+        userLastLoginDate,
+        today
+      );
+
+      if (daysSinceUserLogin === 0) {
+        calculatedStreak = 1;
+      } else if (daysSinceUserLogin === 1) {
+        calculatedStreak = 2;
       } else {
-        setStreakDays(parseInt(storedStreak) || 1);
+        calculatedStreak = 1;
       }
     }
 
+    if (storedLastUsedDate) {
+      const storedDateObj = new Date(storedLastUsedDate);
+      const daysSinceLastComponentUse = calculateDaysDifference(
+        storedDateObj,
+        today
+      );
+
+      if (daysSinceLastComponentUse === 0) {
+        calculatedStreak = storedStreak;
+      } else if (daysSinceLastComponentUse === 1) {
+        calculatedStreak = storedStreak + 1;
+      } else {
+        calculatedStreak = 1;
+      }
+    }
+
+    if (calculatedStreak < 1) {
+      calculatedStreak = 1;
+    }
+
+    setStreakDays(calculatedStreak);
     localStorage.setItem("lastUsedDate", today.toISOString());
-    localStorage.setItem("streakDays", streakDays);
+    localStorage.setItem("streakDays", calculatedStreak.toString());
   };
 
   useEffect(() => {
-    checkStreak();
-  }, []);
+    checkAndSetStreak();
+  }, [lastLoginDateFromUser]);
 
   return (
     <div className="calendar-container">
@@ -131,7 +167,11 @@ function calendar() {
         </div>
         <div className="streak-container">
           <img
-            src={streakDays <= 2 ? "/assets/icon/streak_off.svg" : "/assets/icon/streak_on.svg"}
+            src={
+              streakDays < 3
+                ? "/assets/icon/streak_off.svg"
+                : "/assets/icon/streak_on.svg"
+            }
             alt="streak status"
           />
           <span className="streak-days header3">{streakDays}</span>
@@ -169,4 +209,4 @@ function calendar() {
   );
 }
 
-export default calendar;
+export default Calendar;

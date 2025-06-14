@@ -4,20 +4,23 @@
     "profile_picture": "/assets/icon/black_username_icon.svg",
     "name": "User",
     "password": "userpass",
-    "bio": "An Ordinary Student at MathOLearn"
+    "bio": "An Ordinary Student at MathOLearn",
+    "last_login_date": "2025-06-14"
   },
   {
     "id": 2,
     "profile_picture": "/assets/icon/black_username_icon.svg",
     "name": "Anto",
     "password": "antopass",
-    "bio": "Student at MathOLearn"
+    "bio": "Student at MathOLearn",
+    "last_login_date": "2025-06-13"
   },
   {
     "id": 3,
     "profile_picture": "/assets/icon/black_username_icon.svg",
     "name": "Silverius",
     "password": "silveriuspass",
-    "bio": "Lorem ipsum dolor gacor banget"
+    "bio": "Lorem ipsum dolor gacor banget",
+    "last_login_date": "2025-06-10"
   }
 ]
