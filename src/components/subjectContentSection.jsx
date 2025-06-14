@@ -1,5 +1,5 @@
 import ContentCard from "./subjectContentCard.jsx";
-import "../css/comp/subjectContentSection.css";
+import "../css/components/subjectContentSection.css";
 
 function subjectContentSection({ title, items, type, onClick }) {
   return (

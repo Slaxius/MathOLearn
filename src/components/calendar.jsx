@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react";
-import "../css/comp/calendar.css";
-// import StreakOff from "../assets/icon/streak_off.svg";
-// import StreakOn from "../assets/icon/streak_on.svg";
+import "../css/components/calendar.css";
 
 function calendar() {
   const [currentDate, setCurrentDate] = useState(new Date());

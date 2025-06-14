@@ -1,4 +1,4 @@
-import "../css/comp/certifDetail.css";
+import "../css/components/certifDetail.css";
 
 function certifDetail({ isOpen, onClose, certification }) {
   if (!isOpen) return null;

@@ -1,4 +1,4 @@
-import "../css/comp/subjectContentCard.css";
+import "../css/components/subjectContentCard.css";
 
 function subjectContentCard({ item, onClick }) {
   return (

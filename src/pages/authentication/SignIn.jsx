@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import WelcomeSection from "../../components/welcome.jsx";
 import Button from "../../components/button.jsx";
-import "../../css/auth/Authentication.css";
+import "../../css/authentication/Authentication.css";
 
 function SignIn() {
   const [username, setUsername] = useState("");

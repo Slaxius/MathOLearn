@@ -1,4 +1,4 @@
-import "../css/comp/backButton.css";
+import "../css/components/backButton.css";
 
 function backButton() {
   const handleBack = () => {

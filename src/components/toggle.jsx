@@ -1,4 +1,4 @@
-import "../css/comp/toggle.css";
+import "../css/components/toggle.css";
 
 const Toggle = ({ isOn, onToggle, label }) => {
   return (

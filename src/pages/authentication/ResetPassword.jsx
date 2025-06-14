@@ -1,6 +1,6 @@
 import WelcomeSection from "../../components/welcome.jsx";
 import Button from "../../components/button.jsx";
-import "../../css/auth/Authentication.css";
+import "../../css/authentication/Authentication.css";
 
 
 function ResetPassword() {

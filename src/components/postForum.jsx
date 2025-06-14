@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import forumFilterOption from "../json/forum_filter_option.json";
 import userDetail from "../json/user_detail.json";
-import "../css/comp/forumModal.css";
+import "../css/components/forumModal.css";
 
 function ForumModal({ isOpen, onClose }) {
   const [currentUser, setCurrentUser] = useState(null);

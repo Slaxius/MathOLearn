@@ -1,4 +1,4 @@
-import "../css/comp/header.css";
+import "../css/components/header.css";
 import { useState } from "react";
 
 function header() {
