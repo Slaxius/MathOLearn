@@ -44,7 +44,6 @@ function ExercisePage() {
     });
 
     setAnswerStatus(newAnswerStatus);
-    console.log("Answer Status:", newAnswerStatus);
 
     const incorrectAnswers = newAnswerStatus
       .map((status, index) => (status === "incorrect" ? index + 1 : null))
@@ -119,8 +118,6 @@ function ExercisePage() {
               if (index === selectedQuestionIndex) {
                 className += " active";
               }
-
-              console.log(className);
 
               return (
                 <button

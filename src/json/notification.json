@@ -1,26 +1,68 @@
 [
   {
+    "id": "notif-forum-linear-algebra-apeng",
     "type": "Forum",
     "subject": "Linear Algebra",
     "message": "Apeng just posted a new forum!",
-    "status": true
+    "status": true,
+    "targetRouteType": "forum",
+    "targetSubjectSlug": null,
+    "targetMaterialType": null,
+    "targetItemId": "post-3"
   },
   {
+    "id": "notif-lecture-calculus-cheatsheet",
     "type": "Lecture",
     "subject": "Calculus",
     "message": "New cheatsheet for integration is now available!",
-    "status": true
+    "status": true,
+    "targetRouteType": "learn",
+    "targetSubjectSlug": "calculus",
+    "targetMaterialType": "cheatsheet",
+    "targetItemId": "2"
   },
   {
+    "id": "notif-quiz-discrete-math-challenge",
     "type": "Quiz",
-    "subject": "Discrete Mathtematics",
+    "subject": "Discrete Mathematics",
     "message": "Ready to challenge yourself? Flex",
-    "status": true
+    "status": true,
+    "targetRouteType": "learn",
+    "targetSubjectSlug": "discrete mathematics",
+    "targetMaterialType": "quiz",
+    "targetItemId": "1"
   },
   {
+    "id": "notif-forum-basic-statistic-reply",
     "type": "Forum",
     "subject": "Basic Statistic",
-    "message": "Ciduk Warrior replied your forum! oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo",
-    "status": false
+    "message": "Charlie replied your forum!",
+    "status": false,
+    "targetRouteType": "forum",
+    "targetSubjectSlug": null,
+    "targetMaterialType": null,
+    "targetItemId": "post-2"
+  },
+  {
+    "id": "notif-exercise-calculus-derivatives",
+    "type": "Exercise",
+    "subject": "Calculus",
+    "message": "New exercise: Derivatives Practice is available!",
+    "status": true,
+    "targetRouteType": "learn",
+    "targetSubjectSlug": "calculus",
+    "targetMaterialType": "exercise",
+    "targetItemId": "2"
+  },
+  {
+    "id": "notif-lecture-linear-algebra-matrix",
+    "type": "Lecture",
+    "subject": "Linear Algebra",
+    "message": "New video: Matrix Operations!",
+    "status": true,
+    "targetRouteType": "learn",
+    "targetSubjectSlug": "linear algebra",
+    "targetMaterialType": "video",
+    "targetItemId": "2"
   }
 ]
