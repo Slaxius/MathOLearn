@@ -1,0 +1,81 @@
+[
+  {
+    "postId": "post-1",
+    "comments": [
+      {
+        "commentId": "comment-1-1",
+        "username": "Alice",
+        "profile_picture": "/assets/icon/black_username_icon.svg",
+        "comment_date": "15 May 2025",
+        "comment_hours": "13:30",
+        "text": "That's so sweet of you, Silverius!"
+      },
+      {
+        "commentId": "comment-1-2",
+        "username": "Bob",
+        "profile_picture": "/assets/icon/black_username_icon.svg",
+        "comment_date": "15 May 2025",
+        "comment_hours": "13:45",
+        "text": "We love you too! Keep up the good vibes."
+      }
+    ]
+  },
+  {
+    "postId": "post-2",
+    "comments": [
+      {
+        "commentId": "comment-2-1",
+        "username": "Charlie",
+        "profile_picture": "/assets/icon/black_username_icon.svg",
+        "comment_date": "12 May 2025",
+        "comment_hours": "13:30",
+        "text": "Haha, that's a long message, Anto!"
+      }
+    ]
+  },
+  {
+    "postId": "post-3",
+    "comments": [
+      {
+        "commentId": "comment-3-1",
+        "username": "David",
+        "profile_picture": "/assets/icon/black_username_icon.svg",
+        "comment_date": "13 May 2025",
+        "comment_hours": "15:30",
+        "text": "I know the feeling! Which part are you struggling with?"
+      },
+      {
+        "commentId": "comment-3-2",
+        "username": "Eve",
+        "profile_picture": "/assets/icon/black_username_icon.svg",
+        "comment_date": "13 May 2025",
+        "comment_hours": "15:40",
+        "text": "Linear algebra can be tricky. Try breaking it down into smaller concepts."
+      },
+      {
+        "commentId": "comment-3-3",
+        "username": "Frank",
+        "profile_picture": "/assets/icon/black_username_icon.svg",
+        "comment_date": "13 May 2025",
+        "comment_hours": "16:00",
+        "text": "Perhaps a different video explains it better? Khan Academy is great."
+      },
+      {
+        "commentId": "comment-3-4",
+        "username": "Grace",
+        "profile_picture": "/assets/icon/black_username_icon.svg",
+        "comment_date": "13 May 2025",
+        "comment_hours": "16:15",
+        "text": "What topic specifically in linear algebra?"
+      },
+      {
+        "commentId": "comment-3-5",
+        "username": "Heidi",
+        "profile_picture": "/assets/icon/black_username_icon.svg",
+        "comment_date": "13 May 2025",
+        "comment_hours": "16:30",
+        "text": "Vectors and matrices usually require practice."
+      }
+    ]
+  }
+]

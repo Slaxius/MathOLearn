@@ -19,6 +19,7 @@ import Leaderboard from "./pages/leaderboard/Leaderboard.jsx";
 
 /* Forum */
 import Forum from "./pages/forum/Forum.jsx";
+import ViewForum from "./pages/forum/ViewForum.jsx";
 
 /* Notification */
 import Notification from "./pages/notification/Notification.jsx";
@@ -41,10 +42,15 @@ function App() {
     <MusicProvider>
       <Router>
         <Routes>
+          {/* Default */}
           <Route path="/" element={<SignIn />} />
+
+          {/* Authentication */}
           <Route path="/signup" element={<SignUp />} />
           <Route path="/signin" element={<SignIn />} />
           <Route path="/resetpassword" element={<ResetPw />} />
+
+          {/* Learn */}
           <Route path="/learn" element={<Learn />} />
           <Route path="/learn/subject/:subject" element={<SelectedSubject />} />
           <Route
@@ -71,16 +77,29 @@ function App() {
             path="/learn/subject/:subject/quiz/:itemId/finished"
             element={<FinishedPage />}
           />
+
+          {/* Leaderboard */}
           <Route path="/leaderboard" element={<Leaderboard />} />
+
+          {/* Forum */}
           <Route path="/forum" element={<Forum />} />
+          <Route path="/forum/:postId" element={<ViewForum />} />
+
+          {/* Notification */}
           <Route path="/notification" element={<Notification />} />
+
+          {/* Profile */}
           <Route path="/profile" element={<Profile />} />
           <Route path="/profile/editprofile" element={<EditProfile />} />
+
+          {/* Settings */}
           <Route path="/settings" element={<Settings />} />
           <Route path="/settings/preferences" element={<Preferences />} />
           <Route path="/settings/privacy" element={<Privacy />} />
           <Route path="/settings/help" element={<Help />} />
           <Route path="/settings/feedback" element={<Feedback />} />
+
+          {/* Page Not Found */}
           <Route path="*" element={<div>Page Not Found</div>} />
         </Routes>
       </Router>

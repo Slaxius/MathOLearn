@@ -1,5 +1,6 @@
 [
   {
+    "id": "post-1",
     "subject": "Calculus",
     "type": "Quiz",
     "profile_picture": "/assets/icon/black_username_icon.svg",
@@ -11,6 +12,7 @@
     "like_num": 3
   },
   {
+    "id": "post-2",
     "subject": "Basic Statistic",
     "type": "Exercise",
     "profile_picture": "/assets/icon/black_username_icon.svg",
@@ -22,6 +24,7 @@
     "like_num": 1
   },
   {
+    "id": "post-3",
     "subject": "Linear Algebra",
     "type": "Video",
     "profile_picture": "/assets/icon/black_username_icon.svg",

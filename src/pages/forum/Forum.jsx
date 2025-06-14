@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Navbar from "../../components/navbar.jsx";
 import Header from "../../components/header.jsx";
+import { Link } from "react-router-dom";
 import "../../css/forum/Forum.css";
 import forumFilterOption from "../../json/forum_filter_option.json";
 import forumDetail from "../../json/forum.json";
@@ -8,15 +9,20 @@ import ForumModal from "../../components/postForum.jsx";
 
 function Forum() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [posts, setPosts] = useState(
+  const [allPosts, setAllPosts] = useState(
     forumDetail.map((post) => ({ ...post, isLiked: false }))
   );
+  const [displayedPosts, setDisplayedPosts] = useState([]);
+
+  const [tempSelectedSubject, setTempSelectedSubject] = useState("all");
+  const [tempSelectedType, setTempSelectedType] = useState("all");
 
   const [activeSubjectFilter, setActiveSubjectFilter] = useState("all");
   const [activeTypeFilter, setActiveTypeFilter] = useState("all");
 
-  const [tempSelectedSubject, setTempSelectedSubject] = useState("all");
-  const [tempSelectedType, setTempSelectedType] = useState("all");
+  useEffect(() => {
+    applyFilters();
+  }, [allPosts, activeSubjectFilter, activeTypeFilter]);
 
   const handlePost = () => {
     setIsModalOpen(true);
@@ -26,10 +32,10 @@ function Forum() {
     setIsModalOpen(false);
   };
 
-  const handleLike = (index) => {
-    setPosts((prevPosts) =>
-      prevPosts.map((post, i) => {
-        if (i === index) {
+  const handleLike = (postId) => {
+    setAllPosts((prevAllPosts) =>
+      prevAllPosts.map((post) => {
+        if (post.id === postId) {
           return {
             ...post,
             like_num: post.isLiked ? post.like_num - 1 : post.like_num + 1,
@@ -54,21 +60,18 @@ function Forum() {
     setActiveTypeFilter(tempSelectedType);
   };
 
-  const getFilteredPosts = () => {
-    return posts.filter((post) => {
+  const applyFilters = () => {
+    const filtered = allPosts.filter((post) => {
       const subjectMatch =
         activeSubjectFilter === "all" ||
         post.subject.toLowerCase() === activeSubjectFilter;
-
       const typeMatch =
         activeTypeFilter === "all" ||
         post.type.toLowerCase() === activeTypeFilter;
-
       return subjectMatch && typeMatch;
     });
+    setDisplayedPosts(filtered);
   };
-
-  const filteredPosts = getFilteredPosts();
 
   return (
     <div className="page">
@@ -123,8 +126,8 @@ function Forum() {
           </div>
         </div>
         <div className="forum-posted">
-          {filteredPosts.map((post, index) => (
-            <div key={index} className="forum-card">
+          {displayedPosts.map((post) => (
+            <div key={post.id} className="forum-card">
               <div className="post-header">
                 <h5 className="header5">
                   {post.subject} - {post.type}
@@ -149,14 +152,17 @@ function Forum() {
               </div>
               <div className="forum-caption body2">{post.caption}</div>
               <div className="forum-card-button">
-                <button className="forum-button comments boldBody2">
+                <Link
+                  to={`/forum/${post.id}`}
+                  className="forum-button comments boldBody2"
+                >
                   {post.comment_num} Comment(s)
-                </button>
+                </Link>
                 <button
                   className={`forum-button likes boldBody2 ${
                     post.isLiked ? "liked" : ""
                   }`}
-                  onClick={() => handleLike(index)}
+                  onClick={() => handleLike(post.id)}
                 >
                   {post.like_num} Like(s)
                 </button>
