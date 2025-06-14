@@ -1,0 +1,44 @@
+.new-comment-input-container {
+  margin-top: 2rem;
+  display: flex;
+  width: 100%;
+  height: fit-content;
+  background-color: var(--softwhite);
+  border: 2px solid var(--lightgray);
+  border-radius: 8px;
+  flex-direction: column;
+  
+  .new-comment-textarea {
+    padding: 0.5rem;
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    min-height: 5rem;
+    height: auto;
+    resize: none;
+    overflow-y: hidden;
+    background-color: transparent;
+    color: var(--dark-text);
+    border-bottom: 1px solid var(--lightgray);
+  }
+
+  .post-main-comment-button{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin: 1rem;
+
+    .post-reply-comment{
+      color: var(--dark-text);
+      text-transform: uppercase;
+      background-color: var(--neongreen);
+      padding: .5rem 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .post-reply-comment:hover{
+      filter: brightness(80%);
+    }
+  }
+}

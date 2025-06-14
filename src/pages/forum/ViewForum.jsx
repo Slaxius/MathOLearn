@@ -3,16 +3,25 @@ import { useParams } from "react-router-dom";
 import Navbar from "../../components/navbar.jsx";
 import Header from "../../components/header.jsx";
 import forumDetail from "../../json/forum.json";
-import forumComments from "../../json/forum_comments.json";
+import forumCommentsData from "../../json/forum_comments.json";
 import "../../css/forum/ViewForum.css";
 import BackButton from "../../components/backButton.jsx";
+import ReplyComment from "../../components/replyComment.jsx"; // Nama komponennya sudah benar sesuai path
 
 function ViewForum() {
   const { postId } = useParams();
   const [post, setPost] = useState(null);
   const [comments, setComments] = useState([]);
 
+  const [currentUsername, setCurrentUsername] = useState("Guest");
+
   useEffect(() => {
+    // Ambil username dari localStorage HANYA SEKALI saat komponen mount
+    const storedUsername = localStorage.getItem("username");
+    if (storedUsername) {
+      setCurrentUsername(storedUsername);
+    }
+
     const foundPost = forumDetail.find((p) => p.id === postId);
     if (foundPost) {
       setPost({ ...foundPost, isLiked: false });
@@ -20,9 +29,11 @@ function ViewForum() {
       setPost(null);
     }
 
-    const postComments = forumComments.find((pc) => pc.postId === postId);
+    const postComments = forumCommentsData.find((pc) => pc.postId === postId);
     if (postComments) {
-      setComments(postComments.comments);
+      setComments(
+        postComments.comments.map((c) => ({ ...c, replies: c.replies || [] }))
+      );
     } else {
       setComments([]);
     }
@@ -40,6 +51,30 @@ function ViewForum() {
     }
   };
 
+
+  const handleAddComment = (commentText) => {
+    if (post) {
+      const now = new Date();
+      // Menggunakan toLocaleDateString dan toLocaleTimeString dengan opsi agar sesuai format "15 May 2025", "13:20"
+      const commentDate = now.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
+      const commentHours = now.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
+
+      // Gunakan currentUsername DARI STATE React
+      const newComment = {
+        commentId: `comment-${post.id}-${Date.now()}`,
+        username: currentUsername, // Menggunakan state currentUsername
+        profile_picture: "/assets/icon/black_username_icon.svg", // Asumsi ini adalah default PP user yang login
+        comment_date: commentDate,
+        comment_hours: commentHours,
+        text: commentText,
+        replies: []
+      };
+      setComments((prevComments) => [...prevComments, newComment]);
+      // Di aplikasi nyata, Anda akan mengirim `newComment` ini ke backend
+      // untuk disimpan secara permanen.
+    }
+  };
+
   if (!post) {
     return (
       <div className="page">
@@ -51,7 +86,7 @@ function ViewForum() {
               <BackButton />
             </div>
           </div>
-          <p className="loading-text">Loading post or post not found...</p>
+          <p className="not-found-text">Postingan tidak ditemukan.</p>
         </div>
       </div>
     );
@@ -91,7 +126,9 @@ function ViewForum() {
             </div>
           </div>
           <div className="forum-caption body2">{post.caption}</div>
+          <ReplyComment onSubmit={handleAddComment} />
         </div>
+
         <div className="comments-section">
           <h5 className="subHeader comments-title">
             Comments ({comments.length})
