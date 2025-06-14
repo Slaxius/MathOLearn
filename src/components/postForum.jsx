@@ -1,9 +1,9 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useLayoutEffect } from "react";
 import forumFilterOption from "../json/forum_filter_option.json";
 import userDetail from "../json/user_detail.json";
-import "../css/components/forumModal.css";
+import "../css/components/postForum.css";
 
-function ForumModal({ isOpen, onClose }) {
+function PostForum({ isOpen, onClose, onPostSuccess }) {
   const [currentUser, setCurrentUser] = useState(null);
   const textareaRef = useRef(null);
 
@@ -23,11 +23,11 @@ function ForumModal({ isOpen, onClose }) {
           if (foundUser) {
             setCurrentUser(foundUser);
           } else {
-            console.warn("User not found in userDetail JSON");
+            console.warn("User not found in userDetail JSON, using default.");
             setCurrentUser(userDetail[0]);
           }
         } else {
-          console.warn("No username found in localStorage");
+          console.warn("No username found in localStorage, using default.");
           setCurrentUser(userDetail[0]);
         }
       } catch (error) {
@@ -39,19 +39,13 @@ function ForumModal({ isOpen, onClose }) {
     getCurrentUser();
   }, []);
 
-  const handleTextareaResize = () => {
+  useLayoutEffect(() => {
     const textarea = textareaRef.current;
     if (textarea) {
       textarea.style.height = "auto";
       textarea.style.height = `${textarea.scrollHeight}px`;
     }
-  };
-
-  useEffect(() => {
-    if (isOpen && textareaRef.current) {
-      handleTextareaResize();
-    }
-  }, [isOpen]);
+  }, [content, isOpen]);
 
   useEffect(() => {
     if (isOpen) {
@@ -59,30 +53,85 @@ function ForumModal({ isOpen, onClose }) {
       setSelectedType("");
       setContent("");
       setIsSubmitting(false);
+      if (textareaRef.current) {
+        textareaRef.current.style.height = "auto";
+      }
     }
   }, [isOpen]);
 
   const handleSubmit = async () => {
-    if (!selectedSubject || !selectedType || !content.trim()) {
-      alert("Please fill in all fields");
+    console.log("handleSubmit called!");
+    let validationErrors = [];
+
+    if (!selectedSubject) {
+      validationErrors.push("Subject must be selected.");
+    }
+    if (!selectedType) {
+      validationErrors.push("Type must be selected.");
+    }
+
+    if (selectedSubject === "all") {
+      validationErrors.push(
+        "Please choose a specific subject, 'All Subjects' is not valid for posting."
+      );
+    }
+    if (selectedType === "all") {
+      validationErrors.push(
+        "Please choose a specific type, 'All Types' is not valid for posting."
+      );
+    }
+
+    if (!content.trim()) {
+      validationErrors.push("Content cannot be empty.");
+    }
+    if (content.length > 250) {
+      validationErrors.push("Content exceeds maximum character limit (250).");
+    }
+
+    if (validationErrors.length > 0) {
+      alert("Validation Error:\n" + validationErrors.join("\n"));
       return;
     }
+
+    console.log("Validation errors collected:", validationErrors);
 
     setIsSubmitting(true);
 
     try {
       await new Promise((resolve) => setTimeout(resolve, 1000));
 
+      const now = new Date();
+      const postDate = now.toLocaleDateString("en-GB", {
+        day: "2-digit",
+        month: "short",
+        year: "numeric",
+      });
+      const postHours = now.toLocaleTimeString("en-GB", {
+        hour: "2-digit",
+        minute: "2-digit",
+      });
+
       const newPost = {
-        id: Date.now(),
+        id: `post-${Date.now()}`,
         subject: selectedSubject,
         type: selectedType,
-        content: content.trim(),
-        author: currentUser?.name || "Anonymous",
-        timestamp: new Date().toISOString(),
+        profile_picture:
+          currentUser?.profile_picture ||
+          "/assets/icon/black_username_icon.svg",
+        username: currentUser?.name || "Anonymous",
+        post_date: postDate,
+        post_hours: postHours,
+        caption: content.trim(),
+        comment_num: 0,
+        like_num: 0,
+        isLiked: false,
       };
 
       console.log("New forum post:", newPost);
+      if (onPostSuccess) {
+        onPostSuccess(newPost);
+      }
+
       alert("Forum post created successfully!");
       onClose();
     } catch (error) {
@@ -111,10 +160,11 @@ function ForumModal({ isOpen, onClose }) {
             <div className="user-profile">
               {currentUser && (
                 <img
-                  src={currentUser.profile_picture || "/placeholder.svg"}
-                  alt={`${
-                    currentUser.username || currentUser.name
-                  }'s profile picture`}
+                  src={
+                    currentUser.profile_picture ||
+                    "/assets/icon/black_username_icon.svg"
+                  }
+                  alt={`${currentUser.name}'s profile picture`}
                   className="profile-image body4"
                 />
               )}
@@ -125,9 +175,11 @@ function ForumModal({ isOpen, onClose }) {
                 <select
                   className="filter-select body2"
                   value={selectedSubject}
-                  onChange={(e) => setSelectedSubject(e.target.value)}
+                  onChange={(e) => {
+                    setSelectedSubject(e.target.value);
+                    console.log("Selected Subject:", e.target.value);
+                  }}
                 >
-                  <option value="">Select Subject</option>
                   {forumFilterOption.subjects.map((subject, index) => (
                     <option key={index} value={subject.value}>
                       {subject.label}
@@ -140,9 +192,11 @@ function ForumModal({ isOpen, onClose }) {
                 <select
                   className="filter-select body2"
                   value={selectedType}
-                  onChange={(e) => setSelectedType(e.target.value)}
+                  onChange={(e) => {
+                    setSelectedType(e.target.value);
+                    console.log("Selected Subject:", e.target.value);
+                  }}
                 >
-                  <option value="">Select Type</option>
                   {forumFilterOption.types.map((type, index) => (
                     <option key={index} value={type.value}>
                       {type.label}
@@ -162,9 +216,9 @@ function ForumModal({ isOpen, onClose }) {
               value={content}
               onChange={(e) => {
                 setContent(e.target.value);
-                handleTextareaResize();
+                console.log("Content:", e.target.value);
               }}
-              onInput={handleTextareaResize}
+              rows="3"
             ></textarea>
           </div>
           <div className="bot-footer">
@@ -177,16 +231,7 @@ function ForumModal({ isOpen, onClose }) {
                 {content.length}/250
               </span>
             </div>
-            <button
-              className="submit-btn boldBody2"
-              onClick={handleSubmit}
-              disabled={
-                isSubmitting ||
-                !selectedSubject ||
-                !selectedType ||
-                !content.trim()
-              }
-            >
+            <button className="submit-btn boldBody2" onClick={handleSubmit}>
               {isSubmitting ? "Posting..." : "Post Forum"}
             </button>
           </div>
@@ -196,4 +241,4 @@ function ForumModal({ isOpen, onClose }) {
   );
 }
 
-export default ForumModal;
+export default PostForum;

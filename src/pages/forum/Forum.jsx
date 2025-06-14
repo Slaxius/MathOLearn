@@ -13,12 +13,15 @@ function Forum() {
     forumDetail.map((post) => ({ ...post, isLiked: false }))
   );
   const [displayedPosts, setDisplayedPosts] = useState([]);
-
   const [tempSelectedSubject, setTempSelectedSubject] = useState("all");
   const [tempSelectedType, setTempSelectedType] = useState("all");
-
   const [activeSubjectFilter, setActiveSubjectFilter] = useState("all");
   const [activeTypeFilter, setActiveTypeFilter] = useState("all");
+
+  
+  const handleNewPostCreated = (newPost) => {
+    setAllPosts((prevPosts) => [newPost, ...prevPosts]); 
+  };
 
   useEffect(() => {
     applyFilters();
@@ -47,11 +50,11 @@ function Forum() {
     );
   };
 
-  const handleTempSubjectChange = (event) => {
+  const handleSubjectChange = (event) => {
     setTempSelectedSubject(event.target.value);
   };
 
-  const handleTempTypeChange = (event) => {
+  const handleTypeChange = (event) => {
     setTempSelectedType(event.target.value);
   };
 
@@ -87,7 +90,7 @@ function Forum() {
                 <select
                   className="filter-select body2"
                   value={tempSelectedSubject}
-                  onChange={handleTempSubjectChange}
+                  onChange={handleSubjectChange}
                 >
                   {forumFilterOption.subjects.map((subject, index) => (
                     <option key={index} value={subject.value}>
@@ -101,7 +104,7 @@ function Forum() {
                 <select
                   className="filter-select body2"
                   value={tempSelectedType}
-                  onChange={handleTempTypeChange}
+                  onChange={handleTypeChange}
                 >
                   {forumFilterOption.types.map((type, index) => (
                     <option key={index} value={type.value}>
@@ -110,10 +113,7 @@ function Forum() {
                   ))}
                 </select>
               </div>
-              <button
-                className="apply-button body2"
-                onClick={handleApplyFilters}
-              >
+              <button className="apply-button body2" onClick={handleApplyFilters}>
                 Apply
               </button>
             </div>
@@ -152,10 +152,7 @@ function Forum() {
               </div>
               <div className="forum-caption body2">{post.caption}</div>
               <div className="forum-card-button">
-                <Link
-                  to={`/forum/${post.id}`}
-                  className="forum-button comments boldBody2"
-                >
+                <Link to={`/forum/${post.id}`} className="forum-button comments boldBody2">
                   {post.comment_num} Comment(s)
                 </Link>
                 <button
@@ -171,7 +168,7 @@ function Forum() {
           ))}
         </div>
       </div>
-      <ForumModal isOpen={isModalOpen} onClose={handleCloseModal} />
+      <ForumModal isOpen={isModalOpen} onClose={handleCloseModal} onPostSuccess={handleNewPostCreated} />
     </div>
   );
 }
