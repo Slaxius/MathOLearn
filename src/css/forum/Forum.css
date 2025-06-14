@@ -176,7 +176,11 @@
       }
 
       .forum-button:hover {
-        background-color: var(--darkjungle);
+        background-color: var(--lightgreen);
+      }
+
+      .forum-button.liked {
+        filter: brightness(80%);
       }
     }
   }

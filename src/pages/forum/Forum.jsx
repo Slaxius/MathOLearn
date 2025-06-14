@@ -8,6 +8,15 @@ import ForumModal from "../../components/postForum.jsx";
 
 function Forum() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [posts, setPosts] = useState(
+    forumDetail.map((post) => ({ ...post, isLiked: false }))
+  );
+
+  const [activeSubjectFilter, setActiveSubjectFilter] = useState("all");
+  const [activeTypeFilter, setActiveTypeFilter] = useState("all");
+
+  const [tempSelectedSubject, setTempSelectedSubject] = useState("all");
+  const [tempSelectedType, setTempSelectedType] = useState("all");
 
   const handlePost = () => {
     setIsModalOpen(true);
@@ -16,6 +25,50 @@ function Forum() {
   const handleCloseModal = () => {
     setIsModalOpen(false);
   };
+
+  const handleLike = (index) => {
+    setPosts((prevPosts) =>
+      prevPosts.map((post, i) => {
+        if (i === index) {
+          return {
+            ...post,
+            like_num: post.isLiked ? post.like_num - 1 : post.like_num + 1,
+            isLiked: !post.isLiked,
+          };
+        }
+        return post;
+      })
+    );
+  };
+
+  const handleTempSubjectChange = (event) => {
+    setTempSelectedSubject(event.target.value);
+  };
+
+  const handleTempTypeChange = (event) => {
+    setTempSelectedType(event.target.value);
+  };
+
+  const handleApplyFilters = () => {
+    setActiveSubjectFilter(tempSelectedSubject);
+    setActiveTypeFilter(tempSelectedType);
+  };
+
+  const getFilteredPosts = () => {
+    return posts.filter((post) => {
+      const subjectMatch =
+        activeSubjectFilter === "all" ||
+        post.subject.toLowerCase() === activeSubjectFilter;
+
+      const typeMatch =
+        activeTypeFilter === "all" ||
+        post.type.toLowerCase() === activeTypeFilter;
+
+      return subjectMatch && typeMatch;
+    });
+  };
+
+  const filteredPosts = getFilteredPosts();
 
   return (
     <div className="page">
@@ -28,7 +81,11 @@ function Forum() {
             <div className="filter-control">
               <div className="filter-group">
                 <label className="filter-label body1">SUBJECT</label>
-                <select className="filter-select body2">
+                <select
+                  className="filter-select body2"
+                  value={tempSelectedSubject}
+                  onChange={handleTempSubjectChange}
+                >
                   {forumFilterOption.subjects.map((subject, index) => (
                     <option key={index} value={subject.value}>
                       {subject.label}
@@ -38,15 +95,24 @@ function Forum() {
               </div>
               <div className="filter-group">
                 <label className="filter-label body1">TYPE</label>
-                <select className="filter-select body2">
-                  {forumFilterOption.types.map((subject, index) => (
-                    <option key={index} value={subject.value}>
-                      {subject.label}
+                <select
+                  className="filter-select body2"
+                  value={tempSelectedType}
+                  onChange={handleTempTypeChange}
+                >
+                  {forumFilterOption.types.map((type, index) => (
+                    <option key={index} value={type.value}>
+                      {type.label}
                     </option>
                   ))}
                 </select>
               </div>
-              <button className="apply-button body2">Apply</button>
+              <button
+                className="apply-button body2"
+                onClick={handleApplyFilters}
+              >
+                Apply
+              </button>
             </div>
           </div>
           <div className="post-forum">
@@ -57,7 +123,7 @@ function Forum() {
           </div>
         </div>
         <div className="forum-posted">
-          {forumDetail.map((post, index) => (
+          {filteredPosts.map((post, index) => (
             <div key={index} className="forum-card">
               <div className="post-header">
                 <h5 className="header5">
@@ -86,7 +152,12 @@ function Forum() {
                 <button className="forum-button comments boldBody2">
                   {post.comment_num} Comment(s)
                 </button>
-                <button className="forum-button likes boldBody2">
+                <button
+                  className={`forum-button likes boldBody2 ${
+                    post.isLiked ? "liked" : ""
+                  }`}
+                  onClick={() => handleLike(index)}
+                >
                   {post.like_num} Like(s)
                 </button>
               </div>

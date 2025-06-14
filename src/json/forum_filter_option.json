@@ -2,8 +2,8 @@
   "subjects": [
     { "value": "all", "label": "All Subjects" },
     { "value": "calculus", "label": "Calculus" },
-    { "value": "algebra", "label": "Linear Algebra" },
-    { "value": "statistics", "label": "Statistics" }
+    { "value": "linear algebra", "label": "Linear Algebra" },
+    { "value": "basic statistic", "label": "Basic Statistic" }
   ],
   "types": [
     { "value": "all", "label": "All Types" },
