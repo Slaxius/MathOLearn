@@ -65,7 +65,7 @@ function Preferences() {
                 key={setting.key}
                 label={setting.name}
                 isOn={settings[setting.key]}
-                onToggle={() => handleToggle(setting.key)} // Handle toggle
+                onToggle={() => handleToggle(setting.key)}
               />
             ))}
           </div>
