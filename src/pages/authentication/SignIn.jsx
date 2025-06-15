@@ -125,7 +125,7 @@ function SignIn() {
     <div className="signin">
       <WelcomeSection />
       <div className="right-side">
-        {/* <h1 className="header2">Sign In</h1> */}
+        <h1 className="header2">Sign In</h1>
         <div className="form-section">
           {generalError && (
             <div className="body2 general-err error">{generalError}</div>
