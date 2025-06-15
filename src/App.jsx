@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-
+import { useState, useEffect } from "react";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -46,9 +46,23 @@ import { MusicProvider } from "./utils/MusicProvider.jsx";
 import { LifeProvider } from "./utils/LifeContext.jsx";
 
 function App() {
+  const [currentUsername, setCurrentUsername] = useState(
+    localStorage.getItem("username")
+  );
+
+  useEffect(() => {
+    const handleStorageChange = () => {
+      setCurrentUsername(localStorage.getItem("username"));
+    };
+    window.addEventListener("storage", handleStorageChange);
+    return () => {
+      window.removeEventListener("storage", handleStorageChange);
+    };
+  }, []);
+
   return (
     <MusicProvider>
-      <LifeProvider>
+      <LifeProvider username={currentUsername}>
         <Router>
           <Routes>
             {/* Default */}
