@@ -1,14 +1,16 @@
 import Navbar from "../../components/navbar.jsx";
 import Header from "../../components/header.jsx";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Button from "../../components/button.jsx";
 import "../../css/settings/Settings.css";
 import settingsData from "../../json/settings.json";
 
 function Settings() {
+  const navigate = useNavigate();
+
   const handleSignOut = () => {
     sessionStorage.clear();
-    window.location.href = "/signin";
+    navigate("/signin");
   };
 
   return (
