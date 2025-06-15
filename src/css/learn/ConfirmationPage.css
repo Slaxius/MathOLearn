@@ -52,3 +52,34 @@
     }
   }
 }
+
+.light-mode {
+  .confirmation-header {
+    .subject-title {
+      color: var(--dark-text);
+    }
+  }
+
+  .confirmation-container {
+    background-color: var(--greenglass);
+    box-shadow: 0 0 4px var(--neongreen);
+    color: var(--dark-text);
+
+    .material-title {
+      color: var(--neongreen);
+    }
+
+    .confirmation-actions {
+      .confirm-btn,
+      .back-btn {
+        color: var(--light-text);
+        background-color: var(--neongreen);
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+
+        &:hover {
+          background-color: var(--darkjungle);
+        }
+      }
+    }
+  }
+}

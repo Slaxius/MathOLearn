@@ -63,8 +63,7 @@
       .finished-title,
       .perfect-score,
       .score-details {
-        color: var(--light-text);
-        text-shadow: 0 0 3px var(--darkforest);
+        color: var(--dark-text);
       }
     }
 
