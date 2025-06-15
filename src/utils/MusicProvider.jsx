@@ -1,5 +1,7 @@
 import { createContext, useState, useContext, useEffect, useRef } from "react";
 
+import musicSrc from "/assets/music/Growtopia OST - About theme.mp3"
+
 const MusicContext = createContext();
 
 export const useMusic = () => {
@@ -64,7 +66,7 @@ export const MusicProvider = ({ children }) => {
       {children}
       <audio ref={audioRef} id="background-music" loop>
         <source
-          src="/assets/music/Growtopia OST - About theme.mp3"
+          src={musicSrc}
           type="audio/mp3"
         />
         Your browser does not support the audio element.
