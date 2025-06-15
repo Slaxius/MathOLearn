@@ -64,7 +64,10 @@ function ResetPassword() {
           const ids = usersArray.map((u) => u.id);
           return Math.max(...ids);
         };
-        const allExistingUsersForIdCalculation = [...userDetail, ...storedUsers];
+        const allExistingUsersForIdCalculation = [
+          ...userDetail,
+          ...storedUsers,
+        ];
         const currentMaxId = getMaxId(allExistingUsersForIdCalculation);
 
         const newUserInStorage = {
@@ -72,20 +75,27 @@ function ResetPassword() {
           id: currentMaxId + 1,
           password: newPassword.trim(),
         };
-        localStorage.setItem("users", JSON.stringify([...storedUsers, newUserInStorage]));
+        localStorage.setItem(
+          "users",
+          JSON.stringify([...storedUsers, newUserInStorage])
+        );
         foundUserData = newUserInStorage;
         userFoundAndUpdated = true;
       }
     }
 
     if (userFoundAndUpdated && foundUserData) {
-        localStorage.setItem("username", foundUserData.name);
-        localStorage.setItem("userBio", foundUserData.bio || "");
-        localStorage.setItem("userPassword", foundUserData.password);
-        localStorage.setItem("profile_picture", foundUserData.profile_picture || "/assets/icon/white_username_icon.svg");
+      localStorage.setItem("username", foundUserData.name);
+      localStorage.setItem("userBio", foundUserData.bio || "");
+      localStorage.setItem("userPassword", foundUserData.password);
+      localStorage.setItem(
+        "profile_picture",
+        foundUserData.profile_picture || "/assets/icon/white_username_icon.svg"
+      );
 
-        alert("Password reset successfully for " + foundUserData.name + "!");
-        navigate("/signin");
+      localStorage.setItem("changePassword", "true");
+      localStorage.setItem("userChangePassword", foundUserData.name);
+      navigate("/signin");
     } else {
       setGeneralError("Username not found.");
     }

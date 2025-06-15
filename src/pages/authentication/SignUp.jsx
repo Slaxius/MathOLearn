@@ -4,6 +4,7 @@ import WelcomeSection from "../../components/welcome.jsx";
 import Button from "../../components/button.jsx";
 import userDetail from "../../json/user_detail.json";
 import "../../css/authentication/Authentication.css";
+import { successAlert } from "../../utils/Toastify.jsx";
 
 function SignUp() {
   const [username, setUsername] = useState("");
@@ -55,7 +56,9 @@ function SignUp() {
 
     let usernameExists = false;
 
-    if (storedUsers.some((user) => user.name.toLowerCase() === inputUsernameLower)) {
+    if (
+      storedUsers.some((user) => user.name.toLowerCase() === inputUsernameLower)
+    ) {
       usernameExists = true;
     }
 
@@ -65,12 +68,14 @@ function SignUp() {
       );
 
       if (userInDetailJson) {
-        const userMigratedAndRenamed = storedUsers.some(storedUser =>
-            storedUser.id === userInDetailJson.id && storedUser.name.toLowerCase() !== inputUsernameLower
+        const userMigratedAndRenamed = storedUsers.some(
+          (storedUser) =>
+            storedUser.id === userInDetailJson.id &&
+            storedUser.name.toLowerCase() !== inputUsernameLower
         );
 
         if (!userMigratedAndRenamed) {
-            usernameExists = true;
+          usernameExists = true;
         }
       }
     }
@@ -100,7 +105,7 @@ function SignUp() {
     const updatedUsers = [...storedUsers, newUser];
     localStorage.setItem("users", JSON.stringify(updatedUsers));
 
-    alert("Sign Up successful! Please Sign In.");
+    localStorage.setItem("signedUp", "true");
     navigate("/signin");
   };
 

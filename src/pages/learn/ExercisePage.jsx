@@ -5,6 +5,7 @@ import Header from "../../components/header.jsx";
 import Material from "../../json/learn_material.json";
 import "../../css/learn/ExercisePage.css";
 import BackButton from "../../components/backButton.jsx";
+import { errorAlert } from "../../utils/Toastify.jsx";
 
 function ExercisePage() {
   const { subject, itemId } = useParams();
@@ -81,8 +82,8 @@ function ExercisePage() {
     setSubmitted(true);
 
     if (incorrectQuestionNumbers.length > 0) {
-      alert(
-        `Beberapa jawaban masih salah pada soal nomor: ${incorrectQuestionNumbers.join(
+      errorAlert(
+        `Some answers are still incorrect for question numbers: ${incorrectQuestionNumbers.join(
           ", "
         )}`
       );

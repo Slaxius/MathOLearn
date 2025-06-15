@@ -1,5 +1,8 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 /* Authentication */
 import SignUp from "./pages/authentication/SignUp.jsx";
 import SignIn from "./pages/authentication/SignIn.jsx";
@@ -102,6 +105,7 @@ function App() {
           {/* Page Not Found */}
           <Route path="*" element={<div>Page Not Found</div>} />
         </Routes>
+        <ToastContainer />
       </Router>
     </MusicProvider>
   );

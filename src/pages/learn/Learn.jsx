@@ -6,6 +6,7 @@ import "../../css/learn/Learn.css";
 import Calendar from "../../components/calendar.jsx";
 import Subject from "../../json/subject.json";
 import UserDetail from "../../json/user_detail.json";
+import { successAlert } from "../../utils/Toastify.jsx";
 
 function Learn() {
   const navigate = useNavigate();
@@ -13,10 +14,21 @@ function Learn() {
   const [currentUserLastLogin, setCurrentUserLastLogin] = useState(null);
 
   useEffect(() => {
-    const loggedInUser = UserDetail.find((user) => user.id === 1);
+    const loggedInUsername = localStorage.getItem("username");
+    const isFirstLogin = localStorage.getItem("firstLogin");
 
-    if (loggedInUser) {
-      setCurrentUserLastLogin(loggedInUser.last_login_date);
+    let userDisplayName = loggedInUsername || "User";
+
+    if (loggedInUsername && isFirstLogin === "true") {
+      successAlert("Welcome, " + userDisplayName + "!");
+      localStorage.setItem("firstLogin", "false");
+    }
+
+    const loggedInUserFromDetail = UserDetail.find(
+      (user) => user.name.toLowerCase() === loggedInUsername?.toLowerCase()
+    );
+    if (loggedInUserFromDetail) {
+      setCurrentUserLastLogin(loggedInUserFromDetail.last_login_date);
     }
   }, []);
 

@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import WelcomeSection from "../../components/welcome.jsx";
 import Button from "../../components/button.jsx";
 import userDetail from "../../json/user_detail.json";
 import "../../css/authentication/Authentication.css";
+import { successAlert } from "../../utils/Toastify.jsx";
 
 function SignIn() {
   const [username, setUsername] = useState("");
@@ -14,6 +15,26 @@ function SignIn() {
   const [generalError, setGeneralError] = useState("");
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const isPasswordChangedFlag = localStorage.getItem("changePassword");
+    const userWhoChangedPassword = localStorage.getItem("userChangePassword");
+
+    if (isPasswordChangedFlag === "true") {
+      successAlert(
+        "Password reset successfully for " + userWhoChangedPassword + "!"
+      );
+      localStorage.removeItem("changePassword");
+      localStorage.removeItem("userChangePassword");
+    }
+
+    const newUserSignedUpFlag = localStorage.getItem("signedUp");
+
+    if (newUserSignedUpFlag === "true") {
+      successAlert("Sign Up successful! Please Sign In.");
+      localStorage.removeItem("signedUp");
+    }
+  }, []);
 
   const handleSignIn = () => {
     setUsernameError("");
@@ -66,14 +87,20 @@ function SignIn() {
             const ids = usersArray.map((u) => u.id);
             return Math.max(...ids);
           };
-          const allExistingUsersForIdCalculation = [...userDetail, ...storedUsers];
+          const allExistingUsersForIdCalculation = [
+            ...userDetail,
+            ...storedUsers,
+          ];
           const currentMaxId = getMaxId(allExistingUsersForIdCalculation);
-          
+
           const newUserInStorage = {
             ...userFromJSON,
-            id: currentMaxId + 1
+            id: currentMaxId + 1,
           };
-          localStorage.setItem("users", JSON.stringify([...storedUsers, newUserInStorage]));
+          localStorage.setItem(
+            "users",
+            JSON.stringify([...storedUsers, newUserInStorage])
+          );
         }
       }
     }
@@ -82,8 +109,12 @@ function SignIn() {
       localStorage.setItem("username", foundUserData.name);
       localStorage.setItem("userBio", foundUserData.bio || "");
       localStorage.setItem("userPassword", foundUserData.password);
-      localStorage.setItem("profile_picture", foundUserData.profile_picture || "/assets/icon/white_username_icon.svg");
+      localStorage.setItem(
+        "profile_picture",
+        foundUserData.profile_picture || "/assets/icon/white_username_icon.svg"
+      );
 
+      localStorage.setItem("firstLogin", "true");
       navigate("/learn");
     } else {
       setGeneralError("Invalid username or password.");

@@ -6,6 +6,7 @@ import Header from "../../components/header.jsx";
 import Button from "../../components/button.jsx";
 import BackButton from "../../components/backButton.jsx";
 import userDetail from "../../json/user_detail.json";
+import { successAlert, errorAlert } from "../../utils/Toastify.jsx";
 
 function EditProfile() {
   const [currentUserData, setCurrentUserData] = useState(null);
@@ -57,7 +58,7 @@ function EditProfile() {
 
   const handleSave = () => {
     if (!formData.name.trim()) {
-      alert("Name cannot be empty");
+      errorAlert("Name cannot be empty");
       return;
     }
 
@@ -115,7 +116,7 @@ function EditProfile() {
       bio: formData.bio,
     }));
 
-    alert("Profile updated successfully!");
+    successAlert("Profile updated successfully!");
     navigate("/profile");
   };
 

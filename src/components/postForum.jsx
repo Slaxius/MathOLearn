@@ -2,6 +2,7 @@ import { useState, useEffect, useRef, useLayoutEffect } from "react";
 import forumFilterOption from "../json/forum_filter_option.json";
 import userDetail from "../json/user_detail.json";
 import "../css/components/postForum.css";
+import { errorAlert, successAlert } from "../utils/Toastify";
 
 function PostForum({ isOpen, onClose, onPostSuccess }) {
   const [currentUser, setCurrentUser] = useState(null);
@@ -89,7 +90,7 @@ function PostForum({ isOpen, onClose, onPostSuccess }) {
     }
 
     if (validationErrors.length > 0) {
-      alert("Validation Error:\n" + validationErrors.join("\n"));
+      errorAlert(validationErrors.join("\n"));
       return;
     }
 
@@ -132,11 +133,11 @@ function PostForum({ isOpen, onClose, onPostSuccess }) {
         onPostSuccess(newPost);
       }
 
-      alert("Forum post created successfully!");
+      successAlert("Forum post created successfully!");
       onClose();
     } catch (error) {
       console.error("Error creating post:", error);
-      alert("Failed to create post. Please try again.");
+      errorAlert("Failed to create post. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
