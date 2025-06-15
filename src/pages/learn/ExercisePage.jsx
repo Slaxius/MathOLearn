@@ -132,9 +132,6 @@ function ExercisePage() {
       <Header />
       <div className="main-section">
         <div className="exercise-header">
-          <div className="back-button">
-            <BackButton />
-          </div>
           <h3 className="subject-title header3">{subject}</h3>
         </div>
         <div className="exercise-container">

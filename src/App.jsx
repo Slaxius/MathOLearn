@@ -13,6 +13,7 @@ import Learn from "./pages/learn/Learn.jsx";
 import SelectedSubject from "./pages/learn/SelectedSubject.jsx";
 import VideoPage from "./pages/learn/VideoPage.jsx";
 import CheatsheetPage from "./pages/learn/CheatsheetPage.jsx";
+import ConfirmationPage from "./pages/learn/ConfirmationPage.jsx";
 import ExercisePage from "./pages/learn/ExercisePage.jsx";
 import QuizPage from "./pages/learn/QuizPage.jsx";
 import FinishedPage from "./pages/learn/FinishedPage.jsx";
@@ -63,6 +64,10 @@ function App() {
           <Route
             path="/learn/subject/:subject/cheatsheet/:itemId"
             element={<CheatsheetPage />}
+          />
+          <Route
+            path="/learn/subject/:subject/:type/:itemId/confirm"
+            element={<ConfirmationPage />}
           />
           <Route
             path="/learn/subject/:subject/exercise/:itemId"

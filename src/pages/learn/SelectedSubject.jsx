@@ -24,10 +24,10 @@ function SelectedSubject() {
       )}/cheatsheet/${itemId}`,
       exercise: `/learn/subject/${encodeURIComponent(
         currentSubject
-      )}/exercise/${itemId}`,
+      )}/exercise/${itemId}/confirm`,
       quiz: `/learn/subject/${encodeURIComponent(
         currentSubject
-      )}/quiz/${itemId}`,
+      )}/quiz/${itemId}/confirm`,
     };
 
     navigate(routes[sectionType], {

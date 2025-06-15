@@ -41,13 +41,15 @@ function Notification() {
     setNotifications(updatedNotifications);
 
     let path = "/";
-    const encodedSubjectSlug = targetSubjectSlug ? encodeURIComponent(targetSubjectSlug) : '';
+    const encodedSubjectSlug = targetSubjectSlug
+      ? encodeURIComponent(targetSubjectSlug)
+      : "";
 
     if (targetRouteType === "forum") {
       path = `/forum/${targetItemId}`;
     } else if (targetRouteType === "learn") {
       if (targetMaterialType === "exercise" || targetMaterialType === "quiz") {
-        path = `/learn/subject/${encodedSubjectSlug}`;
+        path = `/learn/subject/${encodedSubjectSlug}/${targetMaterialType}/${targetItemId}/confirm`;
       } else {
         path = `/learn/subject/${encodedSubjectSlug}/${targetMaterialType}/${targetItemId}`;
       }

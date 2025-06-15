@@ -1,9 +1,12 @@
 .quiz-header {
   display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
-  gap: 2rem;
 
   .subject-title {
+    text-transform: uppercase;
+    text-align: center;
     color: var(--neongreen);
   }
 }

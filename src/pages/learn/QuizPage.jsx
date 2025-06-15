@@ -56,9 +56,6 @@ function QuizPage() {
       <Header />
       <div className="main-section">
         <div className="quiz-header">
-          <div className="back-button">
-            <BackButton />
-          </div>
           <h3 className="subject-title header3">{subject}</h3>
         </div>
         <div className="quiz-container">
