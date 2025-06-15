@@ -3,7 +3,7 @@ import Header from "../../components/header.jsx";
 import { useState } from "react";
 import BackButton from "../../components/backButton.jsx";
 import Toggle from "../../components/toggle.jsx";
-import "../../css/settings/SettingsAccount.css";
+import "../../css/settings/settingsAccount.css";
 import privacySettings from "../../json/settings_privacy.json";
 
 function Privacy() {
