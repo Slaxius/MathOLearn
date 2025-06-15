@@ -96,3 +96,78 @@
     }
   }
 }
+
+.light-mode {
+  .top-up-container {
+    background-color: var(--greenglass);
+    box-shadow: 0 0 4px var(--neongreen);
+
+    .top-up-container-header {
+      color: var(--dark-text);
+    }
+
+    .purchase-btn {
+      color: var(--light-text);
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+      background-color: var(--neongreen);
+
+      &:hover {
+        background-color: var(--darkjungle);
+      }
+    }
+
+    .btnbtn {
+      color: var(--light-text);
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+      background-color: var(--neongreen);
+
+      &:hover {
+        background-color: var(--darkjungle);
+      }
+    }
+  }
+
+  .pricetag {
+    color: var(--neongreen);
+  }
+
+  .buy-life-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+    color: var(--light-text);
+
+    .purchase-specific {
+      color: red;
+    }
+
+    .button-container {
+      display: flex;
+      gap: 5rem;
+      margin-top: 3rem;
+
+      .confirm-button,
+      .cancel-button {
+        color: var(--light-text);
+        padding: 0.5rem 1.5rem;
+        cursor: pointer;
+        border-radius: 10px;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+
+        &:hover {
+          filter: brightness(80%);
+        }
+      }
+
+      .confirm-button {
+        background-color: var(--neongreen);
+      }
+
+      .cancel-button {
+        background-color: rgb(223, 67, 67);
+      }
+    }
+  }
+}
