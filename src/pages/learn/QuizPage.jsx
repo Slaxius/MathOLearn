@@ -1,16 +1,42 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Navbar from "../../components/navbar.jsx";
 import Header from "../../components/header.jsx";
 import Material from "../../json/learn_material.json";
 import "../../css/learn/QuizPage.css";
-import BackButton from "../../components/backButton.jsx";
+import { useLife } from "../../utils/LifeContext.jsx";
+import { errorAlert } from "../../utils/Toastify.jsx";
 
 function QuizPage() {
   const { subject, itemId } = useParams();
   const subjectData = Material[subject.toLowerCase()];
   const quiz = subjectData.quizzes.find((e) => e.id === parseInt(itemId));
   const navigate = useNavigate();
+  const { lives } = useLife();
+
+  const lifeCheckPerformedRef = useRef(false);
+
+  useEffect(() => {
+    if (lives <= 0 && !lifeCheckPerformedRef.current) {
+      lifeCheckPerformedRef.current = true;
+      errorAlert(
+        "You cannot take any Quiz if you have no lives remaining! Please top up."
+      );
+      navigate("/learn", { replace: true });
+    }
+  }, [lives, navigate]);
+
+  if (!quiz || (lives <= 0 && !lifeCheckPerformedRef.current)) {
+    return (
+      <div className="page">
+        <Navbar />
+        <Header />
+        <div className="main-section">
+          <p className="body1">Loading quiz or redirecting...</p>
+        </div>
+      </div>
+    );
+  }
 
   const [selectedQuestionIndex, setSelectedQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState(

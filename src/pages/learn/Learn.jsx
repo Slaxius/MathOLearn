@@ -6,6 +6,7 @@ import "../../css/learn/Learn.css";
 import Calendar from "../../components/calendar.jsx";
 import Subject from "../../json/subject.json";
 import UserDetail from "../../json/user_detail.json";
+import BuyLifeSection from "../../components/buyLifeSection.jsx";
 import { successAlert } from "../../utils/Toastify.jsx";
 
 function Learn() {
@@ -43,6 +44,7 @@ function Learn() {
       <Navbar />
       <Header />
       <Calendar lastLoginDateFromUser={currentUserLastLogin} />
+      <BuyLifeSection />
       <div className="main-section learn">
         <div className="subject-section">
           {Subject.map((sub, idx) => (

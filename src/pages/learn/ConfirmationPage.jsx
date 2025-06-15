@@ -1,14 +1,19 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Navbar from "../../components/navbar.jsx";
 import Header from "../../components/header.jsx";
 import Material from "../../json/learn_material.json";
 import "../../css/learn/ConfirmationPage.css";
+import { useLife } from "../../utils/LifeContext.jsx";
+import { errorAlert } from "../../utils/Toastify.jsx";
 
 function ConfirmationPage() {
   const { subject, type, itemId } = useParams();
   const navigate = useNavigate();
+  const { lives } = useLife();
   const [materialTitle, setMaterialTitle] = useState("");
+
+  const lifeCheckPerformedRef = useRef(false);
 
   useEffect(() => {
     const subjectData = Material[subject.toLowerCase()];
@@ -30,10 +35,25 @@ function ConfirmationPage() {
       setMaterialTitle(foundMaterial.title);
     } else {
       navigate("/learn");
+      return;
     }
-  }, [subject, type, itemId, navigate]);
+
+    if (lives <= 0 && !lifeCheckPerformedRef.current) {
+      lifeCheckPerformedRef.current = true;
+      errorAlert(
+        `You cannot take any ${type} if you have no lives remaining! Please top up.`
+      );
+      navigate("/learn", { replace: true });
+    }
+  }, [subject, type, itemId, navigate, lives]);
 
   const handleStart = () => {
+    if (lives <= 0) {
+      errorAlert(
+        `You cannot take any ${type} if you have no lives remaining! Please top up.`
+      );
+      return;
+    }
     navigate(`/learn/subject/${subject}/${type}/${itemId}`);
   };
 
@@ -70,6 +90,12 @@ function ConfirmationPage() {
             {type === "exercise" ? "Exercise" : "Quiz"}{" "}
             <span className="material-title">"{materialTitle}"</span>?
           </p>
+          {type === "quiz" && (
+            <p className="body1 warning-text">
+              Failing a quiz will deduct 1 life point. You cannot take any
+              Exercise or Quiz if you have no lives remaining.
+            </p>
+          )}
           <div className="confirmation-actions">
             <button className="confirm-btn body1" onClick={handleStart}>
               Start {type === "exercise" ? "Exercise" : "Quiz"}

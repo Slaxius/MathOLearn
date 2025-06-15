@@ -30,6 +30,11 @@
     color: var(--neongreen);
   }
 
+  .warning-text{
+    color: red;
+    text-align: center;
+  }
+
   .confirmation-actions {
     display: flex;
     align-items: center;

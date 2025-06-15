@@ -6,7 +6,7 @@
   width: fit-content;
   text-align: center;
   position: fixed;
-  top: 12rem;
+  bottom: 2rem;
   right: 2rem;
 
   .calendar-header {

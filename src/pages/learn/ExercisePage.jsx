@@ -1,11 +1,11 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Navbar from "../../components/navbar.jsx";
 import Header from "../../components/header.jsx";
 import Material from "../../json/learn_material.json";
 import "../../css/learn/ExercisePage.css";
-import BackButton from "../../components/backButton.jsx";
 import { errorAlert } from "../../utils/Toastify.jsx";
+import { useLife } from "../../utils/LifeContext.jsx";
 
 function ExercisePage() {
   const { subject, itemId } = useParams();
@@ -14,12 +14,23 @@ function ExercisePage() {
     ? subjectData.exercises.find((e) => e.id === parseInt(itemId))
     : null;
   const navigate = useNavigate();
+  const { lives } = useLife();
+
+  const lifeCheckPerformedRef = useRef(false);
 
   useEffect(() => {
     if (!exercise) {
       navigate("/learn");
+      return;
     }
-  }, [exercise, navigate]);
+    if (lives <= 0 && !lifeCheckPerformedRef.current) {
+      lifeCheckPerformedRef.current = true;
+      errorAlert(
+        "You cannot take any Exercise if you have no lives remaining! Please top up."
+      );
+      navigate("/learn", { replace: true });
+    }
+  }, [exercise, navigate, lives]);
 
   const [selectedQuestionIndex, setSelectedQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState(
@@ -31,13 +42,13 @@ function ExercisePage() {
   );
   const [currentQuestionClue, setCurrentQuestionClue] = useState(null);
 
-  if (!exercise) {
+  if (!exercise || (lives <= 0 && !lifeCheckPerformedRef.current)) {
     return (
       <div className="page">
         <Navbar />
         <Header />
         <div className="main-section">
-          <p className="body1">Exercise not found.</p>
+          <p className="body1">Loading exercise or redirecting...</p>
         </div>
       </div>
     );
@@ -195,16 +206,6 @@ function ExercisePage() {
                     )
                   )}
                 </div>
-                {submitted &&
-                  answerStatus[selectedQuestionIndex] === "incorrect" &&
-                  exercise.questions[selectedQuestionIndex].clue && (
-                    <div className="clue-box">
-                      <p className="clue-text body2">
-                        <span className="clue boldBody2">Clue:</span>{" "}
-                        {exercise.questions[selectedQuestionIndex].clue}
-                      </p>
-                    </div>
-                  )}
               </div>
             </div>
           </div>

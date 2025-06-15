@@ -1,18 +1,24 @@
 import { useLocation, useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Navbar from "../../components/navbar.jsx";
 import Header from "../../components/header.jsx";
 import "../../css/learn/FinishedPage.css";
+import { useLife } from "../../utils/LifeContext.jsx";
+import { errorAlert } from "../../utils/Toastify.jsx";
 
 const FinishedPage = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const { lives, deductLife } = useLife();
 
   const [resultData, setResultData] = useState(null);
 
+  const effectRunRef = useRef(false);
+
   useEffect(() => {
+    let currentResultData = null;
     if (location.state) {
-      setResultData(location.state);
+      currentResultData = location.state;
       try {
         sessionStorage.setItem(
           "exerciseResult",
@@ -25,16 +31,44 @@ const FinishedPage = () => {
       try {
         const saved = sessionStorage.getItem("exerciseResult");
         if (saved) {
-          setResultData(JSON.parse(saved));
+          currentResultData = JSON.parse(saved);
         } else {
           navigate("/learn", { replace: true });
+          return;
         }
       } catch (e) {
         console.error("Failed to load result from sessionStorage:", e);
         navigate("/learn", { replace: true });
+        return;
       }
     }
+    setResultData(currentResultData);
   }, [location.state, navigate]);
+
+  useEffect(() => {
+    if (resultData && resultData.type === "quiz" && !effectRunRef.current) {
+      const { correctAnswersCount, totalQuestions } = resultData;
+      const scorePercentage = (correctAnswersCount / totalQuestions) * 100;
+
+      if (scorePercentage < 60) {
+        effectRunRef.current = true;
+
+        if (lives > 1) {
+          deductLife();
+          errorAlert("You failed the quiz! 1 life has been deducted.");
+        } else if (lives === 1) {
+          deductLife();
+          errorAlert(
+            "You failed the quiz and have no lives left! Please top up."
+          );
+        } else {
+          errorAlert(
+            "You failed the quiz and have no lives left! Please top up."
+          );
+        }
+      }
+    }
+  }, [resultData, lives, deductLife]);
 
   if (!resultData) {
     return (
@@ -51,7 +85,6 @@ const FinishedPage = () => {
   }
 
   const { title, correctAnswersCount, totalQuestions, type } = resultData;
-
   const scorePercentage = (correctAnswersCount / totalQuestions) * 100;
 
   let titleMessage = "";

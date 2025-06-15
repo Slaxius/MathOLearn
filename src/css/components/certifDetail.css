@@ -9,7 +9,7 @@
   z-index: 1000;
 
   .modal-content {
-    background-color: var(--softgreen);
+    background-color: var(--darkjungle);
     border-radius: 1rem;
     width: fit-content;
     height: fit-content;
