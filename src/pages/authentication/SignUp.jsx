@@ -50,12 +50,30 @@ function SignUp() {
       return;
     }
 
+    const inputUsernameLower = username.trim().toLowerCase();
     const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
-    const allUsers = [...userDetail, ...storedUsers];
 
-    const usernameExists = allUsers.some(
-      (user) => user.name.toLowerCase() === username.trim().toLowerCase()
-    );
+    let usernameExists = false;
+
+    if (storedUsers.some((user) => user.name.toLowerCase() === inputUsernameLower)) {
+      usernameExists = true;
+    }
+
+    if (!usernameExists) {
+      const userInDetailJson = userDetail.find(
+        (user) => user.name.toLowerCase() === inputUsernameLower
+      );
+
+      if (userInDetailJson) {
+        const userMigratedAndRenamed = storedUsers.some(storedUser =>
+            storedUser.id === userInDetailJson.id && storedUser.name.toLowerCase() !== inputUsernameLower
+        );
+
+        if (!userMigratedAndRenamed) {
+            usernameExists = true;
+        }
+      }
+    }
 
     if (usernameExists) {
       setGeneralError("Username already exists.");
@@ -63,15 +81,13 @@ function SignUp() {
     }
 
     const getMaxId = (usersArray) => {
-      if (usersArray.length === 0) {
-        return 0;
-      }
+      if (usersArray.length === 0) return 0;
       const ids = usersArray.map((user) => user.id);
       return Math.max(...ids);
     };
 
-    const currentMaxId = getMaxId(allUsers);
-    const newUserId = currentMaxId + 1;
+    const allKnownUsersForIdCalculation = [...userDetail, ...storedUsers];
+    const newUserId = getMaxId(allKnownUsersForIdCalculation) + 1;
 
     const newUser = {
       id: newUserId,
@@ -84,6 +100,7 @@ function SignUp() {
     const updatedUsers = [...storedUsers, newUser];
     localStorage.setItem("users", JSON.stringify(updatedUsers));
 
+    alert("Sign Up successful! Please Sign In.");
     navigate("/signin");
   };
 

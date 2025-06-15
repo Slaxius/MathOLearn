@@ -14,14 +14,22 @@ function Profile() {
 
   useEffect(() => {
     const loggedInUsername = localStorage.getItem("username");
+    const storedBio = localStorage.getItem("userBio");
+    const storedProfilePicture = localStorage.getItem("profile_picture");
 
     if (!loggedInUsername) {
-      navigate("/login");
+      navigate("/signin");
       return;
     }
 
     const userData = userDetail.find((user) => user.name === loggedInUsername);
-    setCurrentUserData(userData);
+
+    setCurrentUserData({
+      ...userData,
+      name: loggedInUsername,
+      bio: storedBio !== null ? storedBio : (userData?.bio || ""),
+      profile_picture: storedProfilePicture || (userData?.profile_picture || "/assets/icon/white_username_icon.svg"),
+    });
   }, [navigate]);
 
   const [selectedCertification, setSelectedCertification] = useState(null);

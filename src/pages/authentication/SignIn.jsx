@@ -36,26 +36,55 @@ function SignIn() {
       return;
     }
 
-    const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
+    let authenticated = false;
+    let foundUserData = null;
 
-    let foundUser = storedUsers.find(
-      (user) => user.name.toLowerCase() === username.trim().toLowerCase()
+    const inputUsernameLower = username.trim().toLowerCase();
+    let storedUsers = JSON.parse(localStorage.getItem("users")) || [];
+
+    let userFromLocalStorageArray = storedUsers.find(
+      (user) => user.name.toLowerCase() === inputUsernameLower
     );
 
-    if (!foundUser) {
-      foundUser = userDetail.find(
-        (user) => user.name.toLowerCase() === username.trim().toLowerCase()
+    if (userFromLocalStorageArray) {
+      if (userFromLocalStorageArray.password === password.trim()) {
+        authenticated = true;
+        foundUserData = userFromLocalStorageArray;
+      }
+    } else {
+      const userFromJSON = userDetail.find(
+        (user) => user.name.toLowerCase() === inputUsernameLower
       );
+
+      if (userFromJSON) {
+        if (userFromJSON.password === password.trim()) {
+          authenticated = true;
+          foundUserData = userFromJSON;
+
+          const getMaxId = (usersArray) => {
+            if (usersArray.length === 0) return 0;
+            const ids = usersArray.map((u) => u.id);
+            return Math.max(...ids);
+          };
+          const allExistingUsersForIdCalculation = [...userDetail, ...storedUsers];
+          const currentMaxId = getMaxId(allExistingUsersForIdCalculation);
+          
+          const newUserInStorage = {
+            ...userFromJSON,
+            id: currentMaxId + 1
+          };
+          localStorage.setItem("users", JSON.stringify([...storedUsers, newUserInStorage]));
+        }
+      }
     }
 
-    if (foundUser) {
-      if (foundUser.password === password.trim()) {
-        localStorage.setItem("username", foundUser.name);
-        localStorage.setItem("profile_picture", foundUser.profile_picture);
-        navigate("/learn");
-      } else {
-        setGeneralError("Invalid username or password.");
-      }
+    if (authenticated && foundUserData) {
+      localStorage.setItem("username", foundUserData.name);
+      localStorage.setItem("userBio", foundUserData.bio || "");
+      localStorage.setItem("userPassword", foundUserData.password);
+      localStorage.setItem("profile_picture", foundUserData.profile_picture || "/assets/icon/white_username_icon.svg");
+
+      navigate("/learn");
     } else {
       setGeneralError("Invalid username or password.");
     }

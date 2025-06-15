@@ -21,6 +21,8 @@ function EditProfile() {
 
   useEffect(() => {
     const loggedInUsername = localStorage.getItem("username");
+    const storedBio = localStorage.getItem("userBio");
+    const storedProfilePicture = localStorage.getItem("profile_picture");
 
     if (!loggedInUsername) {
       navigate("/signin");
@@ -29,16 +31,20 @@ function EditProfile() {
 
     const userData = getCurrentUser(loggedInUsername);
 
-    if (userData) {
-      setCurrentUserData(userData);
-      setFormData({
-        name: userData.name,
-        bio: userData.bio || "",
-      });
-    } else {
-      console.error("User not found:", loggedInUsername);
-      navigate("/signin");
-    }
+    setCurrentUserData({
+      ...userData,
+      name: loggedInUsername,
+      bio: storedBio !== null ? storedBio : userData?.bio || "",
+      profile_picture:
+        storedProfilePicture ||
+        userData?.profile_picture ||
+        "/assets/icon/white_username_icon.svg",
+    });
+
+    setFormData({
+      name: loggedInUsername,
+      bio: storedBio !== null ? storedBio : userData?.bio || "",
+    });
   }, [navigate]);
 
   const handleInputChange = (e) => {
@@ -50,25 +56,64 @@ function EditProfile() {
   };
 
   const handleSave = () => {
-    if (!currentUserData) {
-      alert("Error: No user data found");
-      return;
-    }
-
-    console.log("Saving profile data:", formData);
-
     if (!formData.name.trim()) {
       alert("Name cannot be empty");
       return;
     }
 
-    localStorage.setItem("username", formData.name);
+    const currentLoggedInUsername = localStorage.getItem("username");
+    let storedUsers = JSON.parse(localStorage.getItem("users")) || [];
 
-    setCurrentUserData({
-      ...currentUserData,
+    const userIndex = storedUsers.findIndex(
+      (user) =>
+        user.name.toLowerCase() === currentLoggedInUsername.toLowerCase()
+    );
+
+    if (userIndex !== -1) {
+      storedUsers[userIndex] = {
+        ...storedUsers[userIndex],
+        name: formData.name.trim(),
+        bio: formData.bio.trim(),
+      };
+      localStorage.setItem("users", JSON.stringify(storedUsers));
+    } else {
+      const userInDetailJson = userDetail.find(
+        (user) =>
+          user.name.toLowerCase() === currentLoggedInUsername.toLowerCase()
+      );
+      if (userInDetailJson) {
+        const getMaxId = (usersArray) => {
+          if (usersArray.length === 0) return 0;
+          const ids = usersArray.map((u) => u.id);
+          return Math.max(...ids);
+        };
+        const allExistingUsersForIdCalculation = [
+          ...userDetail,
+          ...storedUsers,
+        ];
+        const currentMaxId = getMaxId(allExistingUsersForIdCalculation);
+
+        const newUserInStorage = {
+          ...userInDetailJson,
+          id: currentMaxId + 1,
+          name: formData.name.trim(),
+          bio: formData.bio.trim(),
+        };
+        localStorage.setItem(
+          "users",
+          JSON.stringify([...storedUsers, newUserInStorage])
+        );
+      }
+    }
+
+    localStorage.setItem("username", formData.name.trim());
+    localStorage.setItem("userBio", formData.bio.trim());
+
+    setCurrentUserData((prev) => ({
+      ...prev,
       name: formData.name,
       bio: formData.bio,
-    });
+    }));
 
     alert("Profile updated successfully!");
     navigate("/profile");
@@ -83,7 +128,10 @@ function EditProfile() {
         <div className="edit-profile-content">
           <div className="user-profile-picture">
             <img
-              src={currentUserData?.profile_picture || "/assets/icon/white_username_icon.svg"}
+              src={
+                currentUserData?.profile_picture ||
+                "/assets/icon/white_username_icon.svg"
+              }
               alt={`${currentUserData?.name || "User"} profile picture`}
               className="profile-picture"
             />

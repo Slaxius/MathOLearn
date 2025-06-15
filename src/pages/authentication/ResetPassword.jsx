@@ -35,58 +35,57 @@ function ResetPassword() {
       return;
     }
 
-    const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
-    const allUsers = [...userDetail, ...storedUsers];
+    const inputUsernameLower = username.trim().toLowerCase();
+    let storedUsers = JSON.parse(localStorage.getItem("users")) || [];
 
-    let userToReset = null;
-    let isUserInLocalStorage = false;
+    let userFoundAndUpdated = false;
+    let foundUserData = null;
 
-    for (const user of storedUsers) {
-      if (user.name.toLowerCase() === username.trim().toLowerCase()) {
-        userToReset = user;
-        isUserInLocalStorage = true;
-        break;
+    const userIndexInStored = storedUsers.findIndex(
+      (user) => user.name.toLowerCase() === inputUsernameLower
+    );
+
+    if (userIndexInStored !== -1) {
+      storedUsers[userIndexInStored] = {
+        ...storedUsers[userIndexInStored],
+        password: newPassword.trim(),
+      };
+      localStorage.setItem("users", JSON.stringify(storedUsers));
+      foundUserData = storedUsers[userIndexInStored];
+      userFoundAndUpdated = true;
+    } else {
+      const userFromDefault = userDetail.find(
+        (user) => user.name.toLowerCase() === inputUsernameLower
+      );
+
+      if (userFromDefault) {
+        const getMaxId = (usersArray) => {
+          if (usersArray.length === 0) return 0;
+          const ids = usersArray.map((u) => u.id);
+          return Math.max(...ids);
+        };
+        const allExistingUsersForIdCalculation = [...userDetail, ...storedUsers];
+        const currentMaxId = getMaxId(allExistingUsersForIdCalculation);
+
+        const newUserInStorage = {
+          ...userFromDefault,
+          id: currentMaxId + 1,
+          password: newPassword.trim(),
+        };
+        localStorage.setItem("users", JSON.stringify([...storedUsers, newUserInStorage]));
+        foundUserData = newUserInStorage;
+        userFoundAndUpdated = true;
       }
     }
 
-    if (!userToReset) {
-      for (const user of userDetail) {
-        if (user.name.toLowerCase() === username.trim().toLowerCase()) {
-          userToReset = user;
-          isUserInLocalStorage = false;
-          break;
-        }
-      }
-    }
+    if (userFoundAndUpdated && foundUserData) {
+        localStorage.setItem("username", foundUserData.name);
+        localStorage.setItem("userBio", foundUserData.bio || "");
+        localStorage.setItem("userPassword", foundUserData.password);
+        localStorage.setItem("profile_picture", foundUserData.profile_picture || "/assets/icon/white_username_icon.svg");
 
-    if (userToReset) {
-      let updatedUsers = [];
-      if (isUserInLocalStorage) {
-        updatedUsers = storedUsers.map((user) => {
-          if (user.name.toLowerCase() === username.trim().toLowerCase()) {
-            return { ...user, password: newPassword.trim() };
-          }
-          return user;
-        });
-      } else {
-        const newUserId =
-          Math.max(
-            ...storedUsers.map((u) => u.id),
-            ...userDetail.map((u) => u.id),
-            0
-          ) + 1;
-        updatedUsers = [
-          ...storedUsers,
-          {
-            ...userToReset,
-            id: newUserId,
-            password: newPassword.trim(),
-          },
-        ];
-      }
-      localStorage.setItem("users", JSON.stringify(updatedUsers));
-      alert("Password reset successfully!");
-      navigate("/signin");
+        alert("Password reset successfully for " + foundUserData.name + "!");
+        navigate("/signin");
     } else {
       setGeneralError("Username not found.");
     }
