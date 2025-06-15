@@ -1,3 +1,3 @@
-Personal Website as Self Introduction
+Software Engineering Project - Uni
 
 Web: https://math-o-learn.vercel.app/
