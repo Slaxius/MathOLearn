@@ -92,8 +92,9 @@ function ConfirmationPage() {
           </p>
           {type === "quiz" && (
             <p className="body1 warning-text">
-              Failing a quiz will deduct 1 life point. You cannot take any
-              Quiz if you have no lives remaining.
+              Minimum score to pass this Quiz is 60%. Failing will
+              deduct 1 life point. You cannot take any Quiz if you have no lives
+              remaining.
             </p>
           )}
           <div className="confirmation-actions">

@@ -4,7 +4,10 @@
     { "value": "all", "label": "All Subjects" },
     { "value": "calculus", "label": "Calculus" },
     { "value": "linear algebra", "label": "Linear Algebra" },
-    { "value": "basic statistic", "label": "Basic Statistic" }
+    { "value": "statistics", "label": "Statistics" },
+    { "value": "discrete mathematics", "label": "Discrete Mathematics" },
+    { "value": "algebra", "label": "Algebra" },
+    { "value": "physics", "label": "Physics" }
   ],
   "types": [
     { "value": "", "label": "Select Type" },
