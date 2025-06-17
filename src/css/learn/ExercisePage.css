@@ -66,6 +66,14 @@
       color: var(--light-text);
       background-color: red !important;
     }
+
+    .question-number-box.active.correct {
+      background-color: rgb(80, 185, 80) !important;
+    }
+
+    .question-number-box.active.incorrect {
+      background-color: rgb(150, 0, 0) !important;
+    }
   }
 
   .questions-container {

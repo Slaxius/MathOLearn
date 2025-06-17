@@ -5,7 +5,6 @@ import Header from "../../components/header.jsx";
 import Material from "../../json/learn_material.json";
 import "../../css/learn/ExercisePage.css";
 import { errorAlert } from "../../utils/Toastify.jsx";
-import { useLife } from "../../utils/LifeContext.jsx";
 
 function ExercisePage() {
   const { subject, itemId } = useParams();
@@ -14,23 +13,12 @@ function ExercisePage() {
     ? subjectData.exercises.find((e) => e.id === parseInt(itemId))
     : null;
   const navigate = useNavigate();
-  const { lives } = useLife();
-
-  const lifeCheckPerformedRef = useRef(false);
 
   useEffect(() => {
     if (!exercise) {
       navigate("/learn");
-      return;
     }
-    if (lives <= 0 && !lifeCheckPerformedRef.current) {
-      lifeCheckPerformedRef.current = true;
-      errorAlert(
-        "You cannot take any Exercise if you have no lives remaining! Please top up."
-      );
-      navigate("/learn", { replace: true });
-    }
-  }, [exercise, navigate, lives]);
+  }, [exercise, navigate]);
 
   const [selectedQuestionIndex, setSelectedQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState(
@@ -42,7 +30,7 @@ function ExercisePage() {
   );
   const [currentQuestionClue, setCurrentQuestionClue] = useState(null);
 
-  if (!exercise || (lives <= 0 && !lifeCheckPerformedRef.current)) {
+  if (!exercise) {
     return (
       <div className="page">
         <Navbar />

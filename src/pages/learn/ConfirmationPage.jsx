@@ -38,19 +38,19 @@ function ConfirmationPage() {
       return;
     }
 
-    if (lives <= 0 && !lifeCheckPerformedRef.current) {
+    if (type === "quiz" && lives <= 0 && !lifeCheckPerformedRef.current) {
       lifeCheckPerformedRef.current = true;
       errorAlert(
-        `You cannot take any ${type} if you have no lives remaining! Please top up.`
+        `You cannot take any Quiz if you have no lives remaining! Please top up.`
       );
       navigate("/learn", { replace: true });
     }
   }, [subject, type, itemId, navigate, lives]);
 
   const handleStart = () => {
-    if (lives <= 0) {
+    if (type === "quiz" && lives <= 0) {
       errorAlert(
-        `You cannot take any ${type} if you have no lives remaining! Please top up.`
+        `You cannot take any Quiz if you have no lives remaining! Please top up.`
       );
       return;
     }
@@ -93,7 +93,7 @@ function ConfirmationPage() {
           {type === "quiz" && (
             <p className="body1 warning-text">
               Failing a quiz will deduct 1 life point. You cannot take any
-              Exercise or Quiz if you have no lives remaining.
+              Quiz if you have no lives remaining.
             </p>
           )}
           <div className="confirmation-actions">
