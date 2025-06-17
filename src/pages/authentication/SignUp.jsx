@@ -87,7 +87,7 @@ function SignUp() {
 
     const getMaxId = (usersArray) => {
       if (usersArray.length === 0) return 0;
-      const ids = usersArray.map((user) => user.id);
+      const ids = usersArray.map((user) => parseInt(user.id));
       return Math.max(...ids);
     };
 

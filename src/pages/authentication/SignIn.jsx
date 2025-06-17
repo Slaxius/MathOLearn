@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import WelcomeSection from "../../components/welcome.jsx";
 import Button from "../../components/button.jsx";
 import userDetail from "../../json/user_detail.json";
 import "../../css/authentication/Authentication.css";
 import { successAlert } from "../../utils/Toastify.jsx";
+import { UserContext } from "../../utils/UserContext.jsx";
 
 function SignIn() {
   const [username, setUsername] = useState("");
@@ -15,6 +16,7 @@ function SignIn() {
   const [generalError, setGeneralError] = useState("");
 
   const navigate = useNavigate();
+  const { setCurrentUserId } = useContext(UserContext);
 
   useEffect(() => {
     const isPasswordChangedFlag = localStorage.getItem("changePassword");
@@ -85,7 +87,7 @@ function SignIn() {
 
           const getMaxId = (usersArray) => {
             if (usersArray.length === 0) return 0;
-            const ids = usersArray.map((u) => u.id);
+            const ids = usersArray.map((u) => parseInt(u.id));
             return Math.max(...ids);
           };
           const allExistingUsersForIdCalculation = [
@@ -102,6 +104,7 @@ function SignIn() {
             "users",
             JSON.stringify([...storedUsers, newUserInStorage])
           );
+          foundUserData = newUserInStorage;
         }
       }
     }
@@ -114,8 +117,17 @@ function SignIn() {
         "profile_picture",
         foundUserData.profile_picture || "/assets/icon/white_username_icon.svg"
       );
+      localStorage.setItem("currentUserId", foundUserData.id);
+
+      const now = new Date().toISOString();
+      localStorage.setItem(`lastLogin_${foundUserData.id}`, now);
 
       localStorage.setItem("firstLogin", "true");
+
+      if (setCurrentUserId) {
+        setCurrentUserId(foundUserData.id);
+      }
+
       navigate("/learn");
     } else {
       setGeneralError("Invalid username or password.");

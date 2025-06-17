@@ -4,12 +4,36 @@ import { Link, useNavigate } from "react-router-dom";
 import Button from "../../components/button.jsx";
 import "../../css/settings/Settings.css";
 import settingsData from "../../json/settings.json";
+import { useContext } from "react";
+import { UserContext } from "../../utils/UserContext.jsx";
 
 function Settings() {
   const navigate = useNavigate();
+  const { setCurrentUserId } = useContext(UserContext);
 
   const handleSignOut = () => {
+    const loggedOutUserId = localStorage.getItem("currentUserId");
+
     sessionStorage.clear();
+
+    localStorage.removeItem("username");
+    localStorage.removeItem("userBio");
+    localStorage.removeItem("userPassword");
+    localStorage.removeItem("profile_picture");
+    localStorage.removeItem("firstLogin");
+    localStorage.removeItem("currentUserId");
+
+    if (loggedOutUserId) {
+      localStorage.removeItem(`allActiveDays_${loggedOutUserId}`);
+      localStorage.removeItem(`lastLogin_${loggedOutUserId}`);
+      localStorage.removeItem(`lastActiveDate_${loggedOutUserId}`);
+      localStorage.removeItem(`streakLength_${loggedOutUserId}`);
+    }
+
+    if (setCurrentUserId) {
+      setCurrentUserId(null);
+    }
+
     navigate("/signin");
   };
 
@@ -37,7 +61,7 @@ function Settings() {
           ))}
         </div>
         <div className="sign-out">
-          <Button link="/signin" text="Sign Out" onClick={handleSignOut} />
+          <Button text="Sign Out" onClick={handleSignOut} />
         </div>
       </div>
     </div>

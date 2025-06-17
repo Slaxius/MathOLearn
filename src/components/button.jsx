@@ -1,12 +1,12 @@
 import "../css/components/button.css";
 import { useNavigate } from "react-router-dom";
 
-function button({ link, text, onClick }) {
+function Button({ link, text, onClick }) { 
   const navigate = useNavigate();
 
-  const handleClick = () => {
+  const handleClick = (e) => {
     if (onClick) {
-      onClick();
+      onClick(e);
     }
     if (link) {
       navigate(link);
@@ -20,4 +20,4 @@ function button({ link, text, onClick }) {
   );
 }
 
-export default button;
+export default Button;

@@ -1,18 +1,16 @@
-import { useState, useEffect } from "react";
+import { useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/navbar.jsx";
 import Header from "../../components/header.jsx";
 import "../../css/learn/Learn.css";
 import Calendar from "../../components/calendar.jsx";
 import LearnMaterial from "../../json/learn_material.json";
-import UserDetail from "../../json/user_detail.json";
 import BuyLifeSection from "../../components/buyLifeSection.jsx";
 import { successAlert } from "../../utils/Toastify.jsx";
+import { UserContext } from "../../utils/UserContext.jsx";
 
 function Learn() {
   const navigate = useNavigate();
-
-  const [currentUserLastLogin, setCurrentUserLastLogin] = useState(null);
 
   useEffect(() => {
     const loggedInUsername = localStorage.getItem("username");
@@ -24,13 +22,6 @@ function Learn() {
       successAlert("Welcome, " + userDisplayName + "!");
       localStorage.setItem("firstLogin", "false");
     }
-
-    const loggedInUserFromDetail = UserDetail.find(
-      (user) => user.name.toLowerCase() === loggedInUsername?.toLowerCase()
-    );
-    if (loggedInUserFromDetail) {
-      setCurrentUserLastLogin(loggedInUserFromDetail.last_login_date);
-    }
   }, []);
 
   const handleSubjectClick = (subject) => {
@@ -41,11 +32,17 @@ function Learn() {
 
   const subjectNames = Object.keys(LearnMaterial);
 
+  const { currentUserId } = useContext(UserContext);
+
   return (
     <div className="page">
       <Navbar />
       <Header />
-      <Calendar lastLoginDateFromUser={currentUserLastLogin} />
+      {currentUserId ? (
+        <Calendar userId={currentUserId} />
+      ) : (
+        <p>Loading calendar...</p>
+      )}
       <BuyLifeSection />
       <div className="main-section learn">
         <div className="subject-section">

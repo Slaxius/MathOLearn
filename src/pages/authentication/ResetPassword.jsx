@@ -62,7 +62,7 @@ function ResetPassword() {
       if (userFromDefault) {
         const getMaxId = (usersArray) => {
           if (usersArray.length === 0) return 0;
-          const ids = usersArray.map((u) => u.id);
+          const ids = usersArray.map((u) => parseInt(u.id));
           return Math.max(...ids);
         };
         const allExistingUsersForIdCalculation = [
@@ -93,6 +93,7 @@ function ResetPassword() {
         "profile_picture",
         foundUserData.profile_picture || "/assets/icon/white_username_icon.svg"
       );
+      localStorage.setItem("currentUserId", foundUserData.id);
 
       localStorage.setItem("changePassword", "true");
       localStorage.setItem("userChangePassword", foundUserData.name);
