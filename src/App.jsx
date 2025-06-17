@@ -3,8 +3,6 @@ import { useState, useEffect } from "react";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import ProtectedRoute from "./utils/ProtectedRoute.jsx";
-
 /* Buy Life */
 import BuyLifePage from "./components/buyLife.jsx";
 
@@ -46,6 +44,7 @@ import Feedback from "./pages/settings/Feedback.jsx";
 
 import { MusicProvider } from "./utils/MusicProvider.jsx";
 import { LifeProvider } from "./utils/LifeContext.jsx";
+import ProtectedRoute from "./utils/ProtectedRoute.jsx";
 
 function App() {
   const [currentUsername, setCurrentUsername] = useState(
