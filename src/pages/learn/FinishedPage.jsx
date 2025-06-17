@@ -5,6 +5,7 @@ import Header from "../../components/header.jsx";
 import "../../css/learn/FinishedPage.css";
 import { useLife } from "../../utils/LifeContext.jsx";
 import { errorAlert } from "../../utils/Toastify.jsx";
+import jsPDF from "jspdf";
 
 const FinishedPage = () => {
   const location = useLocation();
@@ -84,7 +85,8 @@ const FinishedPage = () => {
     );
   }
 
-  const { title, correctAnswersCount, totalQuestions, type } = resultData;
+  const { title, correctAnswersCount, totalQuestions, type, exerciseData } =
+    resultData;
   const scorePercentage = (correctAnswersCount / totalQuestions) * 100;
 
   let titleMessage = "";
@@ -99,6 +101,76 @@ const FinishedPage = () => {
 
   const handleBack = () => {
     navigate("/learn");
+  };
+
+  const handleDownloadExercise = () => {
+    if (!exerciseData || !exerciseData.questions) {
+      errorAlert("No exercise data available for download.");
+      return;
+    }
+
+    const doc = new jsPDF();
+    let yPos = 10;
+    const margin = 10;
+    const lineHeight = 6;
+    const maxLineWidth = doc.internal.pageSize.getWidth() - 2 * margin;
+    const pageCenter = doc.internal.pageSize.getWidth() / 2;
+
+    doc.setFontSize(16);
+    doc.setFont(undefined, "bold");
+    doc.text(`Exercise: ${exerciseData.title}`, pageCenter, yPos, {
+      align: "center",
+    });
+    yPos += lineHeight * 2;
+
+    doc.setFontSize(12);
+    doc.setFont(undefined, "normal");
+
+    exerciseData.questions.forEach((q, index) => {
+      if (
+        yPos >
+        doc.internal.pageSize.getHeight() -
+          margin -
+          lineHeight * (q.options.length + 2)
+      ) {
+        doc.addPage();
+        yPos = margin;
+      }
+
+      doc.setFont(undefined, "normal");
+      const questionNumberText = `${index + 1}. ${q.question}`;
+      const questionTextLines = doc.splitTextToSize(
+        questionNumberText,
+        maxLineWidth
+      );
+      questionTextLines.forEach((line) => {
+        doc.text(line, margin, yPos);
+        yPos += lineHeight;
+      });
+      doc.setFont(undefined, "normal");
+
+      q.options.forEach((option, optionIndex) => {
+        const optionLabel = String.fromCharCode(65 + optionIndex);
+        const optionText = `${optionLabel}. ${option}`;
+
+        const isCorrectAnswer = optionIndex === q.correctAnswer;
+
+        if (isCorrectAnswer) {
+          doc.setFont(undefined, "bold");
+        } else {
+          doc.setFont(undefined, "normal");
+        }
+
+        const optionTextLines = doc.splitTextToSize(optionText, maxLineWidth);
+        optionTextLines.forEach((line) => {
+          doc.text(line, margin + 5, yPos);
+          yPos += lineHeight;
+        });
+      });
+      yPos += 5;
+    });
+
+    doc.save(`${exerciseData.title}_questions.pdf`);
   };
 
   return (
@@ -118,7 +190,15 @@ const FinishedPage = () => {
               </p>
             )}
           </div>
-          <button className="back-page-btn boldBody1" onClick={handleBack}>
+          {type === "exercise" && (
+            <button
+              className="download-exercise btn boldBody1"
+              onClick={handleDownloadExercise}
+            >
+              Download Exercise Case
+            </button>
+          )}
+          <button className="back-page btn boldBody1" onClick={handleBack}>
             BACK
           </button>
         </div>

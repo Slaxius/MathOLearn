@@ -114,6 +114,7 @@ function ExercisePage() {
         correctAnswersCount,
         totalQuestions,
         type: "exercise",
+        exerciseData: exercise,
       };
 
       try {
