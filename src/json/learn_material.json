@@ -360,7 +360,7 @@
       }
     ]
   },
-  "basic statistic": {
+  "statistics": {
     "videos": [
       {
         "id": 1,
@@ -594,6 +594,214 @@
               "An equation"
             ],
             "correctAnswer": 0
+          }
+        ]
+      }
+    ]
+  },
+  "algebra": {
+    "videos": [
+      {
+        "id": 1,
+        "title": "Fractions and Decimals",
+        "thumbnail": "/placeholder.svg?height=120&width=160",
+        "duration": "10:15",
+        "url": "https://www.youtube.com/embed/"
+      },
+      {
+        "id": 2,
+        "title": "Linear Equations",
+        "thumbnail": "/placeholder.svg?height=120&width=160",
+        "duration": "12:00",
+        "url": "https://www.youtube.com/embed/"
+      },
+      {
+        "id": 3,
+        "title": "Quadratic Equations",
+        "thumbnail": "/placeholder.svg?height=120&width=160",
+        "duration": "14:30",
+        "url": "https://www.youtube.com/embed/"
+      }
+    ],
+    "cheatsheets": [
+      {
+        "id": 1,
+        "title": "Algebraic Formulas",
+        "thumbnail": "/placeholder.svg?height=120&width=160",
+        "downloadUrl": "/material/cheatsheet.pdf"
+      },
+      {
+        "id": 2,
+        "title": "Factoring Techniques",
+        "thumbnail": "/placeholder.svg?height=120&width=160",
+        "downloadUrl": "/material/cheatsheet.pdf"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "title": "Number Operations & Fractions",
+        "thumbnail": "/placeholder.svg?height=120&width=160",
+        "questions": [
+          {
+            "id": 1,
+            "question": "What is the result of 1/2 + 1/4?",
+            "options": ["1/2", "3/4", "1", "5/4"],
+            "correctAnswer": 1,
+            "clue": "Find a common denominator first."
+          },
+          {
+            "id": 2,
+            "question": "If 3/5 of a number is 9, what is the number?",
+            "options": ["10", "12", "15", "20"],
+            "correctAnswer": 2,
+            "clue": "Divide 9 by 3/5."
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Solving Linear Equations",
+        "thumbnail": "/placeholder.svg?height=120&width=160",
+        "questions": [
+          {
+            "id": 1,
+            "question": "What is the value of x in the equation 2x + 5 = 11?",
+            "options": ["2", "3", "4", "5"],
+            "correctAnswer": 1,
+            "clue": "Subtract 5 from both sides, then divide by 2."
+          },
+          {
+            "id": 2,
+            "question": "Solve for y: 3y - 7 = 8",
+            "options": ["3", "4", "5", "6"],
+            "correctAnswer": 2,
+            "clue": "Add 7 to both sides, then divide by 3."
+          }
+        ]
+      }
+    ],
+    "quizzes": [
+      {
+        "id": 1,
+        "title": "Algebra Fundamentals Quiz",
+        "thumbnail": "/placeholder.svg?height=120&width=160",
+        "questions": [
+          {
+            "id": 1,
+            "question": "What is a variable in algebra?",
+            "options": [
+              "A fixed number",
+              "A symbol representing an unknown value",
+              "An operation sign",
+              "A constant"
+            ],
+            "correctAnswer": 1
+          }
+        ]
+      }
+    ]
+  },
+  "physics": {
+    "videos": [
+      {
+        "id": 1,
+        "title": "Newton's Laws of Motion",
+        "thumbnail": "/placeholder.svg?height=120&width=160",
+        "duration": "16:00",
+        "url": "https://www.youtube.com/embed/"
+      },
+      {
+        "id": 2,
+        "title": "Energy and Work",
+        "thumbnail": "/placeholder.svg?height=120&width=160",
+        "duration": "18:30",
+        "url": "https://www.youtube.com/embed/"
+      },
+      {
+        "id": 3,
+        "title": "Waves and Sound",
+        "thumbnail": "/placeholder.svg?height=120&width=160",
+        "duration": "20:00",
+        "url": "https://www.youtube.com/embed/"
+      },
+      {
+        "id": 4,
+        "title": "Electricity Basics",
+        "thumbnail": "/placeholder.svg?height=120&width=160",
+        "duration": "17:00",
+        "url": "https://www.youtube.com/embed/"
+      }
+    ],
+    "cheatsheets": [
+      {
+        "id": 1,
+        "title": "Basic Physics Formulas",
+        "thumbnail": "/placeholder.svg?height=120&width=160",
+        "downloadUrl": "/material/cheatsheet.pdf"
+      },
+      {
+        "id": 2,
+        "title": "Physics Constants",
+        "thumbnail": "/placeholder.svg?height=120&width=160",
+        "downloadUrl": "/material/cheatsheet.pdf"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "title": "Kinematics",
+        "thumbnail": "/placeholder.svg?height=120&width=160",
+        "questions": [
+          {
+            "id": 1,
+            "question": "A car moves at a constant speed of 20 m/s for 5 seconds. What is the distance traveled by the car?",
+            "options": ["10 meters", "20 meters", "100 meters", "200 meters"],
+            "correctAnswer": 2,
+            "clue": "Use the formula: distance = speed × time."
+          },
+          {
+            "id": 2,
+            "question": "If the acceleration due to gravity is 10 m/s², what is the weight of an object with a mass of 2 kg?",
+            "options": ["2 N", "10 N", "20 N", "200 N"],
+            "correctAnswer": 2,
+            "clue": "Use the formula: weight = mass × gravity."
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Circuits and Ohm's Law",
+        "thumbnail": "/placeholder.svg?height=120&width=160",
+        "questions": [
+          {
+            "id": 1,
+            "question": "If a 10 Ohm resistor has a current of 2 Amperes flowing through it, what is the voltage across it?",
+            "options": ["5 Volt", "12 Volt", "20 Volt", "0.2 Volt"],
+            "correctAnswer": 2,
+            "clue": "Use Ohm's Law: V = I × R."
+          },
+          {
+            "id": 2,
+            "question": "Which of these is a unit of electrical resistance?",
+            "options": ["Ampere", "Volt", "Ohm", "Watt"],
+            "correctAnswer": 2,
+            "clue": "Think about the components of Ohm's Law (V=IR)."
+          }
+        ]
+      }
+    ],
+    "quizzes": [
+      {
+        "id": 1,
+        "title": "Physics Fundamentals Quiz",
+        "thumbnail": "/placeholder.svg?height=120&width=160",
+        "questions": [
+          {
+            "id": 1,
+            "question": "What is the SI unit of force?",
+            "options": ["Joule", "Watt", "Newton", "Pascal"],
+            "correctAnswer": 2
           }
         ]
       }

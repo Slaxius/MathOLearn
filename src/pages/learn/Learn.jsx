@@ -4,7 +4,7 @@ import Navbar from "../../components/navbar.jsx";
 import Header from "../../components/header.jsx";
 import "../../css/learn/Learn.css";
 import Calendar from "../../components/calendar.jsx";
-import Subject from "../../json/subject.json";
+import LearnMaterial from "../../json/learn_material.json";
 import UserDetail from "../../json/user_detail.json";
 import BuyLifeSection from "../../components/buyLifeSection.jsx";
 import { successAlert } from "../../utils/Toastify.jsx";
@@ -39,6 +39,8 @@ function Learn() {
     });
   };
 
+  const subjectNames = Object.keys(LearnMaterial);
+
   return (
     <div className="page">
       <Navbar />
@@ -47,14 +49,14 @@ function Learn() {
       <BuyLifeSection />
       <div className="main-section learn">
         <div className="subject-section">
-          {Subject.map((sub, idx) => (
+          {subjectNames.map((subjectName, idx) => (
             <button
               key={idx}
-              value={sub.subject}
+              value={subjectName}
               className="subject-bubble header5"
-              onClick={() => handleSubjectClick(sub.subject)}
+              onClick={() => handleSubjectClick(subjectName)}
             >
-              {sub.subject}
+              {subjectName}
             </button>
           ))}
         </div>
