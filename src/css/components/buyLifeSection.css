@@ -35,6 +35,7 @@
 
 .light-mode {
   .buy-section-container {
+    background-color: var(--greenglass);
     border: 1px solid var(--neongreen);
 
     .buy-section-text {
