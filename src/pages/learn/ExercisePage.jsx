@@ -46,12 +46,11 @@ function ExercisePage() {
     const newAnswers = [...answers];
     newAnswers[index] = answer;
     setAnswers(newAnswers);
-    // Jika jawaban diubah setelah submit, reset status dan clue untuk pertanyaan ini
+
     if (submitted) {
       const newAnswerStatus = [...answerStatus];
-      newAnswerStatus[index] = null; // Set kembali ke belum dinilai
+      newAnswerStatus[index] = null;
       setAnswerStatus(newAnswerStatus);
-      // Jika pertanyaan yang sedang dipilih adalah yang diubah, hapus cluenya
       if (index === selectedQuestionIndex) {
         setCurrentQuestionClue(null);
       }
@@ -61,7 +60,6 @@ function ExercisePage() {
   const handleNext = () => {
     if (selectedQuestionIndex < exercise.questions.length - 1) {
       setSelectedQuestionIndex(selectedQuestionIndex + 1);
-      // Jika sudah disubmit dan pertanyaan berikutnya salah, tampilkan clue
       if (
         submitted &&
         answerStatus[selectedQuestionIndex + 1] === "incorrect"
@@ -70,7 +68,6 @@ function ExercisePage() {
           exercise.questions[selectedQuestionIndex + 1].clue
         );
       } else {
-        // Jika tidak, sembunyikan clue
         setCurrentQuestionClue(null);
       }
     }
@@ -81,7 +78,6 @@ function ExercisePage() {
     const incorrectQuestionNumbers = [];
 
     exercise.questions.forEach((question, index) => {
-      // Periksa apakah jawaban telah dipilih sebelum membandingkan
       if (
         answers[index] !== null &&
         answers[index] === question.correctAnswer
@@ -94,7 +90,7 @@ function ExercisePage() {
     });
 
     setAnswerStatus(newAnswerStatus);
-    setSubmitted(true); // Tandai bahwa latihan sudah disubmit
+    setSubmitted(true);
 
     if (incorrectQuestionNumbers.length > 0) {
       errorAlert(
@@ -103,12 +99,10 @@ function ExercisePage() {
         )}`
       );
 
-      // Arahkan ke pertanyaan salah pertama dan tampilkan clue
       const firstIncorrectIndex = incorrectQuestionNumbers[0] - 1;
       setSelectedQuestionIndex(firstIncorrectIndex);
-      setCurrentQuestionClue(exercise.questions[firstIncorrectIndex].clue); // Set clue untuk pertanyaan salah pertama
+      setCurrentQuestionClue(exercise.questions[firstIncorrectIndex].clue);
     } else {
-      // Jika semua jawaban benar, navigasi ke halaman selesai
       const correctAnswersCount = exercise.questions.filter(
         (question, index) => answers[index] === question.correctAnswer
       ).length;
@@ -137,11 +131,9 @@ function ExercisePage() {
 
   const handleQuestionSelect = (index) => {
     setSelectedQuestionIndex(index);
-    // Jika sudah disubmit dan pertanyaan yang dipilih salah, tampilkan clue
     if (submitted && answerStatus[index] === "incorrect") {
       setCurrentQuestionClue(exercise.questions[index].clue);
     } else {
-      // Jika tidak, sembunyikan clue
       setCurrentQuestionClue(null);
     }
   };
