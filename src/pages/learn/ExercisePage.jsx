@@ -1,5 +1,5 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import Navbar from "../../components/navbar.jsx";
 import Header from "../../components/header.jsx";
 import Material from "../../json/learn_material.json";
@@ -46,15 +46,6 @@ function ExercisePage() {
     const newAnswers = [...answers];
     newAnswers[index] = answer;
     setAnswers(newAnswers);
-
-    if (submitted) {
-      const newAnswerStatus = [...answerStatus];
-      newAnswerStatus[index] = null;
-      setAnswerStatus(newAnswerStatus);
-      if (index === selectedQuestionIndex) {
-        setCurrentQuestionClue(null);
-      }
-    }
   };
 
   const handleNext = () => {
@@ -74,14 +65,29 @@ function ExercisePage() {
   };
 
   const handleSubmit = () => {
+    const unansweredQuestionNumbers = [];
+    answers.forEach((answer, index) => {
+      if (answer === null) {
+        unansweredQuestionNumbers.push(index + 1);
+      }
+    });
+
+    if (unansweredQuestionNumbers.length > 0) {
+      errorAlert(
+        `Please answer all questions before submitting. Unanswered questions: ${unansweredQuestionNumbers.join(
+          ", "
+        )}.`
+      );
+      setSelectedQuestionIndex(unansweredQuestionNumbers[0] - 1);
+      setCurrentQuestionClue(null);
+      return;
+    }
+
     const newAnswerStatus = [...answerStatus];
     const incorrectQuestionNumbers = [];
 
     exercise.questions.forEach((question, index) => {
-      if (
-        answers[index] !== null &&
-        answers[index] === question.correctAnswer
-      ) {
+      if (answers[index] === question.correctAnswer) {
         newAnswerStatus[index] = "correct";
       } else {
         newAnswerStatus[index] = "incorrect";

@@ -5,6 +5,7 @@
 
   .subject {
     color: var(--neongreen);
+    text-transform: uppercase;
   }
 }
 
@@ -22,6 +23,7 @@
   color: var(--light-text);
   margin-bottom: 1rem;
   width: 100%;
+  text-transform: capitalize;
 }
 
 .video-content {

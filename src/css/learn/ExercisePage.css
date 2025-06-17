@@ -8,6 +8,7 @@
     text-transform: uppercase;
     text-align: center;
     color: var(--neongreen);
+    text-transform: uppercase;
   }
 }
 
@@ -19,6 +20,7 @@
   width: 100%;
   height: 100%;
   gap: 2rem;
+  text-transform: capitalize;
 
   .exercise-title {
     color: var(--light-text);

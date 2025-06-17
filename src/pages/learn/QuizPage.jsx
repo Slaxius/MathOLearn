@@ -56,6 +56,24 @@ function QuizPage() {
   };
 
   const handleSubmit = () => {
+    const unansweredQuestionNumbers = [];
+    answers.forEach((answer, index) => {
+      if (answer === null) {
+        unansweredQuestionNumbers.push(index + 1);
+      }
+    });
+
+    if (unansweredQuestionNumbers.length > 0) {
+      errorAlert(
+        `Please answer all questions before submitting. Unanswered questions: ${unansweredQuestionNumbers.join(
+          ", "
+        )}.`
+      );
+      setSelectedQuestionIndex(unansweredQuestionNumbers[0] - 1);
+      setCurrentQuestionClue(null);
+      return;
+    }
+
     const correctAnswersCount = quiz.questions.filter(
       (question, index) => answers[index] === question.correctAnswer
     ).length;
