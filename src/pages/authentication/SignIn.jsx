@@ -36,7 +36,8 @@ function SignIn() {
     }
   }, []);
 
-  const handleSignIn = () => {
+  const handleSignIn = (e) => {
+    e.preventDefault();
     setUsernameError("");
     setPasswordError("");
     setGeneralError("");
@@ -126,7 +127,7 @@ function SignIn() {
       <WelcomeSection />
       <div className="right-side">
         <h1 className="header2">Sign In</h1>
-        <div className="form-section">
+        <form className="form-section" onSubmit={handleSignIn}>
           {generalError && (
             <div className="body2 general-err error">{generalError}</div>
           )}
@@ -176,8 +177,8 @@ function SignIn() {
             </Link>
           </div>
           <Button text="Sign In" onClick={handleSignIn} />
-        </div>
-        <p className="register-now body2">
+        </form>
+        <p className="got-acc body2">
           Don't have an account? Click here to{" "}
           <Link to="/signup" className="body2">
             Sign Up

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import WelcomeSection from "../../components/welcome.jsx";
 import Button from "../../components/button.jsx";
 import userDetail from "../../json/user_detail.json";
@@ -14,7 +14,8 @@ function ResetPassword() {
 
   const navigate = useNavigate();
 
-  const handleResetPassword = () => {
+  const handleResetPassword = (e) => {
+    e.preventDefault();
     setUsernameError("");
     setNewPasswordError("");
     setGeneralError("");
@@ -106,7 +107,7 @@ function ResetPassword() {
       <WelcomeSection />
       <div className="right-side">
         <h1 className="header2">Reset Password</h1>
-        <div className="form-section">
+        <form className="form-section" onSubmit={handleResetPassword}>
           {generalError && (
             <div className="general-err error">{generalError}</div>
           )}
@@ -153,7 +154,13 @@ function ResetPassword() {
             </div>
           )}
           <Button text="Reset" onClick={handleResetPassword} />
-        </div>
+        </form>
+        <p className="got-acc body2">
+          Remembered your password? Click here to{" "}
+          <Link to="/signin" className="body2">
+            Sign In
+          </Link>
+        </p>
       </div>
     </div>
   );

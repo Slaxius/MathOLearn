@@ -4,7 +4,6 @@ import WelcomeSection from "../../components/welcome.jsx";
 import Button from "../../components/button.jsx";
 import userDetail from "../../json/user_detail.json";
 import "../../css/authentication/Authentication.css";
-import { successAlert } from "../../utils/Toastify.jsx";
 
 function SignUp() {
   const [username, setUsername] = useState("");
@@ -18,7 +17,8 @@ function SignUp() {
 
   const navigate = useNavigate();
 
-  const handleSignUp = () => {
+  const handleSignUp = (e) => {
+    e.preventDefault();
     setUsernameError("");
     setPasswordError("");
     setConfirmPasswordError("");
@@ -114,7 +114,7 @@ function SignUp() {
       <WelcomeSection />
       <div className="right-side">
         <h1 className="header2">Sign Up</h1>
-        <div className="form-section">
+        <form className="form-section" onSubmit={handleSignUp}>
           {generalError && (
             <div className="general-err error">{generalError}</div>
           )}
@@ -185,8 +185,8 @@ function SignUp() {
             </div>
           )}
           <Button text="Sign Up" onClick={handleSignUp} />
-        </div>
-        <p className="register-now body2">
+        </form>
+        <p className="got-acc body2">
           Already have account? Click here to{" "}
           <Link to="/signin" className="body2">
             Sign In
