@@ -1,9 +1,29 @@
 import { useState, useEffect } from "react";
 import "../css/components/calendar.css";
 
-function Calendar({ lastLoginDateFromUser }) {
+function Calendar() {
   const [currentDate, setCurrentDate] = useState(new Date());
-  const [streakDays, setStreakDays] = useState(1);
+  const [streakDays, setStreakDays] = useState(0);
+  const [allActiveDays, setAllActiveDays] = useState(() => {
+    try {
+      const stored = localStorage.getItem("allActiveDays");
+      return stored ? new Set(JSON.parse(stored)) : new Set();
+    } catch (error) {
+      console.error("Failed to parse allActiveDays from localStorage", error);
+      return new Set();
+    }
+  });
+
+  const getCleanDate = (date) => {
+    const d = new Date(date);
+    d.setHours(0, 0, 0, 0);
+    return d;
+  };
+
+  const getDateKey = (date) => {
+    const d = getCleanDate(date);
+    return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+  };
 
   const getFirstDayOfMonth = (date) => {
     const firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
@@ -18,46 +38,57 @@ function Calendar({ lastLoginDateFromUser }) {
   const currentYear = currentDate.getFullYear();
 
   const isToday = (day, month, year) => {
-    const today = new Date();
-    return (
-      today.getDate() === day &&
-      today.getMonth() === month &&
-      today.getFullYear() === year
-    );
+    const today = getCleanDate(new Date());
+    const dateToCheck = getCleanDate(new Date(year, month, day));
+    return today.getTime() === dateToCheck.getTime();
+  };
+
+  const isDayActive = (day, month, year) => {
+    const dateKey = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+    return allActiveDays.has(dateKey);
   };
 
   const generateCalendar = () => {
     const firstDay = getFirstDayOfMonth(currentDate);
     const daysInMonth = getDaysInMonth(currentDate);
-    const prevMonthDays = new Date(
-      currentDate.getFullYear(),
-      currentDate.getMonth(),
-      0
-    ).getDate();
+    const prevMonthDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), 0);
+    const prevMonthDays = prevMonthDate.getDate();
 
     let calendar = [];
     let day = 1;
     let prevMonthDay = prevMonthDays - firstDay + 1;
 
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 6; i++) {
       let week = [];
       for (let j = 0; j < 7; j++) {
+        let dateObj = null;
+        let displayDay = null;
+        let isCurrentMonthFlag = false;
+
         if (i === 0 && j < firstDay) {
-          week.push({ day: prevMonthDay, isCurrentMonth: false });
+          displayDay = prevMonthDay;
+          dateObj = new Date(currentYear, currentMonth - 1, displayDay);
           prevMonthDay++;
         } else if (day <= daysInMonth) {
-          week.push({
-            day,
-            isCurrentMonth: true,
-            isToday: isToday(day, currentMonth, currentYear),
-          });
+          displayDay = day;
+          dateObj = new Date(currentYear, currentMonth, displayDay);
+          isCurrentMonthFlag = true;
           day++;
         } else {
-          week.push({ day: day - daysInMonth, isCurrentMonth: false });
+          displayDay = day - daysInMonth;
+          dateObj = new Date(currentYear, currentMonth + 1, displayDay);
           day++;
         }
+
+        week.push({
+          day: displayDay,
+          isCurrentMonth: isCurrentMonthFlag,
+          isToday: isToday(displayDay, dateObj.getMonth(), dateObj.getFullYear()),
+          isActive: isDayActive(displayDay, dateObj.getMonth(), dateObj.getFullYear()),
+        });
       }
       calendar.push(week);
+      if (day > daysInMonth && i > 0 && week.some(d => d.isCurrentMonth)) break;
     }
     return calendar;
   };
@@ -78,86 +109,82 @@ function Calendar({ lastLoginDateFromUser }) {
     const calendar = generateCalendar();
     return calendar.map((week, weekIndex) => (
       <div key={weekIndex} className="calendar-week">
-        {week.map((day, dayIndex) => (
-          <div
-            key={dayIndex}
-            className={`calendar-day boldBody2 ${
-              day.isCurrentMonth
-                ? day.isToday
-                  ? "current-month today"
-                  : "current-month"
-                : "other-month"
-            }`}
-          >
-            {day.day}
-          </div>
-        ))}
+        {week.map((day, dayIndex) => {
+          let className = `calendar-day boldBody2`;
+
+          if (day.isCurrentMonth) {
+            className += " current-month";
+            if (day.isToday) {
+              className += " today";
+            }
+            if (day.isActive) {
+              className += " active-day";
+            }
+          } else {
+            className += " other-month";
+          }
+
+          return (
+            <div
+              key={dayIndex}
+              className={className}
+            >
+              {day.day}
+            </div>
+          );
+        })}
       </div>
     ));
   };
 
-  const calculateDaysDifference = (date1, date2) => {
-    const d1 = new Date(date1);
-    const d2 = new Date(date2);
-    d1.setHours(0, 0, 0, 0);
-    d2.setHours(0, 0, 0, 0);
-
-    const diffTime = Math.abs(d2.getTime() - d1.getTime());
-    const diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24));
-    return diffDays;
-  };
-
   const checkAndSetStreak = () => {
-    const today = new Date();
-    const storedLastUsedDate = localStorage.getItem("lastUsedDate");
-    const storedStreak = parseInt(localStorage.getItem("streakDays")) || 0;
+    const today = getCleanDate(new Date());
+    const todayKey = getDateKey(today);
 
-    let calculatedStreak = 1;
+    setAllActiveDays(prevActiveDays => {
+      const newActiveDays = new Set(prevActiveDays);
+      if (!newActiveDays.has(todayKey)) {
+        newActiveDays.add(todayKey);
+        localStorage.setItem("allActiveDays", JSON.stringify(Array.from(newActiveDays)));
+      }
+      return newActiveDays;
+    });
 
-    if (lastLoginDateFromUser) {
-      const userLastLoginDate = new Date(lastLoginDateFromUser);
-      const daysSinceUserLogin = calculateDaysDifference(
-        userLastLoginDate,
-        today
-      );
+    let currentCalculatedStreak = 0;
+    let tempDate = new Date(today);
+    let foundStreak = true;
 
-      if (daysSinceUserLogin === 0) {
-        calculatedStreak = 1;
-      } else if (daysSinceUserLogin === 1) {
-        calculatedStreak = 2;
+    const latestAllActiveDays = new Set(JSON.parse(localStorage.getItem("allActiveDays") || "[]"));
+
+    while(foundStreak) {
+      const checkDateKey = getDateKey(tempDate);
+      if (latestAllActiveDays.has(checkDateKey)) {
+        currentCalculatedStreak++;
+        tempDate.setDate(tempDate.getDate() - 1);
       } else {
-        calculatedStreak = 1;
+        foundStreak = false;
       }
     }
 
-    if (storedLastUsedDate) {
-      const storedDateObj = new Date(storedLastUsedDate);
-      const daysSinceLastComponentUse = calculateDaysDifference(
-        storedDateObj,
-        today
-      );
-
-      if (daysSinceLastComponentUse === 0) {
-        calculatedStreak = storedStreak;
-      } else if (daysSinceLastComponentUse === 1) {
-        calculatedStreak = storedStreak + 1;
-      } else {
-        calculatedStreak = 1;
-      }
+    if (currentCalculatedStreak === 0 && latestAllActiveDays.size > 0) {
+        currentCalculatedStreak = 1;
+    } else if (latestAllActiveDays.size === 0) {
+        currentCalculatedStreak = 0;
     }
-
-    if (calculatedStreak < 1) {
-      calculatedStreak = 1;
-    }
-
-    setStreakDays(calculatedStreak);
-    localStorage.setItem("lastUsedDate", today.toISOString());
-    localStorage.setItem("streakDays", calculatedStreak.toString());
+    
+    setStreakDays(currentCalculatedStreak);
+    
+    localStorage.setItem("lastActiveDate", today.toISOString());
+    localStorage.setItem("streakLength", currentCalculatedStreak.toString());
   };
 
   useEffect(() => {
     checkAndSetStreak();
-  }, [lastLoginDateFromUser]);
+  }, []);
+
+  useEffect(() => {
+  }, [currentDate, streakDays, allActiveDays]);
+
 
   return (
     <div className="calendar-container">
@@ -168,7 +195,7 @@ function Calendar({ lastLoginDateFromUser }) {
         <div className="streak-container">
           <img
             src={
-              streakDays < 3
+              streakDays < 2
                 ? "/assets/icon/streak_off.svg"
                 : "/assets/icon/streak_on.svg"
             }
@@ -177,7 +204,7 @@ function Calendar({ lastLoginDateFromUser }) {
           <span className="streak-days header3">{streakDays}</span>
         </div>
         <div className="handle-month-year">
-          <button onClick={handlePrevMonth} className="prev-next boldBody2">
+          <button onClick={handlePrevMonth} className="previous-month boldBody2">
             &lt;
           </button>
           <div className="month-year">
@@ -188,7 +215,7 @@ function Calendar({ lastLoginDateFromUser }) {
               })}
             </h1>
           </div>
-          <button onClick={handleNextMonth} className="prev-next boldBody2">
+          <button onClick={handleNextMonth} className="next-month boldBody2">
             &gt;
           </button>
         </div>

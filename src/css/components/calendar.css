@@ -58,7 +58,8 @@
         }
       }
 
-      .prev-next {
+      .previous-month,
+      .next-month {
         background-color: var(--neongreen);
         color: var(--light-text);
         border: none;
@@ -67,7 +68,8 @@
         border-radius: 50%;
       }
 
-      .prev-next:hover {
+      .previous-month:hover,
+      .next-month:hover {
         filter: brightness(80%);
       }
     }
@@ -96,21 +98,33 @@
     justify-content: center;
     transition: background-color 0.3s ease;
     cursor: default;
-  }
 
-  .calendar-day.current-month.today {
-    background-color: var(--neongreen);
-    color: var(--light-text);
-  }
+    &.current-month {
+      background-color: var(--lightgray);
+      color: var(--dark-text);
+    }
 
-  .calendar-day.current-month {
-    background-color: var(--lightgray);
-    color: var(--dark-text);
-  }
+    &.other-month {
+      background-color: var(--greenglass);
+      color: var(--lightgray);
+    }
 
-  .calendar-day.other-month {
-    background-color: var(--greenglass);
-    color: var(--lightgray);
+    &.today {
+      border: 2px solid var(--neongreen);
+      background-color: transparent;
+      color: var(--light-text);
+    }
+
+    &.active-day {
+      background-color: var(--neongreen);
+      color: var(--light-text);
+    }
+
+    &.today.active-day {
+      background-color: var(--neongreen);
+      color: var(--dark-text);
+      border: 2px solid var(--dark-text);
+    }
   }
 
   .calendar-day:hover,
@@ -118,6 +132,11 @@
   .calendar-day.other-month:hover {
     opacity: 0.8;
   }
+}
+
+.active-day {
+  background-color: var(--neongreen);
+  color: var(--light-text);
 }
 
 .light-mode {
@@ -181,7 +200,7 @@
       background-color: var(--greenglass);
       color: var(--mediumgray);
     }
-    .calendar-day.other-month:hover{
+    .calendar-day.other-month:hover {
       background-color: var(--softgreen);
       color: var(--darkgray);
     }
