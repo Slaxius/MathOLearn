@@ -168,8 +168,12 @@
         color: var(--light-text);
         box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 
-        .clue {
-          color: red;
+        .clue-answer {
+          color: var(--light-text);
+
+          .clue {
+            color: red;
+          }
         }
       }
     }
@@ -237,6 +241,14 @@
         color: var(--light-text);
         background-color: red !important;
       }
+
+      .question-number-box.active.correct {
+        background-color: rgb(80, 185, 80) !important;
+      }
+
+      .question-number-box.active.incorrect {
+        background-color: rgb(150, 0, 0) !important;
+      }
     }
 
     .questions-container {
@@ -277,8 +289,12 @@
           color: var(--dark-text);
           box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 
-          .clue {
-            color: red;
+          .clue-answer {
+            color: var(--dark-text);
+
+            .clue {
+              color: red;
+            }
           }
         }
       }

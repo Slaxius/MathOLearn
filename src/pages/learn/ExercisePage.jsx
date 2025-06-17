@@ -46,11 +46,22 @@ function ExercisePage() {
     const newAnswers = [...answers];
     newAnswers[index] = answer;
     setAnswers(newAnswers);
+    // Jika jawaban diubah setelah submit, reset status dan clue untuk pertanyaan ini
+    if (submitted) {
+      const newAnswerStatus = [...answerStatus];
+      newAnswerStatus[index] = null; // Set kembali ke belum dinilai
+      setAnswerStatus(newAnswerStatus);
+      // Jika pertanyaan yang sedang dipilih adalah yang diubah, hapus cluenya
+      if (index === selectedQuestionIndex) {
+        setCurrentQuestionClue(null);
+      }
+    }
   };
 
   const handleNext = () => {
     if (selectedQuestionIndex < exercise.questions.length - 1) {
       setSelectedQuestionIndex(selectedQuestionIndex + 1);
+      // Jika sudah disubmit dan pertanyaan berikutnya salah, tampilkan clue
       if (
         submitted &&
         answerStatus[selectedQuestionIndex + 1] === "incorrect"
@@ -59,6 +70,7 @@ function ExercisePage() {
           exercise.questions[selectedQuestionIndex + 1].clue
         );
       } else {
+        // Jika tidak, sembunyikan clue
         setCurrentQuestionClue(null);
       }
     }
@@ -69,7 +81,11 @@ function ExercisePage() {
     const incorrectQuestionNumbers = [];
 
     exercise.questions.forEach((question, index) => {
-      if (answers[index] === question.correctAnswer) {
+      // Periksa apakah jawaban telah dipilih sebelum membandingkan
+      if (
+        answers[index] !== null &&
+        answers[index] === question.correctAnswer
+      ) {
         newAnswerStatus[index] = "correct";
       } else {
         newAnswerStatus[index] = "incorrect";
@@ -78,7 +94,7 @@ function ExercisePage() {
     });
 
     setAnswerStatus(newAnswerStatus);
-    setSubmitted(true);
+    setSubmitted(true); // Tandai bahwa latihan sudah disubmit
 
     if (incorrectQuestionNumbers.length > 0) {
       errorAlert(
@@ -87,10 +103,12 @@ function ExercisePage() {
         )}`
       );
 
+      // Arahkan ke pertanyaan salah pertama dan tampilkan clue
       const firstIncorrectIndex = incorrectQuestionNumbers[0] - 1;
       setSelectedQuestionIndex(firstIncorrectIndex);
-      setCurrentQuestionClue(exercise.questions[firstIncorrectIndex].clue);
+      setCurrentQuestionClue(exercise.questions[firstIncorrectIndex].clue); // Set clue untuk pertanyaan salah pertama
     } else {
+      // Jika semua jawaban benar, navigasi ke halaman selesai
       const correctAnswersCount = exercise.questions.filter(
         (question, index) => answers[index] === question.correctAnswer
       ).length;
@@ -119,9 +137,11 @@ function ExercisePage() {
 
   const handleQuestionSelect = (index) => {
     setSelectedQuestionIndex(index);
+    // Jika sudah disubmit dan pertanyaan yang dipilih salah, tampilkan clue
     if (submitted && answerStatus[index] === "incorrect") {
       setCurrentQuestionClue(exercise.questions[index].clue);
     } else {
+      // Jika tidak, sembunyikan clue
       setCurrentQuestionClue(null);
     }
   };
@@ -196,6 +216,13 @@ function ExercisePage() {
                   )}
                 </div>
               </div>
+              {currentQuestionClue && (
+                <div className="clue-box">
+                  <p className="clue-answer body2">
+                    <span className="clue">Clue:</span> {currentQuestionClue}
+                  </p>
+                </div>
+              )}
             </div>
           </div>
           <div className="submit-container">
