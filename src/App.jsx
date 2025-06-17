@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+import ProtectedRoute from "./utils/ProtectedRoute.jsx";
+
 /* Buy Life */
 import BuyLifePage from "./components/buyLife.jsx";
 
@@ -65,74 +67,72 @@ function App() {
       <LifeProvider username={currentUsername}>
         <Router>
           <Routes>
-            {/* Default */}
             <Route path="/" element={<SignIn />} />
 
-            {/* Authentication */}
             <Route path="/signup" element={<SignUp />} />
             <Route path="/signin" element={<SignIn />} />
             <Route path="/resetpassword" element={<ResetPw />} />
 
-            {/* Learn */}
-            <Route path="/learn" element={<Learn />} />
-            <Route
-              path="/learn/subject/:subject"
-              element={<SelectedSubject />}
-            />
-            <Route
-              path="/learn/subject/:subject/video/:itemId"
-              element={<VideoPage />}
-            />
-            <Route
-              path="/learn/subject/:subject/cheatsheet/:itemId"
-              element={<CheatsheetPage />}
-            />
-            <Route
-              path="/learn/subject/:subject/:type/:itemId/confirm"
-              element={<ConfirmationPage />}
-            />
-            <Route
-              path="/learn/subject/:subject/exercise/:itemId"
-              element={<ExercisePage />}
-            />
-            <Route
-              path="/learn/subject/:subject/quiz/:itemId"
-              element={<QuizPage />}
-            />
-            <Route
-              path="/learn/subject/:subject/exercise/:itemId/finished"
-              element={<FinishedPage />}
-            />
-            <Route
-              path="/learn/subject/:subject/quiz/:itemId/finished"
-              element={<FinishedPage />}
-            />
+            <Route element={<ProtectedRoute username={currentUsername} />}>
+              {/* Learn */}
+              <Route path="/learn" element={<Learn />} />
+              <Route
+                path="/learn/subject/:subject"
+                element={<SelectedSubject />}
+              />
+              <Route
+                path="/learn/subject/:subject/video/:itemId"
+                element={<VideoPage />}
+              />
+              <Route
+                path="/learn/subject/:subject/cheatsheet/:itemId"
+                element={<CheatsheetPage />}
+              />
+              <Route
+                path="/learn/subject/:subject/:type/:itemId/confirm"
+                element={<ConfirmationPage />}
+              />
+              <Route
+                path="/learn/subject/:subject/exercise/:itemId"
+                element={<ExercisePage />}
+              />
+              <Route
+                path="/learn/subject/:subject/quiz/:itemId"
+                element={<QuizPage />}
+              />
+              <Route
+                path="/learn/subject/:subject/exercise/:itemId/finished"
+                element={<FinishedPage />}
+              />
+              <Route
+                path="/learn/subject/:subject/quiz/:itemId/finished"
+                element={<FinishedPage />}
+              />
 
-            {/* Leaderboard */}
-            <Route path="/leaderboard" element={<Leaderboard />} />
+              {/* Leaderboard */}
+              <Route path="/leaderboard" element={<Leaderboard />} />
 
-            {/* Forum */}
-            <Route path="/forum" element={<Forum />} />
-            <Route path="/forum/:postId" element={<ViewForum />} />
+              {/* Forum */}
+              <Route path="/forum" element={<Forum />} />
+              <Route path="/forum/:postId" element={<ViewForum />} />
 
-            {/* Notification */}
-            <Route path="/notification" element={<Notification />} />
+              {/* Notification */}
+              <Route path="/notification" element={<Notification />} />
 
-            {/* Profile */}
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/profile/editprofile" element={<EditProfile />} />
+              {/* Profile */}
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/profile/editprofile" element={<EditProfile />} />
 
-            {/* Settings */}
-            <Route path="/settings" element={<Settings />} />
-            <Route path="/settings/preferences" element={<Preferences />} />
-            <Route path="/settings/privacy" element={<Privacy />} />
-            <Route path="/settings/help" element={<Help />} />
-            <Route path="/settings/feedback" element={<Feedback />} />
+              {/* Settings */}
+              <Route path="/settings" element={<Settings />} />
+              <Route path="/settings/preferences" element={<Preferences />} />
+              <Route path="/settings/privacy" element={<Privacy />} />
+              <Route path="/settings/help" element={<Help />} />
+              <Route path="/settings/feedback" element={<Feedback />} />
 
-            {/* Buy Life */}
-            <Route path="/buyLife" element={<BuyLifePage />} />
-
-            {/* Page Not Found */}
+              {/* Buy Life */}
+              <Route path="/buyLife" element={<BuyLifePage />} />
+            </Route>
             <Route path="*" element={<div>Page Not Found</div>} />
           </Routes>
           <ToastContainer />
