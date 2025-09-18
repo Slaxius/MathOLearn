@@ -13,7 +13,7 @@ By combining practice problems, community interaction, and gamification, MathOLe
 This project was developed as part of the Software Engineering course in Binus University by the following team:
 1. Felisca Neldy (UI/UX Designer)
 2. Melly (UI/UX Designer)
-3. Silverius Calvin (Team Leader, UI/UX Designer, Web Frontend Developer)
+3. Silverius Calvin (Project Manager, UI/UX Designer, Web Frontend Developer)
 4. Sugiharto Tanumihardjo (Research Requirements)
 5. Timotius Rafael Hosea (Research Requirements)
 
